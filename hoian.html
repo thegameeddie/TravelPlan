@@ -1,0 +1,2493 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>会安 · 岘港 · 4天3晚旅行手册 / 6.18 - 6.21</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Noto+Serif+SC:wght@300;400;500;600;700;900&family=Caveat:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+:root {
+  --paper: #f6efdf;
+  --paper-dark: #ecdfbd;
+  --ink: #2b231a;
+  --ink-soft: #594a3c;
+  --lantern: #c2342c;
+  --lantern-dark: #8c1e1a;
+  --gold: #b08438;
+  --gold-light: #d4a857;
+  --jade: #4a7867;
+  --river: #6b8a92;
+  --indigo: #2d3a5c;
+  --wall: #e3b85e;
+  --wall-soft: #ead398;
+  --shadow: rgba(43, 35, 26, 0.15);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Serif SC', 'Cormorant Garamond', serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.7;
+  font-weight: 400;
+  background-image: 
+    radial-gradient(at 20% 30%, rgba(194,52,44,0.04) 0px, transparent 50%),
+    radial-gradient(at 80% 70%, rgba(176,132,56,0.05) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(74,120,103,0.03) 0px, transparent 50%);
+  min-height: 100vh;
+}
+
+/* 纸张纹理 overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: 
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.5;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ============ 封面 ============ */
+header.cover {
+  padding: 80px 0 60px;
+  text-align: center;
+  position: relative;
+}
+
+.cover-frame {
+  border: 1px double var(--ink);
+  padding: 60px 40px;
+  position: relative;
+  background: rgba(255,255,255,0.3);
+}
+
+.cover-frame::before, .cover-frame::after {
+  content: "";
+  position: absolute;
+  width: 30px; height: 30px;
+  border: 2px solid var(--lantern);
+}
+.cover-frame::before { top: -8px; left: -8px; border-right: none; border-bottom: none; }
+.cover-frame::after { bottom: -8px; right: -8px; border-left: none; border-top: none; }
+
+.cover .eyebrow {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--gold);
+  letter-spacing: 0.3em;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+.cover h1 {
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 900;
+  font-size: clamp(36px, 7vw, 72px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.cover h1 .accent {
+  color: var(--lantern);
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+}
+
+.cover .sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  color: var(--ink-soft);
+  margin-bottom: 32px;
+  font-style: italic;
+}
+
+.cover .meta {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px dashed var(--ink-soft);
+}
+
+.cover .meta-item {
+  text-align: center;
+}
+
+.cover .meta-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.cover .meta-value {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* 装饰性灯笼 SVG */
+.lantern-deco {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 24px 0;
+  opacity: 0.7;
+}
+.lantern-deco svg {
+  width: 28px;
+  height: 36px;
+  animation: sway 4s ease-in-out infinite;
+}
+.lantern-deco svg:nth-child(2) { animation-delay: 0.5s; }
+.lantern-deco svg:nth-child(3) { animation-delay: 1s; }
+.lantern-deco svg:nth-child(4) { animation-delay: 1.5s; }
+.lantern-deco svg:nth-child(5) { animation-delay: 2s; }
+
+@keyframes sway {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+/* ============ 章节通用 ============ */
+section {
+  padding: 60px 0;
+  border-top: 1px dashed var(--ink-soft);
+  position: relative;
+}
+
+.section-header {
+  margin-bottom: 40px;
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.section-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 80px;
+  color: var(--lantern);
+  font-weight: 300;
+  line-height: 1;
+  opacity: 0.8;
+}
+
+.section-title-block {
+  flex: 1;
+}
+
+.section-title {
+  font-family: 'Noto Serif SC', serif;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.section-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+}
+
+/* ============ 概览卡片 ============ */
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.overview-card {
+  background: rgba(255,255,255,0.5);
+  border: 1px solid var(--ink-soft);
+  padding: 24px;
+  position: relative;
+}
+
+.overview-card::before {
+  content: "";
+  position: absolute;
+  top: -1px; left: -1px;
+  width: 24px; height: 1px;
+  background: var(--lantern);
+}
+.overview-card::after {
+  content: "";
+  position: absolute;
+  top: -1px; left: -1px;
+  width: 1px; height: 24px;
+  background: var(--lantern);
+}
+
+.overview-card .day-tag {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.overview-card h3 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.overview-card p {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+/* ============ 地图 ============ */
+.map-container {
+  position: relative;
+  border: 1px solid var(--ink);
+  background: rgba(255,255,255,0.5);
+  padding: 8px;
+  margin-bottom: 24px;
+}
+
+.map-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.day-btn {
+  padding: 10px 20px;
+  font-family: 'Noto Serif SC', serif;
+  font-size: 14px;
+  font-weight: 600;
+  background: rgba(255,255,255,0.7);
+  border: 1px solid var(--ink-soft);
+  color: var(--ink);
+  cursor: pointer;
+  transition: all 0.3s;
+  font-feature-settings: 'palt';
+}
+
+.day-btn:hover {
+  background: var(--wall-soft);
+  border-color: var(--ink);
+}
+
+.day-btn.active {
+  background: var(--lantern);
+  color: var(--paper);
+  border-color: var(--lantern);
+}
+
+.day-btn .day-mini {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 12px;
+  opacity: 0.7;
+  margin-left: 4px;
+}
+
+#map {
+  height: 540px;
+  width: 100%;
+  border: 1px solid var(--ink-soft);
+  z-index: 1;
+}
+
+.map-legend {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 13px;
+  color: var(--ink-soft);
+  font-family: 'Noto Serif SC', serif;
+}
+
+.legend-dot {
+  display: inline-block;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+/* ============ 每日时间表 ============ */
+.day-section {
+  margin-bottom: 60px;
+  scroll-margin-top: 40px;
+}
+
+.day-header {
+  display: flex;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--ink);
+  position: relative;
+}
+
+.day-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 120px;
+  line-height: 0.85;
+  color: var(--lantern);
+  font-style: italic;
+}
+
+.day-info { flex: 1; }
+
+.day-date {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+
+.day-title {
+  font-family: 'Noto Serif SC', serif;
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+.day-narrative {
+  font-family: 'Caveat', cursive;
+  font-size: 20px;
+  color: var(--ink-soft);
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+/* 时间表 */
+.timeline {
+  display: grid;
+  gap: 0;
+  position: relative;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 100px 30px 1fr;
+  gap: 20px;
+  padding: 24px 0;
+  border-bottom: 1px dashed var(--ink-soft);
+  position: relative;
+}
+
+.timeline-item:last-child {
+  border-bottom: none;
+}
+
+.time-col {
+  text-align: right;
+  padding-top: 2px;
+}
+
+.time-main {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--lantern);
+  letter-spacing: -0.02em;
+}
+
+.time-dur {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-top: 2px;
+}
+
+.dot-col {
+  display: flex;
+  justify-content: center;
+  padding-top: 8px;
+  position: relative;
+}
+
+.dot-col::before {
+  content: "";
+  position: absolute;
+  top: 0; bottom: -25px;
+  left: 50%;
+  width: 1px;
+  background: var(--ink-soft);
+  opacity: 0.3;
+}
+
+.timeline-item:last-child .dot-col::before {
+  display: none;
+}
+
+.dot {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 2px solid var(--lantern);
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.dot.major {
+  background: var(--lantern);
+  width: 16px; height: 16px;
+}
+
+.content-col {
+  min-width: 0;
+}
+
+.activity-tag {
+  display: inline-block;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 12px;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.activity-name {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.activity-detail {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+
+.activity-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.activity-link {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--lantern);
+  text-decoration: none;
+  border-bottom: 1px solid var(--lantern);
+  padding-bottom: 1px;
+  transition: all 0.2s;
+}
+
+.activity-link:hover {
+  color: var(--lantern-dark);
+  border-bottom-color: var(--lantern-dark);
+}
+
+.activity-link::before {
+  content: "→ ";
+  font-style: normal;
+}
+
+.pill {
+  display: inline-block;
+  font-family: 'Noto Serif SC', serif;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 8px;
+  background: var(--wall-soft);
+  color: var(--ink);
+  margin-right: 6px;
+  margin-bottom: 6px;
+  letter-spacing: 0.05em;
+}
+
+.pill.michelin { background: var(--lantern); color: var(--paper); }
+.pill.spa { background: var(--jade); color: var(--paper); }
+.pill.must { background: var(--gold); color: var(--paper); }
+
+/* ============ 照片相关 ============ */
+.photo-strip {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-top: 14px;
+  margin-bottom: 4px;
+  border: 1px solid var(--ink-soft);
+  padding: 4px;
+  background: rgba(255,255,255,0.4);
+  max-width: 480px;
+}
+
+.photo-strip.single {
+  grid-template-columns: 1fr;
+  max-width: 360px;
+}
+
+.photo-strip.triple {
+  grid-template-columns: 1fr 1fr 1fr;
+  max-width: 540px;
+}
+
+.photo-strip img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.95) contrast(1.02);
+  transition: all 0.4s ease;
+  cursor: zoom-in;
+}
+
+.photo-strip.single img {
+  height: 200px;
+}
+
+.photo-strip.triple img {
+  height: 110px;
+}
+
+.photo-strip img:hover {
+  filter: saturate(1.1) contrast(1.05);
+  transform: scale(1.02);
+}
+
+.photo-strip-caption {
+  grid-column: 1 / -1;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 11px;
+  color: var(--ink-soft);
+  text-align: right;
+  padding: 4px 6px 2px;
+  letter-spacing: 0.05em;
+}
+
+/* 酒店大图 */
+.hotel-photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 16px 0 20px;
+  border: 1px solid var(--ink-soft);
+  padding: 6px;
+  background: rgba(255,255,255,0.4);
+}
+
+.hotel-photos img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  cursor: zoom-in;
+  transition: all 0.4s ease;
+}
+
+.hotel-photos img:hover {
+  filter: brightness(1.05);
+}
+
+/* 弹窗中的图 */
+.popup-photo {
+  width: 100%;
+  max-width: 240px;
+  height: 130px;
+  object-fit: cover;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* 图片放大 lightbox */
+.lightbox {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(43, 35, 26, 0.95);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+  padding: 40px;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 95%;
+  max-height: 95vh;
+  object-fit: contain;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: var(--paper);
+  font-size: 32px;
+  font-family: 'Cormorant Garamond', serif;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-weight: 300;
+}
+
+/* 缩略图加载占位 */
+.photo-strip img {
+  background: var(--paper-dark);
+}
+
+@media (max-width: 768px) {
+  .photo-strip img { height: 110px; }
+  .photo-strip.single img { height: 160px; }
+  .photo-strip.triple img { height: 80px; }
+  .hotel-photos img { height: 140px; }
+}
+
+/* ============ 实用信息板块 ============ */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 28px;
+}
+
+.info-card {
+  background: rgba(255,255,255,0.6);
+  border: 1px solid var(--ink-soft);
+  padding: 32px;
+  position: relative;
+}
+
+.info-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px dashed var(--ink-soft);
+}
+
+.info-icon {
+  width: 36px; height: 36px;
+  background: var(--ink);
+  color: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 20px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.info-card h3 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.info-card .sub-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--gold);
+}
+
+.info-card p, .info-card li {
+  font-size: 14px;
+  color: var(--ink);
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+
+.info-card ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.info-card ul li {
+  padding-left: 18px;
+  position: relative;
+}
+
+.info-card ul li::before {
+  content: "·";
+  position: absolute;
+  left: 6px;
+  color: var(--lantern);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1;
+  top: 4px;
+}
+
+.info-card strong {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.info-card .highlight {
+  background: var(--wall-soft);
+  padding: 12px 16px;
+  border-left: 3px solid var(--lantern);
+  margin: 12px 0;
+  font-size: 13px;
+}
+
+.info-card a {
+  color: var(--lantern);
+  text-decoration: none;
+  border-bottom: 1px solid var(--lantern);
+  transition: all 0.2s;
+}
+
+.info-card a:hover {
+  color: var(--lantern-dark);
+  background: var(--wall-soft);
+}
+
+/* 汇率表 */
+.rate-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 13px;
+}
+
+.rate-table td {
+  padding: 8px 0;
+  border-bottom: 1px dotted var(--ink-soft);
+  font-family: 'Noto Serif SC', serif;
+}
+
+.rate-table td:first-child {
+  color: var(--ink-soft);
+}
+
+.rate-table td:last-child {
+  text-align: right;
+  font-weight: 600;
+  color: var(--ink);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+}
+
+/* Checklist */
+.checklist {
+  list-style: none;
+  padding: 0;
+}
+
+.checklist li {
+  padding: 12px 0 12px 32px !important;
+  position: relative;
+  border-bottom: 1px dotted var(--ink-soft);
+}
+
+.checklist li::before {
+  content: "□" !important;
+  position: absolute;
+  left: 0 !important;
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 20px !important;
+  color: var(--ink-soft) !important;
+  top: 10px !important;
+  font-weight: 400 !important;
+}
+
+.checklist .timing {
+  display: inline-block;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 2px 8px;
+  font-size: 11px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  letter-spacing: 0.1em;
+  margin-right: 8px;
+}
+
+/* 关键提醒 */
+.alert-box {
+  background: linear-gradient(135deg, var(--wall-soft) 0%, rgba(234,211,152,0.3) 100%);
+  border-left: 4px solid var(--lantern);
+  padding: 20px 24px;
+  margin: 24px 0;
+  position: relative;
+}
+
+.alert-box h4 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--lantern-dark);
+  margin-bottom: 8px;
+}
+
+.alert-box p {
+  font-size: 13px;
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 60px 0 40px;
+  border-top: 1px dashed var(--ink-soft);
+  margin-top: 40px;
+}
+
+footer .signature {
+  font-family: 'Caveat', cursive;
+  font-size: 22px;
+  color: var(--ink-soft);
+  margin-bottom: 8px;
+}
+
+footer .copyright {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--ink-soft);
+  letter-spacing: 0.1em;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .timeline-item {
+    grid-template-columns: 70px 24px 1fr;
+    gap: 14px;
+    padding: 18px 0;
+  }
+  .time-main { font-size: 15px; }
+  .day-number { font-size: 80px; }
+  .day-header { gap: 16px; }
+  .cover-frame { padding: 40px 20px; }
+  section { padding: 40px 0; }
+  .section-header { gap: 12px; }
+  .section-num { font-size: 60px; }
+  .info-card { padding: 24px; }
+  #map { height: 420px; }
+}
+
+/* Print 优化 */
+@media print {
+  body { background: white; }
+  body::before { display: none; }
+  .map-container, #map { page-break-inside: avoid; }
+  .day-section { page-break-after: always; }
+  .timeline-item { page-break-inside: avoid; }
+}
+
+/* Leaflet 自定义 marker */
+.custom-marker {
+  background: transparent;
+  border: none;
+}
+
+.marker-inner {
+  width: 28px;
+  height: 28px;
+  border-radius: 50% 50% 50% 0;
+  background: var(--lantern);
+  border: 2px solid var(--paper);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transform: rotate(-45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.marker-inner::after {
+  content: attr(data-num);
+  transform: rotate(45deg);
+  color: white;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.marker-inner.d1 { background: #c2342c; }
+.marker-inner.d2 { background: #b08438; }
+.marker-inner.d3 { background: #4a7867; }
+.marker-inner.d4 { background: #2d3a5c; }
+
+.leaflet-popup-content-wrapper {
+  background: var(--paper);
+  border-radius: 0;
+  border: 1px solid var(--ink);
+  box-shadow: 0 4px 20px var(--shadow);
+}
+
+.leaflet-popup-content {
+  font-family: 'Noto Serif SC', serif;
+  color: var(--ink);
+  margin: 12px;
+}
+
+.leaflet-popup-content h4 {
+  font-size: 15px;
+  margin-bottom: 6px;
+  color: var(--ink);
+}
+
+.leaflet-popup-content .popup-time {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--lantern);
+  margin-bottom: 4px;
+}
+
+.leaflet-popup-content .popup-note {
+  font-size: 12px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  margin-top: 6px;
+}
+
+.leaflet-popup-content a {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--lantern);
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  text-decoration: none;
+  border-bottom: 1px solid var(--lantern);
+}
+
+/* TOC */
+.toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px dashed var(--ink-soft);
+  justify-content: center;
+}
+
+.toc a {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s;
+  padding: 4px 12px;
+}
+
+.toc a:hover {
+  color: var(--lantern);
+  border-bottom-color: var(--lantern);
+}
+
+/* 跳转按钮 */
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 48px;
+  height: 48px;
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+}
+
+.scroll-to-top:hover {
+  background: var(--lantern);
+}
+</style>
+</head>
+<body>
+  <div id="tp-gate" style="position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;background:#f5f7fa;font-family:system-ui,-apple-system,'PingFang SC',sans-serif">
+    <form id="tp-gate-form" style="width:min(90vw,340px);background:#fff;border:1px solid #e6ebf2;border-radius:16px;padding:28px 24px;box-shadow:0 8px 30px rgba(42,47,58,.08);text-align:center">
+      <div style="font-size:34px;line-height:1;margin-bottom:14px">🔒</div>
+      <div style="font-size:16px;font-weight:600;color:#2a2f3a;margin-bottom:4px">需要访问密码</div>
+      <div style="font-size:13px;color:#6b7180;margin-bottom:18px">请输入密码查看行程</div>
+      <input id="tp-gate-pw" type="password" inputmode="numeric" autocomplete="off" placeholder="密码"
+        style="width:100%;box-sizing:border-box;padding:11px 12px;font-size:15px;border:1px solid #d8e0ea;border-radius:10px;outline:none;text-align:center;letter-spacing:2px">
+      <div id="tp-gate-err" style="height:18px;margin-top:8px;font-size:12px;color:#d9534f"></div>
+      <button type="submit" style="width:100%;padding:11px;font-size:15px;font-weight:600;color:#fff;background:#5f8cc0;border:none;border-radius:10px;cursor:pointer">进入</button>
+    </form>
+  </div>
+  <script>
+  (function(){
+    var HASH='e8d705aa48b29ca08adc665f7de5fc5c6ca97d53d595ecb4be41f5ec223f4eaa';
+    var KEY='tp_auth';
+    var gate=document.getElementById('tp-gate');
+    var form=document.getElementById('tp-gate-form');
+    var pw=document.getElementById('tp-gate-pw');
+    var err=document.getElementById('tp-gate-err');
+    function unlock(){ gate.parentNode.removeChild(gate); document.body.style.overflow=''; }
+    async function sha256(s){
+      var buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));
+      return Array.from(new Uint8Array(buf)).map(function(b){return b.toString(16).padStart(2,'0');}).join('');
+    }
+    if(sessionStorage.getItem(KEY)===HASH){ unlock(); return; }
+    document.body.style.overflow='hidden';
+    pw.focus();
+    form.addEventListener('submit',async function(e){
+      e.preventDefault();
+      var h=await sha256(pw.value);
+      if(h===HASH){ sessionStorage.setItem(KEY,HASH); unlock(); }
+      else{ err.textContent='密码错误'; pw.value=''; pw.focus(); }
+    });
+  })();
+  </script>
+
+<div class="container">
+
+<!-- ============ 封面 ============ -->
+<header class="cover">
+  <div class="cover-frame">
+    <div class="eyebrow">A Travel Journal · Vietnam</div>
+    
+    <div class="lantern-deco">
+      <svg viewBox="0 0 24 32"><ellipse cx="12" cy="16" rx="9" ry="11" fill="#c2342c" opacity="0.85"/><rect x="3" y="14" width="18" height="1" fill="#8c1e1a"/><rect x="3" y="18" width="18" height="1" fill="#8c1e1a"/><line x1="12" y1="3" x2="12" y2="5" stroke="#594a3c" stroke-width="0.5"/><line x1="12" y1="28" x2="12" y2="31" stroke="#b08438" stroke-width="0.5"/></svg>
+      <svg viewBox="0 0 24 32"><ellipse cx="12" cy="16" rx="9" ry="11" fill="#b08438" opacity="0.85"/><rect x="3" y="14" width="18" height="1" fill="#594a3c"/><rect x="3" y="18" width="18" height="1" fill="#594a3c"/><line x1="12" y1="3" x2="12" y2="5" stroke="#594a3c" stroke-width="0.5"/><line x1="12" y1="28" x2="12" y2="31" stroke="#b08438" stroke-width="0.5"/></svg>
+      <svg viewBox="0 0 24 32"><ellipse cx="12" cy="16" rx="9" ry="11" fill="#c2342c" opacity="0.85"/><rect x="3" y="14" width="18" height="1" fill="#8c1e1a"/><rect x="3" y="18" width="18" height="1" fill="#8c1e1a"/><line x1="12" y1="3" x2="12" y2="5" stroke="#594a3c" stroke-width="0.5"/><line x1="12" y1="28" x2="12" y2="31" stroke="#b08438" stroke-width="0.5"/></svg>
+      <svg viewBox="0 0 24 32"><ellipse cx="12" cy="16" rx="9" ry="11" fill="#b08438" opacity="0.85"/><rect x="3" y="14" width="18" height="1" fill="#594a3c"/><rect x="3" y="18" width="18" height="1" fill="#594a3c"/><line x1="12" y1="3" x2="12" y2="5" stroke="#594a3c" stroke-width="0.5"/><line x1="12" y1="28" x2="12" y2="31" stroke="#b08438" stroke-width="0.5"/></svg>
+      <svg viewBox="0 0 24 32"><ellipse cx="12" cy="16" rx="9" ry="11" fill="#c2342c" opacity="0.85"/><rect x="3" y="14" width="18" height="1" fill="#8c1e1a"/><rect x="3" y="18" width="18" height="1" fill="#8c1e1a"/><line x1="12" y1="3" x2="12" y2="5" stroke="#594a3c" stroke-width="0.5"/><line x1="12" y1="28" x2="12" y2="31" stroke="#b08438" stroke-width="0.5"/></svg>
+    </div>
+    
+    <h1>会安 · 岘港<br><span class="accent">Hội An & Đà Nẵng</span></h1>
+    <div class="sub">A 4-Day Slow Travel Journal · 四天三晚漫游手册</div>
+    
+    <div class="meta">
+      <div class="meta-item">
+        <div class="meta-label">Travel Dates</div>
+        <div class="meta-value">6.18 — 6.21</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Flight</div>
+        <div class="meta-value">UO566 / UO553</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Stay</div>
+        <div class="meta-value">古镇 2 + 海边 1</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Pace</div>
+        <div class="meta-value">慢游 · 不打卡</div>
+      </div>
+    </div>
+    
+    <nav class="toc">
+      <a href="#overview">概览</a>
+      <a href="#map-section">动线地图</a>
+      <a href="#day1">Day 1</a>
+      <a href="#day2">Day 2</a>
+      <a href="#day3">Day 3</a>
+      <a href="#day4">Day 4</a>
+      <a href="#hotels">住宿</a>
+      <a href="#bookings">预订</a>
+      <a href="#practical">实用</a>
+      <a href="#checklist">出发清单</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ 概览 ============ -->
+<section id="overview">
+  <div class="section-header">
+    <div class="section-num">Ⅰ</div>
+    <div class="section-title-block">
+      <h2 class="section-title">行程概览</h2>
+      <div class="section-sub">Four Days, Three Nights</div>
+    </div>
+  </div>
+  
+  <div class="overview-grid">
+    <div class="overview-card">
+      <div class="day-tag">Day One · 6.18 Thu</div>
+      <h3>抵达 + 古城初体验</h3>
+      <p>UO566 中午抵达岘港，直奔会安。An Thới 本地菜午餐、福建会馆、Faifo 咖啡馆避暑、傍晚古城散步、Morning Glory 晚餐、河上灯船放灯笼。</p>
+    </div>
+    <div class="overview-card">
+      <div class="day-tag">Day Two · 6.19 Fri</div>
+      <h3>椰子船 · Vespa · 米其林晚餐</h3>
+      <p>酒店悠闲早餐、Bay Mau 椰林船、Hỷ 运河边本地菜午餐、Vespa Adventures 田园摩旅、Reaching Out 静谧茶屋、MÙA 创意越南菜、酒店 La Spa 收尾。</p>
+    </div>
+    <div class="overview-card">
+      <div class="day-tag">Day Three · 6.20 Sat</div>
+      <h3>包车一日 + 美溪海滩 + 海鲜</h3>
+      <p>会安退房，包车直奔美山圣地（占婆遗迹），岘港 Bếp Hên / Nhà Bếp Xưa 午餐二选一，入住 Four Points by Sheraton，美溪海滩散步，Hải Sản Mộc Quán 米其林海鲜晚餐，可选龙桥喷火。</p>
+    </div>
+    <div class="overview-card">
+      <div class="day-tag">Day Four · 6.21 Sun</div>
+      <h3>海边晨光 + 返港</h3>
+      <p>清晨美溪海滩看日出、顶楼泳池小憩、酒店早餐，8:00 退房 Grab 15 分钟到机场。UO553 10:05 起飞，13:05 回到香港。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 地图 ============ -->
+<section id="map-section">
+  <div class="section-header">
+    <div class="section-num">Ⅱ</div>
+    <div class="section-title-block">
+      <h2 class="section-title">动线地图</h2>
+      <div class="section-sub">Daily Routes, Visualized</div>
+    </div>
+  </div>
+  
+  <div class="map-container">
+    <div class="map-controls">
+      <button class="day-btn active" data-day="all">全部 <span class="day-mini">All</span></button>
+      <button class="day-btn" data-day="1">Day 1 <span class="day-mini">抵达 · 古城</span></button>
+      <button class="day-btn" data-day="2">Day 2 <span class="day-mini">椰子船 · Vespa</span></button>
+      <button class="day-btn" data-day="3">Day 3 <span class="day-mini">美山 · 万豪</span></button>
+      <button class="day-btn" data-day="4">Day 4 <span class="day-mini">返程</span></button>
+    </div>
+    
+    <div id="map"></div>
+    
+    <div class="map-legend">
+      <span><span class="legend-dot" style="background:#c2342c"></span>Day 1 · 会安古城</span>
+      <span><span class="legend-dot" style="background:#b08438"></span>Day 2 · 椰子船 + Vespa + 古城</span>
+      <span><span class="legend-dot" style="background:#4a7867"></span>Day 3 · 美山 + 岘港</span>
+      <span><span class="legend-dot" style="background:#2d3a5c"></span>Day 4 · 返港</span>
+    </div>
+  </div>
+  
+  <p style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:15px; color:var(--ink-soft); margin-top:12px; text-align:center;">点击地图上的标记查看详情 · 切换日期按钮可单独查看每天的动线</p>
+</section>
+
+<!-- ============ DAY 1 ============ -->
+<section id="day1" class="day-section">
+  <div class="day-header">
+    <div class="day-number">01</div>
+    <div class="day-info">
+      <div class="day-date">6.18 Thursday · Day One</div>
+      <div class="day-title">抵达 + 会安古城初体验</div>
+      <div class="day-narrative">从香港落地到摸到河上灯笼水波，只需要 12 个小时。</div>
+    </div>
+  </div>
+  
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="time-col">
+        <div class="time-main">10:10</div>
+        <div class="time-dur">2h 55min</div>
+      </div>
+      <div class="dot-col"><div class="dot major"></div></div>
+      <div class="content-col">
+        <div class="activity-tag">Flight · 去程</div>
+        <div class="activity-name">UO566 香港 → 岘港</div>
+        <div class="activity-detail">HK Express 廉航直飞，10:10 起飞，11:05 抵达 DAD。<span class="pill must">提前办在线值机</span><span class="pill">需加购行李</span></div>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time-col">
+        <div class="time-main">11:05</div>
+        <div class="time-dur">~ 40min</div>
+      </div>
+      <div class="dot-col"><div class="dot"></div></div>
+      <div class="content-col">
+        <div class="activity-tag">Airport</div>
+        <div class="activity-name">DAD 出关 + 取行李</div>
+        <div class="activity-detail">入境、取行李后直接 Grab 打车前往会安（已在国内备好 eSIM 或靠酒店 WiFi，无需现场办卡）。</div>
+        <div class="activity-links">
+          <a class="activity-link" href="https://www.google.com/maps/place/?q=place_id:ChIJUTS2uboZQjERjAR6aR5Eqdc" target="_blank">岘港机场 Maps</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time-col">
+        <div class="time-main">11:45</div>
+        <div class="time-dur">~ 40min Grab</div>
+      </div>
+      <div class="dot-col"><div class="dot"></div></div>
+      <div class="content-col">
+        <div class="activity-tag">Transfer</div>
+        <div class="activity-name">机场 → 会安 La Siesta</div>
+        <div class="activity-detail">Grab 直奔会安酒店，车程约 40 分钟，费用约 ¥120-150。</div>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time-col">
+        <div class="time-main">12:30</div>
+        <div class="time-dur">寄存行李</div>
+      </div>
+      <div class="dot-col"><div class="dot major"></div></div>
+      <div class="content-col">
+        <div class="activity-tag">Check-in</div>
+        <div class="activity-name">🏨 La Siesta Hoi An Resort & Spa</div>
+        <div class="activity-detail">抵达酒店，先寄存行李（正式 check-in 通常在 14:00 后）。前 2 晚住这里。<span class="pill">免费班车进古镇</span><span class="pill">免费自行车</span></div>
+        <div class="activity-links">
+          <a class="activity-link" href="https://www.google.com/maps/place/?q=place_id:ChIJ_QtJ_CAPQjERbHE4Q_g5lvM" target="_blank">Google Maps</a>
+          <a class="activity-link" href="https://lasiestaresorts.com/" target="_blank">官网预订</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time-col">
+        <div class="time-main">13:00</div>
+        <div class="time-dur">~ 1.5h</div>
+      </div>
+      <div class="dot-col"><div class="dot major"></div></div>
+      <div class="content-col">
+        <div class="activity-tag">Lunch · 本地菜 ★ 5.0</div>
+        <div class="activity-name">🍜 An Thới (An Thoi)</div>
+        <div class="activity-detail">会安评分最高的本地菜餐厅之一（Google 5.0 / 1,919 评价）。位于 An Hội 岛、夜市区，和下午古城动线连成一片。<strong>必点</strong>：柠檬草猪肉串（米纸卷着吃）、Mì Quảng 广南面、白玫瑰虾饺、香茅炒花蛤。<span class="pill must">5.0 满分</span><span class="pill">中午人少</span></div>
+        <div class="activity-links">
+          <a class="activity-link" href="https://www.google.com/maps/place/?q=place_id:ChIJRdkCfq4PQjERCnIakaFgdjo" target="_blank">Google Maps</a>
+          <span class="activity-link" style="cursor:default; border:none;">📞 +84 905 500 572</span>
+          <span class="activity-link" style="cursor:default; border:none;">40 Nguyễn Phúc Tần</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time-col">
+        <div class="time-main">14:30</div>
+        <div class="time-dur">~ 30min</div>
+      </div>
+      <div class="dot-col"><div class="dot"></div></div>
+      <div class="content-col">
+        <div class="activity-tag">Culture · 古迹</div>
+        <div class="activity-name">🏯 福建会馆 Fujian Assembly Hall</div>
+        <div class="activity-detail">华人会馆，精美华南建筑，会安五个老宅之一。午餐后步行过去（福建会馆约 17:00 关门，下午先看）。<span class="pill">古城门票含</span></div>
+        <div class="activity-links">
+          <a class="activity-link" href="https://www.google.com/maps/place/?q=place_id:ChIJ7Z3iEn8OQjERixOgFXAoMOs" target="_blank">Google Maps</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time-col">
+        <div class="time-main">15:00</div>
+        <div class="time-dur">~ 1.5h</div>
+      </div>
+      <div class="dot-col"><div class="dot major"></div></div>
+      <div class="content-col">
+        <div class="activity-tag">Cafe · 避暑</div>
+        <div class="activity-name">☕ Faifo Coffee</div>
+        <div class="activity-detail">古镇内最著名的 rooftop 咖啡馆，顶楼露台可俯瞰会安屋顶。点 <strong>椰子咖啡 (Coconut Coffee)</strong> + 糕点。下午 15:00 正是最热时段，躲进顶楼正合适。<span class="pill must">必尝椰子咖啡</span></div>
+        <div class="activity-links">
+          <a class="activity-link" href="https://www.google.com/maps/place/?q=place_id:ChIJ5XDlitUNQjERD7HyQvSHB94" target="_blank">Google Maps</a>
+          <span class="activity-link" style="cursor:default; border:none;">130 Trần Phú</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time-col">
+        <div class="time-main">16:30</div>
+        <div class="time-dur">~ 30min</div>
+      </div>
+      <div class="dot-col"><div class="dot"></div></div>
+      <div class="content-col">
+        <div class="activity-tag">Culture · 地标</div>
+        <div class="activity-name">🌉 来远桥 / 日本桥 Chùa Cầu</div>
+        <div class="activity-detail">会安最具代表性的地标，400 年历史的日式廊桥。出 Faifo 顺路走过去，傍晚光线最美。</div>
+        <div class="activity-links">
+          <a class="activity-link" href="https://www.google.com/maps/place/?q=place_id:ChIJWewCLXwOQjERRkh9adZkWHY" target="_blank">Google Maps</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time-col">
+        <div class="time-main">17:00</div>
+        <div class="time-dur">~ 2h</div>
+      </div>
+      <div class="dot-col"><div class="dot major"></div></div>
+      <div class="content-col">
+        <div class="activity-tag">Old Town Walk · 黄金时段</div>
+        <div class="activity-name">🏮 古城漫步 · 河边 → 灯笼街</div>
+        <div class="activity-detail">这段时间光线从橘黄到艳红、灯笼陆续点亮，是会安一天里最美的光线。<br>
+        • 沿 Bach Dang 河边漫步<br>
+        • 灯笼街、布店、画廊随走随逛<br>
+        • 看古城从日落到亮灯的渐变</div>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time-col">
+        <div class="time-main">19:00</div>
+        <div class="time-dur">~ 1.5h</div>
+      </div>
+      <div class="dot-col"><div class="dot major"></div></div>
+      <div class="content-col">
+        <div class="activity-tag">Dinner · Michelin Guide</div>
+        <div class="activity-name">🍽️ Morning Glory Original</div>
+        <div class="activity-detail">Ms. Vy 主理，会安最知名的越南菜餐厅。<strong>必点</strong>：白玫瑰虾饺、填馅鱿鱼、Cao Lầu（会安米面）、煎芒果糯米饭。<span class="pill michelin">米其林指南</span><span class="pill must">提前 1-2 天预订</span></div>
+        <div class="activity-links">
+          <a class="activity-link" href="https://www.google.com/maps/place/?q=place_id:ChIJWUA1WX4OQjERWSzif63XzMI" target="_blank">Google Maps</a>
+          <a class="activity-link" href="https://tastevietnam.asia/morning-glory-restaurant-hoi-an" target="_blank">官网</a>
+          <span class="activity-link" style="cursor:default; border:none;">📞 +84 235 2241 555</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time-col">
+        <div class="time-main">20:30</div>
+        <div class="time-dur">~ 1h</div>
+      </div>
+      <div class="dot-col"><div class="dot major"></div></div>
+      <div class="content-col">
+        <div class="activity-tag">Night Boat · 灯船</div>
+        <div class="activity-name">🏮 河上灯船 + 放灯笼</div>
+        <div class="activity-detail">Bach Dang 河边码头找小船，1 艘船约 ¥45-60（2-3 人）。沿河慢漂 20-30 分钟，船夫给纸灯笼，自己点蜡烛放在河上 ✨ 这是会安最具标志性的体验。</div>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time-col">
+        <div class="time-main">21:30</div>
+        <div class="time-dur">步行回</div>
+      </div>
+      <div class="dot-col"><div class="dot"></div></div>
+      <div class="content-col">
+        <div class="activity-tag">Rest</div>
+        <div class="activity-name">步行回酒店</div>
+        <div class="activity-detail">古城到 La Siesta 步行约 10 分钟（也可以坐酒店免费班车）。倒头就睡，明天是节奏最丰富的一天。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DAY 2 ============ -->
+<section id="day2" class="day-section">
+  <div class="day-header">
+    <div class="day-number">02</div>
+    <div class="day-info">
+      <div class="day-date">6.19 Friday · Day Two</div>
+      <div class="day-title">市场 · 椰子船 · Vespa · 米其林晚餐 · Spa</div>
+      <div class="day-narrative">从天亮的市集开始，到深夜的香氛按摩。一整天每一个小时都被安排得舒服而完整。</div>
+    </div>
+  </div>
+  
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="time-col">
+        <div class="time-main">07:30</div>
+        <div class="time-dur">~ 1.5h</div>
+      </div>
+      <div class="dot-col"><div class="dot major"></div></div>
+      <div class="content-col">
+        <div class="activity-tag">Breakfast · 酒店</div>
+        <div class="activity-name">🥐 La Siesta 酒店早餐</div>
+        <div class="activity-detail">不用赶早出门，睡到自然醒。La Siesta 的早餐自助菜单很丰富（越式河粉、西式 brunch、现做寿司）。吃饱再出发，节奏松弛。</div>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time-col">
+        <div class="time-main">09:30</div>
+        <div class="time-dur">~ 20min Grab</div>
+      </div>
+      <div class="dot-col"><div class="dot"></div></div>
+      <div class="content-col">
+        <div class="activity-tag">Transfer</div>
+        <div class="activity-name">Grab 去 Cam Thanh 椰林村</div>
+        <div class="activity-detail">城东约 4 公里，¥10-15 单程。</div>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time-col">
+        <div class="time-main">10:00</div>
+        <div class="time-dur">55min</div>
+      </div>
+      <div class="dot-col"><div class="dot major"></div></div>
+      <div class="content-col">
+        <div class="activity-tag">Coconut Boat · 椰子船</div>
+        <div class="activity-name">🛶 Hacoconut · Bay Mau 椰林船</div>
+        <div class="activity-detail">圆形椰子船穿椰林，船夫转船表演，抓螃蟹，河上唱歌。<strong>¥25-30/人</strong>，55 分钟体验。<br>⚠️ 转船表演需单独给 <strong>¥20/船小费</strong>（自愿）。<span class="pill must">越南限定体验</span></div>
+        <div class="activity-links">
+          <a class="activity-link" href="https://www.google.com/maps/place/?q=place_id:ChIJTZ_704kPQjERxRB1WMMkmsk" target="_blank">Google Maps</a>
+          <a class="activity-link" href="https://coconutboattourhoian.com/en/coconut-boat-tour" target="_blank">Hacoconut 官网</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time-col">
+        <div class="time-main">12:00</div>
+        <div class="time-dur">~ 1.5h</div>
+      </div>
+      <div class="dot-col"><div class="dot major"></div></div>
+      <div class="content-col">
+        <div class="activity-tag">Lunch · 本地菜 ★ 4.9</div>
+        <div class="activity-name">🍃 Hỷ (Hy)</div>
+        <div class="activity-detail">日本桥后方、运河边的高分本地菜餐厅（Google 4.9 / 847 评价）。环境安静、避开灯笼船人潮。<strong>必点</strong>：超大 bao bun（鸭肉/猪肉）、五香鸭腿 confit、金枪鱼三吃、炸春卷。⚠️ <strong>只收现金</strong>，记得带越南盾。<span class="pill must">4.9 高分</span><span class="pill">运河景</span></div>
+        <div class="activity-links">
+          <a class="activity-link" href="https://www.google.com/maps/place/?q=place_id:ChIJ_4jcn2oPQjER18ArsOmpNNQ" target="_blank">Google Maps</a>
+          <span class="activity-link" style="cursor:default; border:none;">📞 +84 941 421 917</span>
+          <span class="activity-link" style="cursor:default; border:none;">10/15 Nguyễn Thị Minh Khai</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time-col">
+        <div class="time-main">13:30</div>
+        <div class="time-dur">~ 1h 休整</div>
+      </div>
+      <div class="dot-col"><div class="dot"></div></div>
+      <div class="content-col">
+        <div class="activity-tag">Rest</div>
+        <div class="activity-name">回酒店换装备 · 等 Vespa 接</div>
+        <div class="activity-detail">Vespa Adventures 会到酒店上门接（含在 tour 费用里）。</div>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time-col">
+        <div class="time-main">14:30</div>
+        <div class="time-dur">~ 2.5h</div>
+      </div>
+      <div class="dot-col"><div class="dot major"></div></div>
+      <div class="content-col">
+        <div class="activity-tag">Vespa · 田园摩旅</div>
+        <div class="activity-name">🛵 Vespa Adventures · Rural Villages</div>
+        <div class="activity-detail">古董 Vespa + 当地司机驾驶（你坐后座，<strong>无需驾照</strong>），半日游约 <strong>$79-89/人</strong>。穿稻田、编席村、米纸作坊、传统家庭拜访。小团 ≤7 人，单人也保证开团。<span class="pill must">最特色体验</span></div>
+        <div class="activity-links">
+          <a class="activity-link" href="https://www.vespaadventures.com/tour/rural-villages-experience" target="_blank">官网预订 (推荐路线)</a>
+          <a class="activity-link" href="https://www.vespaadventures.com/hoi-an" target="_blank">所有 Hoi An 路线</a>
+          <span class="activity-link" style="cursor:default; border:none;">📞 +84 772 993 585</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time-col">
+        <div class="time-main">17:00</div>
+        <div class="time-dur">~ 1h</div>
+      </div>
+      <div class="dot-col"><div class="dot major"></div></div>
+      <div class="content-col">
+        <div class="activity-tag">Tea House · 静心</div>
+        <div class="activity-name">🍵 Reaching Out Tea House</div>
+        <div class="activity-detail">由聋哑人经营的茶馆，全程用木牌交流。安静到能听见自己呼吸。<strong>¥25-40 一壶</strong>，配椰子曲奇 + 菠萝挞。Vespa 之后让节奏静下来。</div>
+        <div class="activity-links">
+          <a class="activity-link" href="https://www.google.com/maps/place/?q=place_id:ChIJI4b6itUNQjERjYVfDgjBXmI" target="_blank">Google Maps</a>
+          <a class="activity-link" href="https://reachingoutvietnam.com/teahouse/the-teahouse/" target="_blank">官网</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time-col">
+        <div class="time-main">18:00</div>
+        <div class="time-dur">~ 1h</div>
+      </div>
+      <div class="dot-col"><div class="dot"></div></div>
+      <div class="content-col">
+        <div class="activity-tag">Hotel</div>
+        <div class="activity-name">回酒店换衣服 · 准备晚餐</div>
+        <div class="activity-detail">MÙA 是 fine dining 风格，建议换稍正式的衣服。</div>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time-col">
+        <div class="time-main">19:00</div>
+        <div class="time-dur">~ 2.5h</div>
+      </div>
+      <div class="dot-col"><div class="dot major"></div></div>
+      <div class="content-col">
+        <div class="activity-tag">Dinner · Michelin Guide</div>
+        <div class="activity-name">🌿 MÙA · 创意越南菜 Tasting Menu</div>
+        <div class="activity-detail">位于 Trà Quế 茶桂蔬菜村，自有小农场种植食材。Chef Tru Lang 主理，<strong>15 道品鉴菜单 ¥290</strong> + 5 款配酒 ¥175。<span class="pill michelin">米其林指南</span><span class="pill must">需提前预订</span><br>⚠️ 周三休息，6.19 周五正常营业。距酒店 Grab 约 15 分钟。</div>
+        <div class="activity-links">
+          <a class="activity-link" href="https://www.google.com/maps/place/?q=place_id:ChIJ3Q3w1wMNQjER2cS9PT2nII4" target="_blank">Google Maps</a>
+          <a class="activity-link" href="https://www.instagram.com/mua.hoian/" target="_blank">Instagram 预订</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time-col">
+        <div class="time-main">21:30</div>
+        <div class="time-dur">~ 90min</div>
+      </div>
+      <div class="dot-col"><div class="dot major"></div></div>
+      <div class="content-col">
+        <div class="activity-tag">Spa · 收尾</div>
+        <div class="activity-name">💆 La Siesta · La Spa（酒店内）</div>
+        <div class="activity-detail">回酒店直接到 Spa 前台预约 90 分钟疗程，<strong>约 ¥250-450</strong>。签名疗程：四手按摩、喜马拉雅盐疗、草药仪式。<span class="pill spa">入住时即可预约</span><br><strong>做完直接回房睡觉</strong>——这就是住带 Spa 酒店的最大好处。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DAY 3 ============ -->
+<section id="day3" class="day-section">
+  <div class="day-header">
+    <div class="day-number">03</div>
+    <div class="day-info">
+      <div class="day-date">6.20 Saturday · Day Three</div>
+      <div class="day-title">包车一日 · 美山 + 入住 Four Points + 美溪海滩 + 海鲜</div>
+      <div class="day-narrative">从占婆王国的废墟，到美溪沙滩的日落，再到一桌现剥的海鲜。</div>
+    </div>
+  </div>
+  
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="time-col">
+        <div class="time-main">08:00</div>
+        <div class="time-dur">~ 1h</div>
+      </div>
+      <div class="dot-col"><div class="dot"></div></div>
+      <div class="content-col">
+        <div class="activity-tag">Check-out</div>
+        <div class="activity-name">La Siesta 早餐 + 退房</div>
+        <div class="activity-detail">早餐自助菜单丰富（含寿司、越南河粉、西式 brunch）。8:30 完成退房，行李上包车。</div>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time-col">
+        <div class="time-main">09:00</div>
+        <div class="time-dur">~ 45min</div>
+      </div>
+      <div class="dot-col"><div class="dot"></div></div>
+      <div class="content-col">
+        <div class="activity-tag">Charter</div>
+        <div class="activity-name">🚗 包车出发 · 前往美山</div>
+        <div class="activity-detail">从早跟到晚的包车（约 ¥400-600/全天），司机送 4 段路：会安→美山→岘港吃午餐→Four Points by Sheraton（美溪海滩）。</div>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time-col">
+        <div class="time-main">09:45</div>
+        <div class="time-dur">~ 2.5h</div>
+      </div>
+      <div class="dot-col"><div class="dot major"></div></div>
+      <div class="content-col">
+        <div class="activity-tag">UNESCO · 占婆遗迹</div>
+        <div class="activity-name">🛕 美山圣地 My Son Sanctuary</div>
+        <div class="activity-detail">越南占婆王国印度教遗迹，被称"小吴哥"。主游 B/C/D 区塔群，1.5-2 小时足够。10:00 左右场内有占族传统舞蹈表演。<br>⚠️ <strong>带帽子 + 防晒 + 水</strong>，遗址区遮阴少。<span class="pill must">UNESCO 世遗</span></div>
+        <div class="activity-links">
+          <a class="activity-link" href="https://www.google.com/maps/place/?q=place_id:ChIJH1VVVYEAQjERe2ifm4aiugg" target="_blank">Google Maps</a>
+          <a class="activity-link" href="https://disanvanhoamyson.vn/" target="_blank">官网</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time-col">
+        <div class="time-main">12:30</div>
+        <div class="time-dur">~ 30min</div>
+      </div>
+      <div class="dot-col"><div class="dot"></div></div>
+      <div class="content-col">
+        <div class="activity-tag">Transfer</div>
+        <div class="activity-name">包车前往岘港午餐</div>
+        <div class="activity-detail">从美山直奔岘港市区午餐，路上吹个空调小憩。</div>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time-col">
+        <div class="time-main">13:00</div>
+        <div class="time-dur">~ 1.5h</div>
+      </div>
+      <div class="dot-col"><div class="dot major"></div></div>
+      <div class="content-col">
+        <div class="activity-tag">Lunch · 二选一 · 现场决定</div>
+        <div class="activity-name">🍲 Bếp Hên 或 Nhà Bếp Xưa</div>
+        <div class="activity-detail">两家都是岘港高分越南家常菜，去的时候你自己挑：<br><br>
+        <strong>① Bếp Hên 贝亨</strong>（米其林指南 · ★4.5）<br>1990 年代越南民宅装潢，妈妈掌厨。推荐 Mum's Favourites 系列：蒜蓉炸虾、蒜炒空心菜、糖醋排骨、酸鱼汤。<br>📍 47 Lê Hồng Phong（市中心西）<br><br>
+        <strong>② Nhà Bếp Xưa</strong>（★4.8 / 8,544 评价）<br>木屋温馨风，本地人 + 旅人混杂、没有游客团。推荐：鸡蛋广南面、烤猪肉干面、煎春卷、菠萝炒饭。<strong>步行 5 分钟即到 Four Points 酒店</strong>。<br>📍 64 Hà Bổng, Sơn Trà<span class="pill michelin">①米其林指南</span><span class="pill must">②顺路酒店</span></div>
+        <div class="activity-links">
+          <a class="activity-link" href="https://www.google.com/maps/place/?q=place_id:ChIJxWYwXbgZQjER6Lk0IHjtq0k" target="_blank">Bếp Hên Maps</a>
+          <a class="activity-link" href="https://www.google.com/maps/place/?q=place_id:ChIJ27SqrvEXQjERrln9TFRnBO8" target="_blank">Nhà Bếp Xưa Maps</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time-col">
+        <div class="time-main">14:30</div>
+        <div class="time-dur">~ 1h</div>
+      </div>
+      <div class="dot-col"><div class="dot"></div></div>
+      <div class="content-col">
+        <div class="activity-tag">Transfer</div>
+        <div class="activity-name">包车前往 Four Points by Sheraton</div>
+        <div class="activity-detail">前往美溪海滩沿线的 Four Points by Sheraton。若午餐选了 Nhà Bếp Xưa，步行 5 分钟即到，包车可直接送酒店。</div>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time-col">
+        <div class="time-main">15:00</div>
+        <div class="time-dur">入住</div>
+      </div>
+      <div class="dot-col"><div class="dot major"></div></div>
+      <div class="content-col">
+        <div class="activity-tag">Hotel Check-in · 美溪海滩</div>
+        <div class="activity-name">🏨 Four Points by Sheraton Danang</div>
+        <div class="activity-detail">就在美溪海滩 My Khe Beach 对面（过马路 1 分钟到沙滩），万豪集团旗下。顶楼泳池 + 酒吧（100+ 种精酿），早餐评价极高。距机场 15 分钟、距龙桥 5 分钟。<span class="pill must">海滩对面</span><span class="pill">Bonvoy 积分</span></div>
+        <div class="activity-links">
+          <a class="activity-link" href="https://www.google.com/maps/place/?q=place_id:ChIJBQUmvI4XQjERUA6DoRis7sY" target="_blank">Google Maps</a>
+          <a class="activity-link" href="https://www.marriott.com/en-us/hotels/dadfp-four-points-danang/overview/" target="_blank">万豪官网预订</a>
+          <span class="activity-link" style="cursor:default; border:none;">📞 +84 236 3997 979</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time-col">
+        <div class="time-main">15:30</div>
+        <div class="time-dur">~ 2h</div>
+      </div>
+      <div class="dot-col"><div class="dot major"></div></div>
+      <div class="content-col">
+        <div class="activity-tag">Beach · 美溪海滩</div>
+        <div class="activity-name">🏖️ 美溪海滩 My Khe Beach</div>
+        <div class="activity-detail">被《福布斯》评为世界最美海滩之一。从酒店过马路即到。<br>• 沙滩散步、踩水、看海<br>• 海边咖啡馆坐坐<br>• 傍晚日落最舒服（避开正午暴晒）</div>
+        <div class="activity-links">
+          <a class="activity-link" href="https://www.google.com/maps/search/My+Khe+Beach+Da+Nang" target="_blank">Google Maps</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time-col">
+        <div class="time-main">17:30</div>
+        <div class="time-dur">~ 1h</div>
+      </div>
+      <div class="dot-col"><div class="dot"></div></div>
+      <div class="content-col">
+        <div class="activity-tag">Rest</div>
+        <div class="activity-name">回酒店冲澡 + 休息</div>
+        <div class="activity-detail">海边玩完回酒店冲个澡、换身衣服，为晚上的海鲜大餐做准备。也可以上顶楼泳池看一眼日落。</div>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time-col">
+        <div class="time-main">18:30</div>
+        <div class="time-dur">~ 2.5h</div>
+      </div>
+      <div class="dot-col"><div class="dot major"></div></div>
+      <div class="content-col">
+        <div class="activity-tag">Dinner · 海鲜 · Michelin Guide</div>
+        <div class="activity-name">🦞 Hải Sản Mộc Quán 海鲜</div>
+        <div class="activity-detail">岘港最火的海鲜餐厅（米其林指南 · ★4.8 / 23,481 评价）。Grab 5 分钟即到。5 层楼大店、活海鲜水缸、服务员现场剥虾蟹龙虾。<strong>推荐</strong>：蒜蓉粉丝蒸花蟹、烤生蚝、椒盐皮皮虾、清蒸小龙虾。<br>⚠️ <strong>强烈建议提前预订</strong>（不订晚上常等位 1-1.5 小时）；刷卡加 5% 手续费。<span class="pill michelin">米其林指南</span><span class="pill must">务必预订</span></div>
+        <div class="activity-links">
+          <a class="activity-link" href="https://www.google.com/maps/place/?q=place_id:ChIJx6-KGnIXQjER7x-T0zeOlBw" target="_blank">Google Maps</a>
+          <span class="activity-link" style="cursor:default; border:none;">📞 +84 905 665 058</span>
+          <span class="activity-link" style="cursor:default; border:none;">26 Tô Hiến Thành</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time-col">
+        <div class="time-main">21:00</div>
+        <div class="time-dur">可选</div>
+      </div>
+      <div class="dot-col"><div class="dot"></div></div>
+      <div class="content-col">
+        <div class="activity-tag">Optional · 夜景</div>
+        <div class="activity-name">🐉 龙桥喷火（周末限定）</div>
+        <div class="activity-detail">海鲜餐后顺路可看 <strong>龙桥喷火喷水表演</strong>——仅周六、周日 21:00，6.20 正好是周六 ✓。看完 Grab 回酒店。不想去也可以直接回酒店休息。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DAY 4 ============ -->
+<section id="day4" class="day-section">
+  <div class="day-header">
+    <div class="day-number">04</div>
+    <div class="day-info">
+      <div class="day-date">6.21 Sunday · Day Four</div>
+      <div class="day-title">海边晨光 + 返港</div>
+      <div class="day-narrative">不安排任何东西。慢慢起床、慢慢吃早餐、慢慢离开。</div>
+    </div>
+  </div>
+  
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="time-col">
+        <div class="time-main">06:00</div>
+        <div class="time-dur">~ 1.5h</div>
+      </div>
+      <div class="dot-col"><div class="dot major"></div></div>
+      <div class="content-col">
+        <div class="activity-tag">Sunrise · 晨光</div>
+        <div class="activity-name">🌅 海滩看日出 + 私家泳池</div>
+        <div class="activity-detail">岘港的海朝东，日出极美。走到对面美溪海滩看日出，或上顶楼泳池泡一会儿。这是这趟行程的最后一段海边时光。</div>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time-col">
+        <div class="time-main">07:30</div>
+        <div class="time-dur">~ 30min</div>
+      </div>
+      <div class="dot-col"><div class="dot"></div></div>
+      <div class="content-col">
+        <div class="activity-tag">Breakfast</div>
+        <div class="activity-name">酒店早餐自助</div>
+        <div class="activity-detail">Four Points by Sheraton 早餐自助评价极高（east-west buffet）。冷萃咖啡值得一试。</div>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time-col">
+        <div class="time-main">08:00</div>
+        <div class="time-dur">退房</div>
+      </div>
+      <div class="dot-col"><div class="dot"></div></div>
+      <div class="content-col">
+        <div class="activity-tag">Check-out</div>
+        <div class="activity-name">退房</div>
+        <div class="activity-detail">前台办退房，可以让 concierge 帮叫 Grab。</div>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time-col">
+        <div class="time-main">08:20</div>
+        <div class="time-dur">~ 20min Grab</div>
+      </div>
+      <div class="dot-col"><div class="dot"></div></div>
+      <div class="content-col">
+        <div class="activity-tag">Transfer</div>
+        <div class="activity-name">Grab 去 DAD 机场</div>
+        <div class="activity-detail">Four Points by Sheraton → 岘港机场约 15 分钟，¥50-70。<strong>UO 是廉航，建议提前 2 小时到机场</strong>，预留时间办行李加购或选座。</div>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time-col">
+        <div class="time-main">10:05</div>
+        <div class="time-dur">3h</div>
+      </div>
+      <div class="dot-col"><div class="dot major"></div></div>
+      <div class="content-col">
+        <div class="activity-tag">Flight · 返程</div>
+        <div class="activity-name">✈️ UO553 岘港 → 香港</div>
+        <div class="activity-detail">10:05 起飞，13:05 抵达 HKG。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 住宿 ============ -->
+<section id="hotels">
+  <div class="section-header">
+    <div class="section-num">Ⅲ</div>
+    <div class="section-title-block">
+      <h2 class="section-title">住宿信息</h2>
+      <div class="section-sub">Two Hotels, Two Worlds</div>
+    </div>
+  </div>
+  
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="info-card-header">
+        <div class="info-icon">A</div>
+        <div>
+          <h3>La Siesta Hoi An Resort & Spa</h3>
+          <div class="sub-label">Night 1 + 2 · 会安古镇</div>
+        </div>
+      </div>
+      <p><strong>地址：</strong>132 Hùng Vương, Hội An Tây, Đà Nẵng 560000</p>
+      <p><strong>价位：</strong>¥800-1500/晚（雨季）</p>
+      <p><strong>评分：</strong>4.8 / 5 · 5,316 条评价</p>
+      <ul>
+        <li>4 个泳池（含 1 个无边泳池连着稻田）</li>
+        <li>自带 <strong>La Spa</strong>（4 手按摩、喜马拉雅盐疗、草药仪式）</li>
+        <li>步行 10 分钟 / 免费班车 3 分钟到古城</li>
+        <li>免费自行车租借</li>
+        <li>早餐自助菜单丰富，含寿司</li>
+      </ul>
+      <div class="highlight">
+        <strong>预订建议：</strong>官网直订 + 注册免费会员可获免费早餐。也可比价 Booking / Agoda。
+      </div>
+      <p>
+        <a href="https://lasiestaresorts.com/" target="_blank">▸ 官网预订</a><br>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJ_QtJ_CAPQjERbHE4Q_g5lvM" target="_blank">▸ Google Maps 定位</a><br>
+        📞 +84 235 3915 913
+      </p>
+    </div>
+    
+    <div class="info-card">
+      <div class="info-card-header">
+        <div class="info-icon">B</div>
+        <div>
+          <h3>Four Points by Sheraton Danang</h3>
+          <div class="sub-label">Night 3 · 岘港美溪海滩</div>
+        </div>
+      </div>
+      <p><strong>地址：</strong>118-120 Võ Nguyên Giáp, An Hải, Đà Nẵng 550000</p>
+      <p><strong>价位：</strong>约 ¥600-1000/晚（含早餐）</p>
+      <p><strong>评分：</strong>4.4 / 5 · 3,306 条评价</p>
+      <ul>
+        <li><strong>万豪集团旗下</strong>，就在美溪海滩 My Khe Beach 对面（过马路 1 分钟）</li>
+        <li>距岘港机场 15 分钟、距龙桥 5 分钟</li>
+        <li>顶楼泳池 + 酒吧（100+ 种精酿啤酒）</li>
+        <li>早餐评价极高（east-west buffet）</li>
+        <li>The Eatery 餐厅（评价好、空间宽敞）</li>
+      </ul>
+      <div class="highlight">
+        <strong>Bonvoy 会员建议：</strong>免费注册 Marriott Bonvoy 可能获升房 + 早餐 + 欢迎礼。建议订海景房（部分房型可看美溪海滩）。
+      </div>
+      <p>
+        <a href="https://www.marriott.com/en-us/hotels/dadfp-four-points-danang/overview/" target="_blank">▸ 万豪官网预订</a><br>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJBQUmvI4XQjERUA6DoRis7sY" target="_blank">▸ Google Maps 定位</a><br>
+        📞 +84 236 3997 979
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 预订信息 ============ -->
+<section id="bookings">
+  <div class="section-header">
+    <div class="section-num">Ⅳ</div>
+    <div class="section-title-block">
+      <h2 class="section-title">预订与联系方式</h2>
+      <div class="section-sub">Reservations & Contacts</div>
+    </div>
+  </div>
+  
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="info-card-header">
+        <div class="info-icon">🛵</div>
+        <div>
+          <h3>Vespa Adventures</h3>
+          <div class="sub-label">Day 2 · Rural Villages Half-Day</div>
+        </div>
+      </div>
+      <p>古董 Vespa + 当地司机驾驶（你坐后座），无需驾照。半日游约 <strong>$79-89/人</strong>，含酒店上门接送。小团 ≤ 7 人，单人也保证开团。</p>
+      <div class="highlight">
+        <strong>推荐路线：</strong>Rural Villages Experience（最纯粹的田园风光线）<br>
+        <strong>建议提前：</strong>2-3 天通过官网预订
+      </div>
+      <p>
+        <a href="https://www.vespaadventures.com/tour/rural-villages-experience" target="_blank">▸ 推荐路线官网</a><br>
+        <a href="https://www.vespaadventures.com/hoi-an" target="_blank">▸ 全部 Hoi An 路线</a><br>
+        <a href="https://www.vespaadventures.com/" target="_blank">▸ 公司主页</a><br>
+        📞 +84 772 993 585
+      </p>
+    </div>
+    
+    <div class="info-card">
+      <div class="info-card-header">
+        <div class="info-icon">🍽️</div>
+        <div>
+          <h3>米其林指南餐厅</h3>
+          <div class="sub-label">3 家需要提前预订</div>
+        </div>
+      </div>
+      <p><strong>Morning Glory Original</strong>（Day 1 晚餐）<br>会安米其林指南推荐，会安最知名越南菜。<br>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJWUA1WX4OQjERWSzif63XzMI" target="_blank">▸ Maps</a> · 
+        <a href="https://tastevietnam.asia/morning-glory-restaurant-hoi-an" target="_blank">▸ 官网</a><br>
+        📞 +84 235 2241 555
+      </p>
+      <p style="margin-top:14px;"><strong>MÙA</strong>（Day 2 晚餐）<br>米其林指南推荐，茶桂蔬菜村内创意越南菜 tasting menu。<br>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJ3Q3w1wMNQjER2cS9PT2nII4" target="_blank">▸ Maps</a> · 
+        <a href="https://www.instagram.com/mua.hoian/" target="_blank">▸ Instagram 预订</a>
+      </p>
+      <p style="margin-top:14px;"><strong>Bếp Hên 贝亨</strong>（Day 3 午餐）<br>米其林指南 2 年连续推荐，岘港家常菜。<br>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJxWYwXbgZQjER6Lk0IHjtq0k" target="_blank">▸ Maps</a> · 
+        <a href="https://www.bephenrestaurant.com/" target="_blank">▸ 官网</a><br>
+        📞 +84 935 337 705
+      </p>
+    </div>
+    
+    <div class="info-card">
+      <div class="info-card-header">
+        <div class="info-icon">🌿</div>
+        <div>
+          <h3>其他餐厅</h3>
+          <div class="sub-label">不需要预订，但建议早到</div>
+        </div>
+      </div>
+      <p><strong>An Thới</strong> · Day 1 午餐（本地菜 ★5.0）<br>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJdbnbh9UNQjER12kILnndFNI" target="_blank">▸ Maps</a> · 📞 +84 905 743 773
+      </p>
+      <p style="margin-top:10px;"><strong>Faifo Coffee</strong> · Day 1 下午茶<br>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJ5XDlitUNQjERD7HyQvSHB94" target="_blank">▸ Maps</a> · 📞 +84 966 661 981
+      </p>
+      <p style="margin-top:10px;"><strong>Hỷ (Hy)</strong> · Day 2 午餐（本地菜 ★4.9，只收现金）<br>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJU0quNnwOQjERI1IkqRsmwN4" target="_blank">▸ Maps</a> · 📞 +84 825 190 190 · ⚠️ 周一闭店
+      </p>
+      <p style="margin-top:10px;"><strong>Reaching Out Tea House</strong> · Day 2 下午茶<br>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJI4b6itUNQjERjYVfDgjBXmI" target="_blank">▸ Maps</a> · 
+        <a href="https://reachingoutvietnam.com/teahouse/the-teahouse/" target="_blank">▸ 官网</a>
+      </p>
+      <p style="margin-top:10px;"><strong>Hacoconut</strong> · Day 2 椰子船<br>
+        <a href="https://coconutboattourhoian.com/en/coconut-boat-tour" target="_blank">▸ 官网</a> · 📞 +84 774 745 674
+      </p>
+    </div>
+    
+    <div class="info-card">
+      <div class="info-card-header">
+        <div class="info-icon">🚗</div>
+        <div>
+          <h3>Day 3 包车</h3>
+          <div class="sub-label">会安 → 美山 → 岘港</div>
+        </div>
+      </div>
+      <p><strong>路线：</strong>会安 La Siesta → 美山圣地（45min）→ 岘港午餐（1h）→ Four Points by Sheraton（20min）</p>
+      <p><strong>预算：</strong>全天约 <strong>¥400-600</strong>，含司机+油费+过路费</p>
+      <p><strong>预订渠道：</strong></p>
+      <ul>
+        <li><a href="https://www.klook.com/zh-CN/destination/c75-hoi-an/" target="_blank">Klook</a> · 中文界面、有点评</li>
+        <li><a href="https://www.kkday.com/zh-cn/product/" target="_blank">KKday</a> · 中文界面</li>
+        <li>酒店 concierge · 直接让 La Siesta 安排</li>
+      </ul>
+      <div class="highlight">
+        <strong>建议：</strong>直接让酒店帮安排，到岘港后让司机直接送到 Four Points 即可，行李一直在车上。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 实用信息 ============ -->
+<section id="practical">
+  <div class="section-header">
+    <div class="section-num">Ⅴ</div>
+    <div class="section-title-block">
+      <h2 class="section-title">实用信息</h2>
+      <div class="section-sub">Practical Guide</div>
+    </div>
+  </div>
+  
+  <div class="info-grid">
+    <!-- 签证 -->
+    <div class="info-card">
+      <div class="info-card-header">
+        <div class="info-icon">✈</div>
+        <div>
+          <h3>越南电子签 e-Visa</h3>
+          <div class="sub-label">90 天有效期内办理</div>
+        </div>
+      </div>
+      <p><strong>费用：</strong>USD 25（约 ¥180）</p>
+      <p><strong>出签时间：</strong>1-3 个工作日</p>
+      <p><strong>停留期：</strong>最长 90 天单次入境</p>
+      <p><strong>所需材料：</strong></p>
+      <ul>
+        <li>护照扫描件（首页）</li>
+        <li>4x6 cm 白底照片</li>
+        <li>入境日期、入境口岸（选 Da Nang International Airport）</li>
+        <li>住宿地址（填 La Siesta 即可）</li>
+      </ul>
+      <div class="highlight">
+        <strong>⚠️ 重要：</strong>务必通过<strong>官方网站</strong>申请，警惕高价代办网站。
+      </div>
+      <p>
+        <a href="https://evisa.gov.vn/" target="_blank">▸ 越南官方 e-Visa 网站</a>
+      </p>
+    </div>
+    
+    <!-- HK Express -->
+    <div class="info-card">
+      <div class="info-card-header">
+        <div class="info-icon">UO</div>
+        <div>
+          <h3>HK Express 廉航</h3>
+          <div class="sub-label">UO566 / UO553</div>
+        </div>
+      </div>
+      <p><strong>UO566：</strong>香港 10:10 → 岘港 11:05</p>
+      <p><strong>UO553：</strong>岘港 10:05 → 香港 13:05</p>
+      <p><strong>廉航注意事项：</strong></p>
+      <ul>
+        <li><strong>行李提前网上加购</strong>（机场加价 2 倍以上）</li>
+        <li>建议至少 <strong>20kg 托运 + 7kg 手提</strong></li>
+        <li>选座要单独付费（不选会随机分配）</li>
+        <li>飞机餐要单独付费</li>
+        <li>免费随身物品仅 1 件，超过会被收费</li>
+        <li>提前 48h 在线值机省时间</li>
+      </ul>
+      <div class="highlight">
+        <strong>提示：</strong>UO 国际航班建议<strong>提前 2 小时</strong>到机场，因为可能需要现场处理行李超重或加购选座。
+      </div>
+      <p>
+        <a href="https://www.hkexpress.com/zh-hk/manage-booking/" target="_blank">▸ 管理订单 / 加购行李</a><br>
+        <a href="https://www.hkexpress.com/zh-hk/check-in/" target="_blank">▸ 在线值机</a>
+      </p>
+    </div>
+    
+    <!-- 上网方案 -->
+    <div class="info-card">
+      <div class="info-card-header">
+        <div class="info-icon">📱</div>
+        <div>
+          <h3>上网方案</h3>
+          <div class="sub-label">本行程不办实体 SIM 卡</div>
+        </div>
+      </div>
+      <p><strong>推荐做法（按优先级）：</strong></p>
+      <ul>
+        <li><strong>eSIM</strong>（首选）：国内提前在 Klook / KKday 买越南 eSIM，落地扫码激活，无需排队办卡。约 ¥30-60 / 7 天</li>
+        <li><strong>酒店 + 餐厅 WiFi</strong>：La Siesta、Four Points 都是好 WiFi，多数餐厅咖啡馆也有；4 天行程靠 WiFi 也能撑</li>
+        <li><strong>国内运营商国际漫游</strong>：临时开通日租包，最省事但偏贵</li>
+      </ul>
+      <div class="highlight">
+        <strong>提示：</strong>用 eSIM 的话出发前在国内先装好、设为副卡，落地一开机就有网，Grab / Google Maps 立刻能用。
+      </div>
+    </div>
+    
+    <!-- Grab -->
+    <div class="info-card">
+      <div class="info-card-header">
+        <div class="info-icon">🚕</div>
+        <div>
+          <h3>Grab 打车</h3>
+          <div class="sub-label">东南亚 Uber</div>
+        </div>
+      </div>
+      <p><strong>使用方法：</strong></p>
+      <ul>
+        <li>App Store / Play Store 下载 <strong>Grab</strong> App</li>
+        <li>用中国手机号注册即可</li>
+        <li>绑定信用卡或选现金支付</li>
+        <li>在国内提前装好</li>
+      </ul>
+      <p><strong>常用路线价格参考：</strong></p>
+      <table class="rate-table">
+        <tr><td>机场 → 会安</td><td>¥120-150</td></tr>
+        <tr><td>会安古城 → Bay Mau</td><td>¥10-15</td></tr>
+        <tr><td>会安 → 岘港</td><td>¥80-100</td></tr>
+        <tr><td>Four Points → 机场</td><td>¥50-70</td></tr>
+        <tr><td>市内短途</td><td>¥5-15</td></tr>
+      </table>
+      <div class="highlight">
+        <strong>提示：</strong>Grab 明码标价，比传统出租车便宜且不被坑。司机一般不会说英文，用 App 内的预设短语沟通即可。
+      </div>
+    </div>
+    
+    <!-- 汇率 -->
+    <div class="info-card">
+      <div class="info-card-header">
+        <div class="info-icon">₫</div>
+        <div>
+          <h3>越南越南盾 VND</h3>
+          <div class="sub-label">Currency Reference</div>
+        </div>
+      </div>
+      <p><strong>近似汇率：</strong>1 人民币 ≈ 3,500-3,600 VND</p>
+      <table class="rate-table">
+        <tr><td>10,000 VND</td><td>≈ ¥2.8</td></tr>
+        <tr><td>50,000 VND</td><td>≈ ¥14</td></tr>
+        <tr><td>100,000 VND</td><td>≈ ¥28</td></tr>
+        <tr><td>500,000 VND</td><td>≈ ¥140</td></tr>
+        <tr><td>1,000,000 VND</td><td>≈ ¥280</td></tr>
+      </table>
+      <p><strong>换钱建议：</strong></p>
+      <ul>
+        <li>国内换少量小额（机场汇率差）</li>
+        <li>到岘港后用 ATM 取 VND（汇率最好）</li>
+        <li>大额消费用信用卡（VISA / Mastercard，部分接受银联）</li>
+        <li>支付宝/微信支付在景区/连锁餐厅有支持</li>
+      </ul>
+      <div class="highlight">
+        <strong>小贴士：</strong>越南盾面额很大，去掉 3 个零换算成元（如 50,000 ≈ ¥14），不容易付错。
+      </div>
+    </div>
+    
+    <!-- 雨季天气 -->
+    <div class="info-card">
+      <div class="info-card-header">
+        <div class="info-icon">☀</div>
+        <div>
+          <h3>6月雨季天气</h3>
+          <div class="sub-label">不是想象中的"全天雨"</div>
+        </div>
+      </div>
+      <p><strong>气温：</strong>32-34°C，紫外线极强</p>
+      <p><strong>降水：</strong>主要是午后雷阵雨（30 分钟-1 小时即停）</p>
+      <p><strong>湿度：</strong>高，体感闷热</p>
+      <p><strong>建议装备：</strong></p>
+      <ul>
+        <li><strong>轻便雨衣</strong>（不要伞，午后阵雨经常伴风）</li>
+        <li><strong>SPF 50+ 防晒霜</strong>（必备）</li>
+        <li><strong>防蚊液</strong>（早晚特别需要）</li>
+        <li>防滑凉拖（雨后地面湿滑）</li>
+        <li>薄长袖（餐厅/商场强空调，早晚海边稍凉）</li>
+        <li>泳衣（La Siesta 4 个泳池 + Four Points 顶楼泳池）</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 出发清单 ============ -->
+<section id="checklist">
+  <div class="section-header">
+    <div class="section-num">Ⅵ</div>
+    <div class="section-title-block">
+      <h2 class="section-title">出发前 7 天 Checklist</h2>
+      <div class="section-sub">7-Day Pre-Departure Checklist</div>
+    </div>
+  </div>
+  
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="info-card-header">
+        <div class="info-icon">7</div>
+        <div>
+          <h3>出发前 7 天</h3>
+          <div class="sub-label">订单确认期</div>
+        </div>
+      </div>
+      <ul class="checklist">
+        <li><span class="timing">PRIORITY</span>越南 e-Visa 申请并打印</li>
+        <li><span class="timing">PRIORITY</span>确认 UO 机票 + 加购行李</li>
+        <li><span class="timing">PRIORITY</span>确认 La Siesta 预订</li>
+        <li><span class="timing">PRIORITY</span>确认 Four Points by Sheraton 预订（订海景房）</li>
+        <li>预订 Vespa Adventures Day 2 半日 tour</li>
+        <li>预约 Morning Glory Original Day 1 晚餐</li>
+        <li>预约 MÙA Day 2 晚餐（Instagram DM）</li>
+        <li>预订 Day 3 包车（找 Klook / KKday / 让 La Siesta 安排）</li>
+      </ul>
+    </div>
+    
+    <div class="info-card">
+      <div class="info-card-header">
+        <div class="info-icon">3</div>
+        <div>
+          <h3>出发前 3 天</h3>
+          <div class="sub-label">收尾准备期</div>
+        </div>
+      </div>
+      <ul class="checklist">
+        <li>检查护照有效期 ≥ 6 个月</li>
+        <li>e-Visa PDF 下载 + 打印 2 份</li>
+        <li>预订接机 Grab 替代方案：让 La Siesta 安排接机</li>
+        <li>下载 App：Grab / Google Maps / Google 翻译 / Klook</li>
+        <li>Google 翻译下载越南语离线包</li>
+        <li>注册 Marriott Bonvoy 免费会员（升房可能）</li>
+        <li>换 ¥500-1000 越南盾零钱（小额）</li>
+        <li>确认信用卡可境外使用（开通 / 提额）</li>
+      </ul>
+    </div>
+    
+    <div class="info-card">
+      <div class="info-card-header">
+        <div class="info-icon">1</div>
+        <div>
+          <h3>出发前 1 天</h3>
+          <div class="sub-label">行李打包日</div>
+        </div>
+      </div>
+      <ul class="checklist">
+        <li><strong>护照 + e-Visa 打印件</strong></li>
+        <li><strong>信用卡 + 少量越南盾现金</strong></li>
+        <li>HK Express 在线值机（开放后 48h）</li>
+        <li>泳衣 / 凉拖 / 轻便雨衣</li>
+        <li>SPF 50+ 防晒霜 + 防晒喷雾</li>
+        <li>防蚊液 / 风油精</li>
+        <li>薄长袖（餐厅强空调）</li>
+        <li>充电宝（≤ 100Wh 可登机）</li>
+        <li>电源转换头（越南用 A/C 型插头，部分酒店通用）</li>
+        <li>常备药（晕车药、肠胃药、止痛药）</li>
+        <li>用 Google Maps 把所有地点提前加星标</li>
+      </ul>
+    </div>
+    
+    <div class="info-card">
+      <div class="info-card-header">
+        <div class="info-icon">→</div>
+        <div>
+          <h3>出发当天 6.18</h3>
+          <div class="sub-label">Departure Day</div>
+        </div>
+      </div>
+      <ul class="checklist">
+        <li><span class="timing">07:30</span>检查证件、登机牌</li>
+        <li><span class="timing">08:00</span>到香港机场（提前 2h）</li>
+        <li><span class="timing">08:30</span>办行李托运 + 安检</li>
+        <li><span class="timing">10:10</span>UO566 起飞</li>
+        <li><span class="timing">11:05</span>抵达 DAD</li>
+        <li><span class="timing">11:45</span>入境 → 取行李 → Grab 去会安</li>
+        <li><span class="timing">12:30</span>抵达 La Siesta，寄存行李</li>
+        <li><span class="timing">13:00</span>第一顿 An Thới 本地菜 🍜</li>
+        <li><span class="timing">SMILE</span>越南，你好！</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="alert-box" style="margin-top:32px;">
+    <h4>⚠️ 最后提醒</h4>
+    <p>1. <strong>护照</strong>有效期需 ≥ 6 个月，否则可能被拒绝入境。<br>
+    2. <strong>e-Visa</strong>是单次入境，丢失需在越南境内补办（不便）。<br>
+    3. <strong>越南海关</strong>对入境物品检查较松，但禁止携带电子烟、违禁药品等。<br>
+    4. <strong>水</strong>只喝瓶装水，路边小吃店的冰可能用自来水，敏感胃避开。<br>
+    5. <strong>砍价</strong>夜市价格通常砍到一半，理性消费。</p>
+  </div>
+</section>
+
+<!-- ============ Footer ============ -->
+<footer>
+  <div class="lantern-deco">
+    <svg viewBox="0 0 24 32"><ellipse cx="12" cy="16" rx="9" ry="11" fill="#c2342c" opacity="0.85"/><rect x="3" y="14" width="18" height="1" fill="#8c1e1a"/><rect x="3" y="18" width="18" height="1" fill="#8c1e1a"/><line x1="12" y1="3" x2="12" y2="5" stroke="#594a3c" stroke-width="0.5"/><line x1="12" y1="28" x2="12" y2="31" stroke="#b08438" stroke-width="0.5"/></svg>
+    <svg viewBox="0 0 24 32"><ellipse cx="12" cy="16" rx="9" ry="11" fill="#b08438" opacity="0.85"/><rect x="3" y="14" width="18" height="1" fill="#594a3c"/><rect x="3" y="18" width="18" height="1" fill="#594a3c"/><line x1="12" y1="3" x2="12" y2="5" stroke="#594a3c" stroke-width="0.5"/><line x1="12" y1="28" x2="12" y2="31" stroke="#b08438" stroke-width="0.5"/></svg>
+    <svg viewBox="0 0 24 32"><ellipse cx="12" cy="16" rx="9" ry="11" fill="#c2342c" opacity="0.85"/><rect x="3" y="14" width="18" height="1" fill="#8c1e1a"/><rect x="3" y="18" width="18" height="1" fill="#8c1e1a"/><line x1="12" y1="3" x2="12" y2="5" stroke="#594a3c" stroke-width="0.5"/><line x1="12" y1="28" x2="12" y2="31" stroke="#b08438" stroke-width="0.5"/></svg>
+  </div>
+  <div class="signature">愿你慢慢看清这座城的样子。</div>
+  <div class="copyright">Hội An & Đà Nẵng · 4 Days 3 Nights · 6.18 — 6.21</div>
+</footer>
+
+</div>
+
+<button class="scroll-to-top" id="scrollTop" title="回到顶部">↑</button>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">×</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<script>
+// ============ 地图初始化 ============
+
+// 地点数据
+const locations = {
+  1: [
+    { lat: 16.0569804, lng: 108.2025372, num: 1, name: "岘港国际机场 DAD", time: "11:05 抵达", note: "UO566 落地，取行李后 Grab 去会安", maps: "https://www.google.com/maps/place/?q=place_id:ChIJUTS2uboZQjERjAR6aR5Eqdc" },
+    { lat: 15.880011799999998, lng: 108.31638819999999, num: 2, name: "La Siesta Hoi An Resort", time: "12:30 寄存行李", note: "前 2 晚住这里。带 La Spa、4 个泳池", maps: "https://www.google.com/maps/place/?q=place_id:ChIJ_QtJ_CAPQjERbHE4Q_g5lvM" },
+    { lat: 15.8752469, lng: 108.3260811, num: 3, name: "An Thới 本地菜", time: "13:00 午餐 ★5.0", note: "会安最高分本地菜，柠檬草猪肉串、广南面", maps: "https://www.google.com/maps/place/?q=place_id:ChIJRdkCfq4PQjERCnIakaFgdjo" },
+    { lat: 15.8774847, lng: 108.3306281, num: 4, name: "福建会馆", time: "14:30 古迹", note: "华南风格华人会馆，17:00 关门", maps: "https://www.google.com/maps/place/?q=place_id:ChIJ7Z3iEn8OQjERixOgFXAoMOs" },
+    { lat: 15.877207999999998, lng: 108.3281008, num: 5, name: "Faifo Coffee", time: "15:00 咖啡", note: "顶楼露台俯瞰会安屋顶，点椰子咖啡", maps: "https://www.google.com/maps/place/?q=place_id:ChIJ5XDlitUNQjERD7HyQvSHB94" },
+    { lat: 15.8770873, lng: 108.32607039999999, num: 6, name: "来远桥 / 日本桥", time: "16:30 地标", note: "会安地标，傍晚光线最美", maps: "https://www.google.com/maps/place/?q=place_id:ChIJWewCLXwOQjERRkh9adZkWHY" },
+    { lat: 15.876660399999999, lng: 108.3276901, num: 7, name: "Morning Glory Original", time: "19:00 晚餐", note: "Ms. Vy 主理，会安最知名越南菜", maps: "https://www.google.com/maps/place/?q=place_id:ChIJWUA1WX4OQjERWSzif63XzMI" },
+    { lat: 15.876, lng: 108.3275, num: 8, name: "Bach Dang 河边码头", time: "20:30 灯船", note: "1 艘船 ¥45-60，自己放灯笼" }
+  ],
+  2: [
+    { lat: 15.880011799999998, lng: 108.31638819999999, num: 1, name: "La Siesta · 早餐", time: "08:00 酒店早餐", note: "睡到自然醒，酒店丰富自助早餐", maps: "https://www.google.com/maps/place/?q=place_id:ChIJ_QtJ_CAPQjERbHE4Q_g5lvM" },
+    { lat: 15.887504600000002, lng: 108.35711979999999, num: 2, name: "Bay Mau 椰林船", time: "10:00 椰子船", note: "Hacoconut，¥25-30/人，55 分钟", maps: "https://www.google.com/maps/place/?q=place_id:ChIJTZ_704kPQjERxRB1WMMkmsk" },
+    { lat: 15.8775929, lng: 108.3259859, num: 3, name: "Hỷ 本地菜", time: "12:00 午餐 ★4.9", note: "日本桥后运河边，bao bun、鸭腿confit，只收现金", maps: "https://www.google.com/maps/place/?q=place_id:ChIJ_4jcn2oPQjER18ArsOmpNNQ" },
+    { lat: 15.888503, lng: 108.3327511, num: 4, name: "Vespa Adventures", time: "14:30 摩旅出发", note: "古董 Vespa 田园半日游，2.5 小时", maps: "https://www.google.com/maps/place/?q=place_id:ChIJkSoGT3kOQjERTVaQN7GJUEk" },
+    { lat: 15.8770577, lng: 108.32727910000001, num: 5, name: "Reaching Out Tea House", time: "17:00 茶屋", note: "聋哑人经营，安静到能听见呼吸", maps: "https://www.google.com/maps/place/?q=place_id:ChIJI4b6itUNQjERjYVfDgjBXmI" },
+    { lat: 15.903777600000002, lng: 108.34007509999999, num: 6, name: "MÙA", time: "19:00 米其林晚餐", note: "茶桂蔬菜村，15 道创意越南菜 tasting menu", maps: "https://www.google.com/maps/place/?q=place_id:ChIJ3Q3w1wMNQjER2cS9PT2nII4" },
+    { lat: 15.880011799999998, lng: 108.31638819999999, num: 7, name: "La Siesta · La Spa", time: "21:30 酒店内 Spa", note: "90 分钟越式按摩，做完直接回房", maps: "https://www.google.com/maps/place/?q=place_id:ChIJ_QtJ_CAPQjERbHE4Q_g5lvM" }
+  ],
+  3: [
+    { lat: 15.880011799999998, lng: 108.31638819999999, num: 1, name: "La Siesta · 退房", time: "08:00 退房", note: "早餐 + 行李上包车", maps: "https://www.google.com/maps/place/?q=place_id:ChIJ_QtJ_CAPQjERbHE4Q_g5lvM" },
+    { lat: 15.7687821, lng: 108.11931539999999, num: 2, name: "美山圣地 My Son", time: "09:45 UNESCO", note: "占婆王国印度教遗迹，'小吴哥'", maps: "https://www.google.com/maps/place/?q=place_id:ChIJH1VVVYEAQjERe2ifm4aiugg" },
+    { lat: 16.0639161, lng: 108.22103609999999, num: 3, name: "Bếp Hên / Nhà Bếp Xưa", time: "13:00 午餐二选一", note: "Bếp Hên(米其林) 或 Nhà Bếp Xưa(★4.8, 近酒店)", maps: "https://www.google.com/maps/place/?q=place_id:ChIJ27SqrvEXQjERrln9TFRnBO8" },
+    { lat: 16.0777977, lng: 108.2450558, num: 4, name: "Four Points by Sheraton", time: "15:00 入住", note: "美溪海滩对面，万豪集团，顶楼泳池", maps: "https://www.google.com/maps/place/?q=place_id:ChIJBQUmvI4XQjERUA6DoRis7sY" },
+    { lat: 16.0544, lng: 108.2479, num: 5, name: "美溪海滩 My Khe", time: "15:30 海滩", note: "世界最美海滩之一，过马路即到", maps: "https://www.google.com/maps/search/My+Khe+Beach+Da+Nang" },
+    { lat: 16.063997, lng: 108.2415015, num: 6, name: "Hải Sản Mộc Quán", time: "18:30 海鲜晚餐", note: "米其林指南海鲜 ★4.8，务必提前预订", maps: "https://www.google.com/maps/place/?q=place_id:ChIJx6-KGnIXQjER7x-T0zeOlBw" }
+  ],
+  4: [
+    { lat: 16.0777977, lng: 108.2450558, num: 1, name: "Four Points · 晨光", time: "06:00 海滩日出", note: "美溪海滩看日出 + 顶楼泳池 + 早餐 + 退房", maps: "https://www.google.com/maps/place/?q=place_id:ChIJBQUmvI4XQjERUA6DoRis7sY" },
+    { lat: 16.0569804, lng: 108.2025372, num: 2, name: "岘港机场 DAD", time: "10:05 起飞", note: "UO553 回香港", maps: "https://www.google.com/maps/place/?q=place_id:ChIJUTS2uboZQjERjAR6aR5Eqdc" }
+  ]
+};
+
+const dayColors = { 1: '#c2342c', 2: '#b08438', 3: '#4a7867', 4: '#2d3a5c' };
+
+// 初始化地图
+const map = L.map('map').setView([15.92, 108.27], 11);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '© OpenStreetMap',
+  maxZoom: 18
+}).addTo(map);
+
+// 标记层组
+const layers = { 1: L.layerGroup(), 2: L.layerGroup(), 3: L.layerGroup(), 4: L.layerGroup() };
+const lines = { 1: null, 2: null, 3: null, 4: null };
+
+// 创建自定义图标
+function makeIcon(day, num) {
+  return L.divIcon({
+    className: 'custom-marker',
+    html: `<div class="marker-inner d${day}" data-num="${num}"></div>`,
+    iconSize: [28, 28],
+    iconAnchor: [14, 28],
+    popupAnchor: [0, -28]
+  });
+}
+
+// 添加每天的标记和连线
+for (const day in locations) {
+  const points = locations[day];
+  const latlngs = [];
+  
+  points.forEach(pt => {
+    const marker = L.marker([pt.lat, pt.lng], { icon: makeIcon(day, pt.num) });
+    
+    const popupContent = `
+      ${pt.photo ? `<img class="popup-photo" src="${pt.photo}" alt="${pt.name}">` : ''}
+      <h4>${pt.num}. ${pt.name}</h4>
+      <div class="popup-time">${pt.time}</div>
+      <div class="popup-note">${pt.note}</div>
+      ${pt.maps ? `<a href="${pt.maps}" target="_blank">Google Maps →</a>` : ''}
+    `;
+    marker.bindPopup(popupContent);
+    marker.addTo(layers[day]);
+    latlngs.push([pt.lat, pt.lng]);
+  });
+  
+  lines[day] = L.polyline(latlngs, {
+    color: dayColors[day],
+    weight: 3,
+    opacity: 0.6,
+    dashArray: '8, 8'
+  });
+}
+
+// 默认显示所有
+function showAll() {
+  for (const day in layers) {
+    layers[day].addTo(map);
+    lines[day].addTo(map);
+  }
+}
+
+function showDay(day) {
+  for (const d in layers) {
+    map.removeLayer(layers[d]);
+    map.removeLayer(lines[d]);
+  }
+  layers[day].addTo(map);
+  lines[day].addTo(map);
+  
+  // 缩放到当天范围
+  const bounds = L.featureGroup([layers[day], lines[day]]).getBounds();
+  map.fitBounds(bounds, { padding: [40, 40] });
+}
+
+// 初始显示全部
+showAll();
+map.fitBounds(L.featureGroup([
+  layers[1], layers[2], layers[3], layers[4]
+]).getBounds(), { padding: [40, 40] });
+
+// 按钮切换
+document.querySelectorAll('.day-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const day = btn.dataset.day;
+    if (day === 'all') {
+      showAll();
+      map.fitBounds(L.featureGroup([
+        layers[1], layers[2], layers[3], layers[4]
+      ]).getBounds(), { padding: [40, 40] });
+    } else {
+      showDay(day);
+    }
+  });
+});
+
+// 回到顶部
+const scrollTop = document.getElementById('scrollTop');
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset > 400) {
+    scrollTop.classList.add('visible');
+  } else {
+    scrollTop.classList.remove('visible');
+  }
+});
+scrollTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// ============ Lightbox 图片放大 ============
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxClose = document.getElementById('lightboxClose');
+
+// 给所有 photo-strip 和 hotel-photos 内的 img 加点击放大
+document.querySelectorAll('.photo-strip img, .hotel-photos img').forEach(img => {
+  img.addEventListener('click', (e) => {
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+// 关闭 lightbox
+function closeLightbox() {
+  lightbox.classList.remove('active');
+  document.body.style.overflow = '';
+  setTimeout(() => { lightboxImg.src = ''; }, 300);
+}
+
+lightbox.addEventListener('click', closeLightbox);
+lightboxClose.addEventListener('click', (e) => { e.stopPropagation(); closeLightbox(); });
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
+});
+</script>
+
+</body>
+</html>
