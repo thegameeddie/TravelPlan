@@ -847,6 +847,41 @@
   </style>
 </head>
 <body>
+  <div id="tp-gate" style="position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;background:#f5f7fa;font-family:system-ui,-apple-system,'PingFang SC',sans-serif">
+    <form id="tp-gate-form" style="width:min(90vw,340px);background:#fff;border:1px solid #e6ebf2;border-radius:16px;padding:28px 24px;box-shadow:0 8px 30px rgba(42,47,58,.08);text-align:center">
+      <div style="font-size:34px;line-height:1;margin-bottom:14px">🔒</div>
+      <div style="font-size:16px;font-weight:600;color:#2a2f3a;margin-bottom:4px">需要访问密码</div>
+      <div style="font-size:13px;color:#6b7180;margin-bottom:18px">请输入密码查看行程</div>
+      <input id="tp-gate-pw" type="password" inputmode="numeric" autocomplete="off" placeholder="密码"
+        style="width:100%;box-sizing:border-box;padding:11px 12px;font-size:15px;border:1px solid #d8e0ea;border-radius:10px;outline:none;text-align:center;letter-spacing:2px">
+      <div id="tp-gate-err" style="height:18px;margin-top:8px;font-size:12px;color:#d9534f"></div>
+      <button type="submit" style="width:100%;padding:11px;font-size:15px;font-weight:600;color:#fff;background:#5f8cc0;border:none;border-radius:10px;cursor:pointer">进入</button>
+    </form>
+  </div>
+  <script>
+  (function(){
+    var HASH='e8d705aa48b29ca08adc665f7de5fc5c6ca97d53d595ecb4be41f5ec223f4eaa';
+    var KEY='tp_auth';
+    var gate=document.getElementById('tp-gate');
+    var form=document.getElementById('tp-gate-form');
+    var pw=document.getElementById('tp-gate-pw');
+    var err=document.getElementById('tp-gate-err');
+    function unlock(){ gate.parentNode.removeChild(gate); document.body.style.overflow=''; }
+    async function sha256(s){
+      var buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));
+      return Array.from(new Uint8Array(buf)).map(function(b){return b.toString(16).padStart(2,'0');}).join('');
+    }
+    if(sessionStorage.getItem(KEY)===HASH){ unlock(); return; }
+    document.body.style.overflow='hidden';
+    pw.focus();
+    form.addEventListener('submit',async function(e){
+      e.preventDefault();
+      var h=await sha256(pw.value);
+      if(h===HASH){ sessionStorage.setItem(KEY,HASH); unlock(); }
+      else{ err.textContent='密码错误'; pw.value=''; pw.focus(); }
+    });
+  })();
+  </script>
   <nav class="sidebar" aria-label="页面导航">
     <h2>贵阳五天四晚</h2>
     <span class="tag">瀑降已订 · 三段徒步 · 老城休闲</span>
