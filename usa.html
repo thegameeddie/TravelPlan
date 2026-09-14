@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="color-scheme" content="light">
+  <meta name="description" content="2026年9月24日至10月7日美国四城旅行计划：华盛顿、纽约、波士顿与洛杉矶，含航班、徒步、自驾、展览和餐饮安排。">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%237ba7d9'/%3E%3Cpath d='M17 44c8-3 9-18 18-22 5-2 10 0 13 5' fill='none' stroke='white' stroke-width='6' stroke-linecap='round'/%3E%3Ccircle cx='17' cy='44' r='6' fill='%2388c2a8' stroke='white' stroke-width='3'/%3E%3Ccircle cx='48' cy='27' r='6' fill='%23d6b770' stroke='white' stroke-width='3'/%3E%3C/svg%3E">
   <title>美国四城旅行计划｜2026.09.24—10.07</title>
   <style>
     :root {
@@ -25,6 +27,7 @@
     .nav-group{margin:0 14px 12px;padding:13px 10px 10px;border:1px solid rgba(255,255,255,.9);border-radius:14px;background:rgba(255,255,255,.6);box-shadow:0 1px 2px rgba(42,47,58,.04)}
     .nav-group.g-core{background:linear-gradient(160deg,rgba(227,237,247,.82),rgba(255,255,255,.58))}
     .nav-group.g-model{background:linear-gradient(160deg,rgba(224,239,231,.8),rgba(255,255,255,.58))}
+    .nav-group.g-food{background:linear-gradient(160deg,rgba(243,235,213,.88),rgba(255,255,255,.58))}
     .nav-group.g-risk{background:linear-gradient(160deg,rgba(236,232,246,.82),rgba(255,255,255,.58))}
     .nav-title{margin:0 10px 7px;color:var(--muted);font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}
     .sidebar a{display:block;margin:2px 0;padding:8px 12px;border-radius:9px;color:var(--muted);font-size:13px;font-weight:600;text-decoration:none;transition:.18s}
@@ -65,6 +68,9 @@
     .plan-steps{display:grid;gap:7px;margin-top:12px}.plan-step{display:grid;grid-template-columns:64px 1fr;gap:10px;align-items:start;padding:9px 11px;border:1px solid var(--line);border-radius:9px;background:var(--surface-soft)}.plan-step time{color:var(--brand-d);font-size:11px;font-weight:850}.plan-step b{display:block;font-size:12.5px}.plan-step span{display:block;color:var(--muted);font-size:11px;line-height:1.55}
     .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}.chip{padding:4px 9px;border-radius:999px;background:var(--soft-blue);color:var(--brand-d);font-size:10.5px;font-weight:780}.chip.green{background:var(--soft-green);color:var(--accent-d)}.chip.purple{background:var(--soft-purple);color:var(--purple-d)}.chip.amber{background:var(--soft-orange);color:var(--amber-d)}
     .feature{margin-top:12px;padding:15px 16px;border-left:3px solid var(--purple);border-radius:10px;background:var(--soft-purple)}.feature strong{color:var(--purple-d)}.feature p{margin-top:4px;color:var(--ink)}
+    .ticket-pass{display:grid;grid-template-columns:230px 1fr;gap:18px;align-items:center;margin-top:14px;padding:15px;border:1px solid var(--line);border-radius:12px;background:var(--surface-soft)}
+    .ticket-qr{position:relative;width:220px;height:220px;overflow:hidden;border:1px solid var(--line);border-radius:10px;background:#fff;box-shadow:0 1px 4px rgba(42,47,58,.08)}.ticket-qr img{position:absolute;left:-245px;top:-82px;width:1852px;max-width:none;height:auto}.ticket-info h4{margin:0 0 7px;font-size:15px}.ticket-info p{margin:0;color:var(--muted);font-size:12.5px}.ticket-info .flow{margin:8px 0;color:var(--ink)}
+    .ticket-full{margin-top:10px}.ticket-full summary{cursor:pointer;color:var(--brand-d);font-size:12px;font-weight:800}.ticket-full img{display:block;width:100%;height:auto;margin-top:9px;border:1px solid var(--line);border-radius:10px;background:#fff}
     .hike-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
     .hike{padding:20px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(180deg,#fff,var(--surface-soft))}.hike.primary{border-top:4px solid var(--accent)}.hike.secondary{border-top:4px solid var(--amber)}
     .hike h3{margin:0 0 5px;font-size:17px}.hike .meta{color:var(--muted);font-size:12px}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:14px 0}.metric{padding:9px;border-radius:9px;background:var(--soft-green);text-align:center}.secondary .metric{background:var(--soft-orange)}.metric b{display:block;font-size:15px}.metric span{color:var(--muted);font-size:9.5px}.hike ol{margin:9px 0 0;padding-left:20px;color:var(--muted);font-size:12.5px}.navbox{margin-top:13px;padding:10px 12px;border:1px dashed var(--line-2);border-radius:9px;background:#fff;font-size:12px}.navbox b{color:var(--brand-d)}
@@ -76,13 +82,24 @@
     .drive-table tr:hover td{background:var(--surface-soft)}
     .drive-table strong{display:block;color:var(--ink);font-size:13px}.drive-table small{display:block;color:var(--muted);line-height:1.5}
     .drive-table .base{color:var(--brand-d);font-weight:800;white-space:nowrap}.drive-table .plan{color:var(--accent-d);font-weight:800;white-space:nowrap}
+    .food-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .food-card{overflow:hidden;border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:var(--shadow)}
+    .food-media{height:232px;overflow:hidden;background:var(--surface-soft)}.food-media img{display:block;width:100%;height:100%;object-fit:cover}
+    .food-body{padding:19px}.food-kicker{color:var(--amber-d);font-size:10px;font-weight:850;letter-spacing:1.2px}.food-card h3{margin:4px 0 3px;font-size:18px}.food-meta{margin:0 0 13px;color:var(--muted);font-size:11.5px}
+    .food-pick{margin:12px 0;padding:12px 13px;border-left:3px solid var(--amber);border-radius:9px;background:var(--soft-orange);font-size:12.5px}.food-pick strong{display:block;color:var(--amber-d)}
+    .food-list{margin:11px 0 0;padding-left:20px;color:var(--muted);font-size:12.5px}.food-list li{margin-bottom:6px}.food-source{margin-top:12px;color:var(--muted-2);font-size:10px}
+    .food-alt-head{display:flex;justify-content:space-between;gap:16px;align-items:end;margin:26px 0 12px;padding-top:23px;border-top:1px solid var(--line)}.food-alt-head h3{margin:0;font-size:17px}.food-alt-head p{margin:2px 0 0;color:var(--muted);font-size:11.5px}.food-alt-head .badge{flex:none}
+    .food-option-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.food-option{padding:15px 16px;border:1px solid var(--line);border-radius:12px;background:linear-gradient(180deg,#fff,var(--surface-soft));transition:.18s}.food-option:hover{box-shadow:var(--shadow-md);transform:translateY(-1px)}
+    .food-option-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.food-option h4{margin:0;font-size:15px;line-height:1.35}.food-option .where{margin-top:3px;color:var(--muted);font-size:10.5px}.food-option .order{margin:10px 0 7px;padding:8px 10px;border-left:3px solid var(--accent);border-radius:7px;background:var(--soft-green);font-size:11.5px}.food-option .order b{color:var(--accent-d)}.food-option .fit{margin:0;color:var(--muted);font-size:11.5px;line-height:1.62}.food-option .fit strong{color:var(--ink)}
+    .transport-choice{margin:15px 0;padding:18px;border:1px solid var(--line);border-radius:13px;background:var(--surface-soft)}.transport-choice h3{margin:0 0 4px;font-size:17px}.transport-choice>p{margin:0;color:var(--muted);font-size:12.5px}
+    .mode-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-top:13px}.mode{padding:12px;border:1px solid var(--line);border-radius:10px;background:#fff}.mode.recommended{border-top:4px solid var(--accent);background:linear-gradient(180deg,#fff,var(--soft-green))}.mode b{display:block;margin-bottom:3px;font-size:12.5px}.mode span{display:block;color:var(--muted);font-size:10.5px;line-height:1.55}
     .todo-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.todo{display:flex;gap:11px;padding:14px;border:1px solid var(--line);border-radius:11px;background:var(--surface-soft)}.todo .box{width:20px;height:20px;flex:none;border:2px solid var(--brand);border-radius:6px;background:#fff}.todo strong{display:block;font-size:13px}.todo small{display:block;color:var(--muted);font-size:11px}
     .sources{columns:2;column-gap:28px;margin:0;padding-left:20px;color:var(--muted);font-size:12px}.sources li{break-inside:avoid;margin-bottom:7px}
     .footer{margin-top:22px;color:var(--muted);font-size:12px}
     [contenteditable="true"]{outline:2px dashed var(--purple);outline-offset:6px;background:#fff}
-    @media(max-width:980px){.sidebar{position:relative;width:auto;inset:auto;padding-bottom:12px}.nav-group{display:none}.main{margin-left:0;padding:22px}.toolbar{position:relative;inset:auto;margin:0 0 16px;justify-content:flex-end}.grid,.hike-grid,.todo-grid{grid-template-columns:1fr 1fr}.flight{grid-template-columns:88px 1fr}.flight .badge{grid-column:2}.city-head{align-items:center}.day{grid-template-columns:84px 1fr}.sources{columns:1}}
-    @media(max-width:640px){.main{padding:14px}.hero,.section{padding:20px}.hero h1{font-size:25px}.grid,.hike-grid,.todo-grid{grid-template-columns:1fr}.route-ribbon .city{min-width:120px}.day{grid-template-columns:1fr;gap:8px}.day-date{border-right:0;border-bottom:1px solid var(--line);padding:0 0 8px}.flight{grid-template-columns:1fr;gap:5px}.flight .badge{grid-column:1;justify-self:start}.city-head{display:block}.city-nights{display:inline-block;margin:8px 0 0 14px}.metrics{grid-template-columns:1fr 1fr 1fr}.table-wrap{overflow:visible;border:0}.drive-table{min-width:0;border-collapse:separate;border-spacing:0 10px;background:transparent}.drive-table thead{display:none}.drive-table tbody,.drive-table tr,.drive-table td{display:block}.drive-table tr{overflow:hidden;border:1px solid var(--line);border-radius:11px;background:#fff;box-shadow:0 1px 2px rgba(42,47,58,.04)}.drive-table td{display:grid;grid-template-columns:82px minmax(0,1fr);gap:9px;border-top:1px solid var(--line);padding:9px 11px}.drive-table td:first-child{border-top:0;background:var(--soft-blue);color:var(--brand-d);font-weight:850}.drive-table td:before{color:var(--muted);font-size:10px;font-weight:800}.drive-table td:nth-child(1):before{content:"日期"}.drive-table td:nth-child(2):before{content:"路线"}.drive-table td:nth-child(3):before{content:"距离"}.drive-table td:nth-child(4):before{content:"基础驾驶"}.drive-table td:nth-child(5):before{content:"建议预留"}.drive-table .base,.drive-table .plan{white-space:normal}}
-    @media print{.sidebar,.toolbar{display:none}.main{margin-left:0;padding:20px}.section,.hero,.day,.hike{box-shadow:none;break-inside:avoid}}
+    @media(max-width:980px){.sidebar{position:relative;width:auto;inset:auto;padding-bottom:12px}.nav-group{display:none}.main{margin-left:0;padding:22px}.toolbar{position:relative;inset:auto;margin:0 0 16px;justify-content:flex-end}.grid,.hike-grid,.todo-grid,.food-grid,.food-option-grid{grid-template-columns:1fr 1fr}.mode-grid{grid-template-columns:1fr 1fr}.flight{grid-template-columns:88px 1fr}.flight .badge{grid-column:2}.city-head{align-items:center}.day{grid-template-columns:84px 1fr}.sources{columns:1}}
+    @media(max-width:640px){.main{padding:14px}.hero,.section{padding:20px}.hero h1{font-size:25px}.grid,.hike-grid,.todo-grid,.food-grid,.food-option-grid,.mode-grid{grid-template-columns:1fr}.route-ribbon .city{min-width:120px}.day{grid-template-columns:1fr;gap:8px}.day-date{border-right:0;border-bottom:1px solid var(--line);padding:0 0 8px}.flight{grid-template-columns:1fr;gap:5px}.flight .badge{grid-column:1;justify-self:start}.city-head{display:block}.city-nights{display:inline-block;margin:8px 0 0 14px}.metrics{grid-template-columns:1fr 1fr 1fr}.ticket-pass{grid-template-columns:1fr}.ticket-qr{margin:auto}.food-media{height:210px}.food-alt-head{display:block}.food-alt-head .badge{margin-top:7px}.table-wrap{overflow:visible;border:0}.drive-table{min-width:0;border-collapse:separate;border-spacing:0 10px;background:transparent}.drive-table thead{display:none}.drive-table tbody,.drive-table tr,.drive-table td{display:block}.drive-table tr{overflow:hidden;border:1px solid var(--line);border-radius:11px;background:#fff;box-shadow:0 1px 2px rgba(42,47,58,.04)}.drive-table td{display:grid;grid-template-columns:82px minmax(0,1fr);gap:9px;border-top:1px solid var(--line);padding:9px 11px}.drive-table td:first-child{border-top:0;background:var(--soft-blue);color:var(--brand-d);font-weight:850}.drive-table td:before{color:var(--muted);font-size:10px;font-weight:800}.drive-table td:nth-child(1):before{content:"日期"}.drive-table td:nth-child(2):before{content:"路线"}.drive-table td:nth-child(3):before{content:"距离"}.drive-table td:nth-child(4):before{content:"基础驾驶"}.drive-table td:nth-child(5):before{content:"建议预留"}.drive-table .base,.drive-table .plan{white-space:normal}}
+    @media print{.sidebar,.toolbar{display:none}.main{margin-left:0;padding:20px}.section,.hero,.day,.hike,.food-card,.transport-choice{box-shadow:none;break-inside:avoid}}
   </style>
 </head>
 <body>
@@ -125,7 +142,8 @@
     <h2>美国四城旅行计划</h2>
     <span class="tag">2026 · 14 DAYS</span>
     <div class="nav-group"><div class="nav-title">总览</div><a class="active" href="#summary">路线摘要</a><a href="#flights">固定航班</a></div>
-    <div class="nav-group g-core"><div class="nav-title">四城＋山野</div><a href="#dc">华盛顿 · 2晚</a><a href="#nyc">纽约 · 3晚</a><a href="#boston">波士顿2晚＋Plymouth1晚</a><a href="#la">洛杉矶 · 3晚</a></div>
+    <div class="nav-group g-core"><div class="nav-title">四城＋山野</div><a href="#dc">华盛顿 · 2晚</a><a href="#nyc">纽约 · 3晚</a><a href="#boston">波士顿2晚＋Concord 1晚</a><a href="#la">洛杉矶 · 3晚</a></div>
+    <div class="nav-group g-food"><div class="nav-title">吃喝专篇</div><a href="#lawrys">Lawry’s牛肋排</a><a href="#boston-lobster">Boston龙虾</a><a href="#dc-food-options">DC餐饮备选</a><a href="#nyc-food-options">纽约餐饮备选</a></div>
     <div class="nav-group g-model"><div class="nav-title">户外与交通</div><a href="#hikes">徒步路线</a><a href="#transport">自驾衔接</a></div>
     <div class="nav-group g-risk"><div class="nav-title">出发前</div><a href="#todo">待预订事项</a><a href="#sources">来源说明</a></div>
   </nav>
@@ -136,12 +154,12 @@
     <section class="hero" id="summary">
       <div class="eyebrow">Shanghai → Washington → New York → Boston → Los Angeles</div>
       <h1>美国四城旅行计划</h1>
-      <p>2026年9月24日—10月7日。城市文化与山野徒步交替：华盛顿适应时差，纽约集中看展、登高和百老汇；波士顿游览后前往白山徒步，当晚住Plymouth，次日直接开往BOS；洛杉矶用3个夜晚依次承接抵达缓冲、天文台夜景和Lawry’s经典牛肋排，以Hollywood与Malibu海岸收尾。</p>
+      <p>2026年9月24日—10月7日。城市文化与山野徒步交替：华盛顿适应时差，纽约集中看展、登高和百老汇；波士顿游览后前往白山徒步，当晚南下住马萨诸塞州Concord历史镇，次日搭乘已订DL2004前往洛杉矶；洛杉矶用3个夜晚依次承接抵达缓冲、天文台夜景和Lawry’s经典牛肋排，以Hollywood与Malibu海岸收尾。</p>
       <div class="route-ribbon">
         <div class="city"><strong>华盛顿</strong><span>9/25—9/27 · 2晚</span></div><div class="arrow">→</div>
         <div class="city"><strong>纽约</strong><span>9/27—9/30 · 3晚</span></div><div class="arrow">→</div>
         <div class="city"><strong>波士顿</strong><span>9/30—10/2 · 2晚</span></div><div class="arrow">→</div>
-        <div class="city"><strong>白山／Plymouth</strong><span>10/2 · 1晚</span></div><div class="arrow">→</div>
+        <div class="city"><strong>白山／Concord MA</strong><span>10/2 · 1晚</span></div><div class="arrow">→</div>
         <div class="city"><strong>洛杉矶</strong><span>10/3—10/6 · 3晚</span></div>
       </div>
       <div class="grid">
@@ -153,48 +171,49 @@
     </section>
 
     <section class="section" id="flights">
-      <h2>已订航班与缺失航段</h2>
+      <h2>已订航班</h2>
       <div class="flight-stack">
         <div class="flight"><div class="flight-date">9/24 周四</div><div class="flight-main"><strong>UA199 · 上海浦东 20:10 → 洛杉矶 17:00</strong><small>同日抵达；洛杉矶停留4小时30分后转机</small></div><span class="badge buy">已订</span></div>
         <div class="flight"><div class="flight-date">9/24—25</div><div class="flight-main"><strong>UA2282 · 洛杉矶 21:30 → 华盛顿IAD 05:31</strong><small>9月25日清晨抵达，第一天直接开始行程，但午后保留休息窗口</small></div><span class="badge buy">已订</span></div>
-        <div class="flight"><div class="flight-date">10/3 周六</div><div class="flight-main"><strong>波士顿BOS → 洛杉矶LAX</strong><small>需选13:00以后直飞，优先14:00—16:00；上午航班不适配Plymouth住宿方案</small></div><span class="badge hold">待购买</span></div>
+        <div class="flight"><div class="flight-date">10/3 周六</div><div class="flight-main"><strong>DL2004 · 波士顿BOS 11:30 → 洛杉矶LAX</strong><small>用户确认已订；到达时间、航站楼、行李额度与座位以Delta订单和临行前值机页面为准</small></div><span class="badge buy">已订</span></div>
         <div class="flight"><div class="flight-date">10/6—7</div><div class="flight-main"><strong>UA198 · 洛杉矶 12:55 → 上海浦东 17:45+1</strong><small>10月7日17:45抵达上海</small></div><span class="badge buy">已订</span></div>
       </div>
     </section>
 
     <section class="section" id="dc">
       <div class="city-head"><div><h2>第一站｜华盛顿</h2><p>先看首都轴线，再用一整天补充建筑、艺术与街区。</p></div><div class="city-nights">9/25—27 · 2晚</div></div>
+      <div class="feature" style="margin:0 0 14px"><strong>已订住宿｜Washington Marriott at Metro Center</strong><p>入住：9/25—9/27，共2晚。地址：775 12th Street NW, Washington, DC 20005。酒店紧邻Metro Center；IAD可乘Silver Line直达该站，适合清晨抵达后先寄存行李，再步行进入白宫与国家广场线路。</p><div class="chips"><span class="chip green">已订</span><span class="chip">Metro Center</span><span class="chip purple">Silver Line直达</span><span class="chip amber">官方入住16:00</span></div><div class="navbox"><b>地图／打车搜索</b><br>Washington Marriott at Metro Center<br>775 12th Street NW, Washington, DC 20005<br>电话：+1 202-737-2200</div></div>
       <div class="day-list">
-        <article class="day"><div class="day-date"><strong>9/25 周五</strong><span>抵达＋经典首都</span></div><div class="day-body"><h3>清晨落地，第一天直接游览</h3><p>05:31抵达IAD，寄存行李并吃早餐。上午从白宫外围开始，顺着国家广场西段走到华盛顿纪念碑、二战纪念碑、倒影池与林肯纪念堂；午后办理入住并休息。傍晚视体力走Tidal Basin或就近晚餐。</p><div class="flow">白宫外围 → Washington Monument → WWII Memorial → Lincoln Memorial</div><div class="chips"><span class="chip">时差适应</span><span class="chip green">户外步行</span><span class="chip amber">午后可缩短</span></div></div></article>
+        <article class="day"><div class="day-date"><strong>9/25 周五</strong><span>抵达＋经典首都</span></div><div class="day-body"><h3>清晨落地，第一天直接游览</h3><p>05:31抵达IAD，乘Silver Line至Metro Center，先到Washington Marriott at Metro Center寄存行李并吃早餐。上午从白宫外围开始，顺着国家广场西段走到华盛顿纪念碑、二战纪念碑、倒影池与林肯纪念堂；午后办理入住并休息。傍晚视体力走Tidal Basin或就近晚餐。</p><div class="flow">IAD → Metro Center → 酒店寄存 → 白宫外围 → Washington Monument → WWII Memorial → Lincoln Memorial</div><div class="chips"><span class="chip">时差适应</span><span class="chip green">户外步行</span><span class="chip amber">午后可缩短</span></div></div></article>
         <article class="day"><div class="day-date"><strong>9/26 周六</strong><span>建筑＋艺术＋街区</span></div><div class="day-body"><h3>国会山与乔治城</h3><p>上午看国会大厦、国会图书馆周边；中午以后选择国家美术馆约2小时，不做“博物馆马拉松”。下午转往Georgetown，在运河、M Street和河滨之间慢走，安排咖啡与晚餐。</p><div class="flow">Capitol Hill → National Gallery of Art → Georgetown Waterfront</div><div class="chips"><span class="chip purple">看展</span><span class="chip">城市建筑</span><span class="chip green">河滨散步</span></div></div></article>
-        <article class="day"><div class="day-date"><strong>9/27 周日</strong><span>转场纽约</span></div><div class="day-body"><h3>华盛顿自驾至纽约</h3><p>早餐后取车离开华盛顿，当天不插入费城。代表点路线约366公里，路线引擎基础驾驶约4小时52分；考虑I-95路况、一次休息和曼哈顿还车，整段预留5小时45分—6小时30分。抵达后先还车、入住，傍晚仅安排High Line与Chelsea。</p><div class="flow">华盛顿取车门店 → Manhattan还车门店 → 酒店</div><div class="chips"><span class="chip green">约366km</span><span class="chip">基础约4小时52分</span><span class="chip amber">实际预留5小时45分—6小时30分</span><span class="chip purple">纽约市内不留车</span></div></div></article>
+        <article class="day"><div class="day-date"><strong>9/27 周日</strong><span>转场纽约</span></div><div class="day-body"><h3>Acela 2254进纽约 · 已订</h3><p>清晨退房后前往Washington Union Station，搭乘Acela 2254前往New York Moynihan Train Hall at Penn Station。07:46发车、11:01抵达；两端都在市中心。抵达、寄存行李后只安排High Line与Chelsea，保留跨城缓冲。</p><div class="flow">Washington Marriott at Metro Center → Washington Union Station (WAS) 07:46 → Moynihan Train Hall (NYP) 11:01 → 酒店</div><div class="chips"><span class="chip green">车票已订</span><span class="chip">Acela 2254</span><span class="chip purple">Business Class</span><span class="chip amber">Car 3 · Seats 2A/2B</span></div><div class="ticket-pass"><div class="ticket-qr" aria-label="Amtrak电子票二维码"><img src="amtrak-acela-2254-eticket.png" alt="Amtrak Acela 2254电子票原图，二维码位于左上角"></div><div class="ticket-info"><h4>检票二维码</h4><p>2位乘客 · Acela Business Class · 3号车厢 · 座位2A、2B</p><div class="flow">建议提前到站，并随身携带与乘客姓名一致的有效身份证件。</div><details class="ticket-full"><summary>查看完整电子票</summary><img src="amtrak-acela-2254-eticket.png" alt="Amtrak Acela 2254完整电子票"></details></div></div></div></article>
       </div>
     </section>
 
     <section class="section" id="nyc">
       <div class="city-head"><div><h2>第二站｜纽约</h2><p>两天只抓三件事：看展、日落登高、百老汇。</p></div><div class="city-nights">9/27—30 · 3晚</div></div>
       <div class="day-list">
-        <article class="day"><div class="day-date"><strong>9/27 周日</strong><span>抵达＋High Line</span></div><div class="day-body"><h3>城市轻量开场</h3><p>还车、入住后，从Hudson Yards或High Line选择一端开始，走到Chelsea一带吃饭。当天不安排预约项目，给自驾路况留缓冲。</p><div class="flow">High Line → Chelsea街区 → 晚餐</div></div></article>
+        <article class="day"><div class="day-date"><strong>9/27 周日</strong><span>抵达＋High Line</span></div><div class="day-body"><h3>城市轻量开场</h3><p>抵达、入住后，从Hudson Yards或High Line选择一端开始，走到Chelsea一带吃饭；若最后仍选自驾，则先完成曼哈顿还车。当天不安排预约项目，给跨城交通留缓冲。</p><div class="flow">High Line → Chelsea街区 → 晚餐</div></div></article>
         <article class="day"><div class="day-date"><strong>9/28 周一</strong><span>现代艺术＋日落登高</span></div><div class="day-body"><h3>MoMA与Top of the Rock</h3><p>10:30左右进入MoMA，馆藏与专题展合计约3小时；重点加入当日已开展的《Full Disclosure: The Edge of Information Design》。午餐后在中城咖啡、休息，傍晚提前约1小时登上Top of the Rock，从白天看到日落和城市亮灯。</p><div class="flow">MoMA → 中城午餐／咖啡 → Rockefeller Center → Top of the Rock</div><div class="chips"><span class="chip purple">MoMA</span><span class="chip">日落时段票</span><span class="chip amber">当晚不排演出</span></div></div></article>
-        <article class="day"><div class="day-date"><strong>9/29 周二</strong><span>大都会＋百老汇</span></div><div class="day-body"><h3>The Met、中央公园与《Hamilton》</h3><p>早晨先走中央公园东侧，10:00进入大都会艺术博物馆，选两个馆藏区域并看《Chasing Clouds》，总计控制在3—4小时。午后回酒店休息，17:15左右在剧院区提前晚餐。</p><div class="feature"><strong>19:00｜Hamilton · Richard Rodgers Theatre</strong><p>地址：226 W 46th Street。演出约2小时45分钟，含15分钟中场休息；建议18:30前抵达。已确定剧目，但不等于已购买门票。</p></div><div class="chips"><span class="chip green">中央公园</span><span class="chip purple">The Met</span><span class="chip amber">Hamilton已选</span></div></div></article>
+        <article class="day"><div class="day-date"><strong>9/29 周二</strong><span>大都会＋百老汇</span></div><div class="day-body"><h3>The Met、中央公园与《Hamilton》</h3><p>早晨先走中央公园东侧，10:00进入大都会艺术博物馆，选两个馆藏区域并看《Chasing Clouds》，总计控制在3—4小时。午后回酒店休息，17:15左右在剧院区提前晚餐。</p><div class="feature"><strong>19:00｜Hamilton · Richard Rodgers Theatre</strong><p>地址：226 W 46th Street。演出约2小时45分钟，含15分钟中场休息；建议18:30前抵达。剧院没有强制着装规范，建议穿smart casual：整洁上衣配长裤／裙装和舒适鞋即可，无需西装礼服；剧场空调可能偏冷，带一件薄外套。已确定剧目，但不等于已购买门票。</p></div><div class="chips"><span class="chip green">中央公园</span><span class="chip purple">The Met</span><span class="chip amber">Hamilton已选</span><span class="chip">Smart casual</span></div></div></article>
         <article class="day"><div class="day-date"><strong>9/30 周三</strong><span>转场波士顿</span></div><div class="day-body"><h3>纽约自驾至波士顿</h3><p>早餐后在离城方向取车。代表点路线约341公里，路线引擎基础驾驶约4小时33分；考虑出曼哈顿、一次休息和波士顿入城，整段预留5小时15分—6小时。当天不安排大型展览；抵达后只走Boston Common与Beacon Hill，晚上North End吃饭。</p><div class="flow">Manhattan取车门店 → 波士顿酒店／停车场</div><div class="chips"><span class="chip green">约341km</span><span class="chip">基础约4小时33分</span><span class="chip amber">实际预留5小时15分—6小时</span><span class="chip purple">跨州收费道路</span></div></div></article>
       </div>
     </section>
 
     <section class="section" id="boston">
-      <div class="city-head"><div><h2>第三站｜波士顿＋白山</h2><p>波士顿住2晚，徒步后住Plymouth 1晚；把长距离驾驶从徒步结束后移到第二天早晨。</p></div><div class="city-nights">Boston 2晚<br>Plymouth 1晚</div></div>
+      <div class="city-head"><div><h2>第三站｜波士顿＋白山</h2><p>波士顿住2晚；徒步后南下住马萨诸塞州Concord历史镇1晚，把10月3日早晨到BOS的驾驶压缩到半小时左右。</p></div><div class="city-nights">Boston 2晚<br>Concord MA 1晚</div></div>
       <div class="day-list">
         <article class="day"><div class="day-date"><strong>9/30 周三</strong><span>抵达＋老城</span></div><div class="day-body"><h3>Beacon Hill与North End</h3><p>入住后只安排老城散步：Boston Common、Beacon Hill街巷；晚上去North End。若纽约出发较晚，直接删去步行，不追行程。</p></div></article>
-        <article class="day"><div class="day-date"><strong>10/1 周四</strong><span>校园＋自由之路</span></div><div class="day-body"><h3>哈佛、Charles River与波士顿历史线</h3><p>上午Harvard Square与校园周边，沿Charles River走一段；下午回到市中心，选择Freedom Trail的精华段至Faneuil Hall、Quincy Market和North End，不强求走完全程。</p><div class="flow">Harvard Square → Charles River → Boston Common → Freedom Trail精华段</div><div class="chips"><span class="chip">校园</span><span class="chip green">河畔步行</span><span class="chip amber">为次日留体力</span></div></div></article>
-        <article class="day"><div class="day-date"><strong>10/2 周五</strong><span>白山＋山外住宿</span></div><div class="day-body"><h3>Welch–Dickey双峰环线，徒步后住Plymouth</h3><p>06:30从Boston Common出发；Apple地图同星期代理日显示198公里／1小时51分，08:21抵达登山口。08:40左右开始Welch–Dickey环线，按约4小时并另留观景休息。14:00从登山口前往Plymouth酒店，Apple地图显示24公里／21分钟；抵达后午餐、入住、休息，不再追加Kancamagus Highway。</p><div class="flow">Boston Common → Welch-Dickey Trailhead → Welch Mountain → Dickey Mountain → Fairfield Plymouth</div><div class="chips"><span class="chip green">徒步约7.1km／4小时</span><span class="chip purple">双峰裸岩全景</span><span class="chip">全日驾驶222km／2小时12分</span><span class="chip amber">Plymouth住1晚</span></div><div class="navbox"><b>住宿导航</b><br>Fairfield Inn &amp; Suites by Marriott Plymouth White Mountains<br>12 Ridge View Lane, Plymouth, NH 03264</div></div></article>
-        <article class="day"><div class="day-date"><strong>10/3 周六</strong><span>Plymouth→BOS→LAX</span></div><div class="day-body"><h3>早晨开往BOS，下午飞洛杉矶</h3><p>Apple地图在同星期代理日09:30显示：Plymouth酒店至BOS为183公里／1小时43分，预计11:13抵达；另一路线为199公里／1小时55分。该时间不含加油／充电、租车还车、接驳与安检。若购买14:00航班，09:30只能作为路线核对时刻，不应视作建议的最晚退房时间；机票和还车门店锁定后再倒排行程。</p><div class="flow">Fairfield Plymouth → BOS租车还车区 → 飞往LAX → LAX取车 → 洛杉矶酒店</div><div class="chips"><span class="chip green">183km</span><span class="chip">Apple显示1小时43分</span><span class="chip amber">另计还车与安检</span><span class="chip risk">优先14:00后航班</span></div></div></article>
+        <article class="day"><div class="day-date"><strong>10/1 周四</strong><span>校园＋自由之路</span></div><div class="day-body"><h3>哈佛、Charles River与波士顿历史线</h3><p>上午Harvard Square与校园周边，沿Charles River走一段；下午回到市中心，选择Freedom Trail精华段至Faneuil Hall，不强求走完全程。17:15左右结束步行后转往Back Bay，18:00在Saltie Girl用餐；可预约的确定性更适合第二天06:30出发去白山。</p><div class="flow">Harvard Square → Charles River → Boston Common → Freedom Trail精华段／Faneuil Hall → Saltie Girl龙虾晚餐</div><div class="chips"><span class="chip">校园</span><span class="chip green">河畔步行</span><span class="chip purple">Saltie Girl首选</span><span class="chip amber">18:00预约</span></div></div></article>
+        <article class="day"><div class="day-date"><strong>10/2 周五</strong><span>白山＋历史小镇</span></div><div class="day-body"><h3>Welch–Dickey双峰环线，下山后南下Concord</h3><p>06:30从Boston Common出发；Apple地图同星期代理日显示198公里／1小时51分，08:21抵达登山口。08:40左右开始Welch–Dickey环线，按约4小时并另留观景休息。14:00从登山口直接前往Concord’s Colonial Inn；Apple地图同星期五14:00显示188公里／1小时54分，15:54抵达。办理入住后只在Monument Square和镇中心散步，在旅馆用晚餐；不再追加Kancamagus Highway。</p><div class="flow">Boston Common → Welch-Dickey Trailhead → Welch Mountain → Dickey Mountain → Concord’s Colonial Inn</div><div class="chips"><span class="chip green">徒步约7.1km／4小时</span><span class="chip purple">双峰裸岩全景</span><span class="chip">全日驾驶386km／3小时45分</span><span class="chip amber">Concord住宿尚未订</span></div><div class="navbox"><b>按顺序导航搜索</b><br>Welch-Dickey Trailhead｜Orris Road, Thornton, NH<br>Concord’s Colonial Inn｜48 Monument Square, Concord, MA 01742</div></div></article>
+        <article class="day"><div class="day-date"><strong>10/3 周六</strong><span>Concord→BOS→LAX</span></div><div class="day-body"><h3>DL2004 · 11:30飞洛杉矶</h3><p>建议07:00从Concord’s Colonial Inn离店。Apple地图同星期六07:15显示：酒店至BOS为42公里／29分钟，07:44抵达机场区域；该值不含沿途加油、租车还车、接驳、托运和安检。实际导航终点应改为租车公司指定还车点。旅馆星期六早餐08:00才开始，不适配本日航班，前一晚准备早餐或还车后在机场用餐。</p><div class="flow">Concord’s Colonial Inn → BOS租车还车区 → DL2004 11:30 → LAX取车 → 洛杉矶酒店</div><div class="chips"><span class="chip buy">DL2004已订</span><span class="chip green">42km</span><span class="chip">Apple显示29分钟</span><span class="chip amber">建议07:00离店</span></div></div></article>
       </div>
     </section>
 
     <section class="section" id="la">
       <div class="city-head"><div><h2>第四站｜洛杉矶</h2><p>3个晚上各有用途：抵达缓冲、Griffith日落夜景、Lawry’s经典牛肋排；白天分成Hollywood与Malibu两条线。</p></div><div class="city-nights">10/3—6 · 3晚</div></div>
       <div class="day-list">
-        <article class="day"><div class="day-date"><strong>10/3 周六</strong><span>第1晚 · 抵达缓冲</span></div><div class="day-body"><h3>取车、入住、就近晚餐</h3><p>不根据尚未购买的BOS→LAX航班硬排景点。即使到达较早，也只在住宿周边吃饭、买水和补给；不拿航班准点去赌高价餐厅预约。</p><div class="chips"><span class="chip green">第1晚</span><span class="chip amber">不绑定预约</span></div></div></article>
+        <article class="day"><div class="day-date"><strong>10/3 周六</strong><span>第1晚 · 抵达缓冲</span></div><div class="day-body"><h3>DL2004抵达、取车、入住</h3><p>11:30从BOS起飞；抵达LAX、取车和入住后，只在住宿周边吃饭、买水和补给。当天不绑定景点或高价餐厅预约，避免航班与取车延误传导到晚间。</p><div class="chips"><span class="chip buy">DL2004已订</span><span class="chip green">第1晚</span><span class="chip amber">不绑定预约</span></div></div></article>
         <article class="day"><div class="day-date"><strong>10/4 周日</strong><span>Hollywood＋第2晚</span></div><div class="day-body"><h3>星光大道、Mt. Hollywood短徒步与天文台夜景</h3><p>天文台建筑周一闭馆，因此固定在周日。上午只走星光大道最集中的核心段；午后去Griffith，先完成一条短而有景观的山顶往返，再进馆、看18:33日落和亮灯后的洛杉矶。</p>
           <div class="plan-steps">
             <div class="plan-step"><time>10:00</time><div><b>TCL Chinese Theatre＋Walk of Fame核心段</b><span>手印前院、Dolby Theatre周边，控制在1—1.5小时，不把整条Hollywood Blvd走完。</span></div></div>
@@ -214,7 +233,7 @@
             <div class="plan-step"><time>12:45</time><div><b>Point Dume悬崖海景</b><span>只走观景短线，约40—50分钟；不下海、不加长徒步。</span></div></div>
             <div class="plan-step"><time>14:00</time><div><b>Cielo Farms预约品鉴</b><span>Point Dume → Cielo Farms：13km／17分。目标预约14:00—16:15；非会员Day Pass为每组$35，必须提前预约。</span></div></div>
             <div class="plan-step"><time>17:45</time><div><b>Rodeo Drive／Beverly Gardens</b><span>Cielo → Lawry’s更换餐厅后须按下方准确地址重新查询Apple地图；不沿用旧餐厅的路线值。16:15结束品鉴，继续保留较大机动时间。</span></div></div>
-            <div class="plan-step"><time>19:00</time><div><b>Lawry’s The Prime Rib Beverly Hills</b><span>周一17:00—21:00；19:00入座可留足2小时。第一次优先点桌边银餐车切片的Lawry Cut，已含Spinning Bowl Salad、土豆泥、辣根奶油与Yorkshire Pudding；若想吃炭烤牛排，再选45天干式熟成Bone-In Ribeye。官方建议预约，订位需信用卡。</span></div></div>
+            <div class="plan-step"><time>19:00</time><div><b>Lawry’s The Prime Rib Beverly Hills</b><span>周一17:00—21:00；19:00入座可留足2小时。第一次优先点桌边银餐车切片的Lawry Cut，已含Spinning Bowl Salad、土豆泥、辣根奶油与Yorkshire Pudding；若想吃炭烤牛排，再选45天干式熟成Bone-In Ribeye。官方建议预约，订位需信用卡。餐厅要求business casual；禁止海滩装、健身／运动服（如背心、运动短裤）、剪边短裤和人字拖，因此从PCH与酒庄回来要预留换衣时间。</span></div></div>
           </div>
           <div class="navbox"><b>按顺序导航搜索</b><br>Santa Monica Pier｜200 Santa Monica Pier, Santa Monica, CA<br>Malibu Pier｜23000 Pacific Coast Hwy, Malibu, CA<br>Point Dume State Beach｜7103 Westward Beach Rd, Malibu, CA<br>Cielo Farms｜31424 Mulholland Hwy, Malibu, CA 90265<br>Lawry’s The Prime Rib｜100 N La Cienega Blvd, Beverly Hills, CA 90211</div>
           <div class="warning" style="margin-top:10px"><strong>酒后驾驶边界：</strong>要保留“自驾PCH”，必须指定一名全程零酒精驾驶员；若两人都想品鉴，则当天整段改为包车／专车，不把“少喝一点”当作安全方案。</div>
@@ -224,15 +243,109 @@
       </div>
     </section>
 
+    <section class="section" id="food">
+      <h2>吃喝专篇｜2顿主选＋DC与纽约备选池</h2>
+      <p class="section-intro">Lawry’s与Saltie Girl保持主选；DC和纽约的调研结果全部收纳为备选，只在当天路线、胃口和预约情况匹配时启用，不默认全部打卡。</p>
+      <div class="food-grid">
+        <article class="food-card" id="lawrys">
+          <div class="food-media"><img src="assets/usa-trip/lawrys-prime-rib.webp" alt="Lawry’s Beverly Hills桌边切片牛肋排晚餐"></div>
+          <div class="food-body">
+            <div class="food-kicker">LOS ANGELES · 10/5 19:00</div>
+            <h3>Lawry’s The Prime Rib · Beverly Hills</h3>
+            <p class="food-meta">100 N La Cienega Blvd · (310) 652-2827 · 周一17:00—21:00</p>
+            <div class="food-pick"><strong>第一次怎么点</strong>核心选桌边银餐车切片的Lawry Cut；套餐已含Spinning Bowl Salad、土豆泥、Yorkshire Pudding和辣根奶油。两人按胃口选Lawry Cut＋较小切法即可，配菜最多再加一份，不必把牛排、整套牛肋排和多份配菜同时点满。</div>
+            <ul class="food-list">
+              <li><strong>它的招牌是烤Prime Rib，不是炭火牛排。</strong>点单时先确认熟度；若更想吃煎烤牛排，再单独考虑菜单中的干式熟成Bone-In Ribeye。</li>
+              <li><strong>必须提前订位。</strong>官方建议预约，预订需信用卡；迟到或取消规则以确认邮件为准。</li>
+              <li><strong>着装是business casual。</strong>不穿海滩装、健身／运动服、剪边短裤和人字拖；从Malibu回来要预留换衣服时间。</li>
+              <li><strong>酒庄日的驾驶边界不变。</strong>保留PCH自驾时须有一名全程零酒精驾驶员；两人都品鉴则整日改包车／专车。</li>
+            </ul>
+            <div class="food-source">图片与餐厅规则：Lawry’s官方页面及2026晚餐菜单；价格与可订时段下单前再确认。</div>
+          </div>
+        </article>
+
+        <article class="food-card" id="boston-lobster">
+          <div class="food-media"><img src="assets/usa-trip/saltie-girl-boston.jpg" alt="Saltie Girl Boston官方海鲜吧照片"></div>
+          <div class="food-body">
+            <div class="food-kicker">BOSTON · 10/1 18:00</div>
+            <h3>Saltie Girl · Back Bay</h3>
+            <p class="food-meta">279 Dartmouth Street · (617) 267-0691 · 周四11:00—23:00 · 强烈建议预约</p>
+            <div class="food-pick"><strong>第一选择：New England Lobster Roll</strong>可选热黄油版或冷食版，配店内海盐醋味薯片，价格为market price；想吃更完整的一道龙虾主菜，可改点1.5LB Lobster Frites（黄油、蒜与薯条，market price），或两人共享Lobster Fra Diavolo（菜单标价$45）。</div>
+            <ul class="food-list">
+              <li><strong>先订18:00室内座位：</strong>官方写明强烈建议预约，预约仅适用于室内；露台为先到先得，walk-in只在有位置时接待。</li>
+              <li><strong>两人点法：</strong>一份Clam Chowder加两份龙虾卷最稳；若想尝Lobster Fra Diavolo或1.5LB Lobster Frites，就只留一份龙虾卷，不把三种龙虾主菜同时点满。</li>
+              <li><strong>出菜与改菜规则：</strong>餐点做好即上，未必同步；官方说明原则上不接受更改或替换，忌口与过敏要在点单前说清楚。</li>
+              <li><strong>动线取舍：</strong>Back Bay不如North End的Neptune Oyster顺着Freedom Trail，但能预约、龙虾选择更多，时间更可控；Neptune降为偏好North End氛围时的第二选择。</li>
+              <li><strong>海鲜安全：</strong>生蚝与生食有食源性风险；如有甲壳类过敏，点餐前明确告知。</li>
+            </ul>
+            <div class="food-source">图片、菜单、地址、营业与订位规则：Saltie Girl Boston官方；market price与可订时段下单前再确认。</div>
+          </div>
+        </article>
+      </div>
+      <div class="note" style="margin-top:14px"><strong>Boston选择结论：</strong>Saltie Girl为第一选择：可预约、龙虾菜式更完整，最适合白山早起前控制晚餐结束时间。代价是吃完Freedom Trail后需折返Back Bay。Neptune Oyster降为第二选择，适合更看重North End氛围、愿意承担walk-in候位的人；Legal Long Wharf仍是临时兜底。</div>
+
+      <div class="food-alt-head" id="dc-food-options">
+        <div><h3>Washington DC｜城市特色备选</h3><p>只选一顿正餐＋最多一次小吃，不为吃饭横穿城区。</p></div><span class="badge hold">未写入每日主线</span>
+      </div>
+      <div class="food-option-grid">
+        <article class="food-option">
+          <div class="food-option-top"><div><h4>Old Ebbitt Grill</h4><div class="where">675 15th Street NW · 白宫附近 · 建议预约</div></div><span class="badge info">9/25最顺路</span></div>
+          <div class="order"><b>推荐：</b>Jumbo Lump Crab Cake＋生蚝或Oysters Rockefeller</div>
+          <p class="fit"><strong>适合替换：</strong>9/25白宫后的午餐。胜在老牌政界餐厅氛围、位置和Chesapeake风味；不宣称是整个马里兰地区最强蟹饼。</p>
+        </article>
+        <article class="food-option">
+          <div class="food-option-top"><div><h4>Das Ethiopian Cuisine</h4><div class="where">1201 28th St NW · Georgetown · 可预约</div></div><span class="badge buy">DC最值得</span></div>
+          <div class="order"><b>推荐：</b>Meat &amp; Veggie Sampler＋Lamb Tibs，配injera分享</div>
+          <p class="fit"><strong>适合替换：</strong>9/26 Georgetown的正式晚餐。埃塞俄比亚社区与餐饮是DC城市文化的重要部分；不熟悉生食时可跳过Kitfo，辣度下单前确认。</p>
+        </article>
+        <article class="food-option">
+          <div class="food-option-top"><div><h4>Ben’s Chili Bowl · U Street</h4><div class="where">1213 U St NW · 地标小吃 · 非精致正餐</div></div><span class="badge hold">顺路才去</span></div>
+          <div class="order"><b>推荐：</b>Original Half-Smoke＋chili＋mustard＋onions</div>
+          <p class="fit"><strong>使用方式：</strong>当夜宵或两人分享小吃，并入U Street／Black Broadway街区才值得。历史与城市符号价值高于菜品精致度，不建议单独打车往返。</p>
+        </article>
+      </div>
+
+      <div class="food-alt-head" id="nyc-food-options">
+        <div><h3>New York｜经典吃法备选</h3><p>优先使用Hudson Yards、MoMA与百老汇附近的顺路选项；下城名店不硬塞。</p></div><span class="badge hold">按路线启用</span>
+      </div>
+      <div class="food-option-grid">
+        <article class="food-option">
+          <div class="food-option-top"><div><h4>Russ &amp; Daughters · 34th Street</h4><div class="where">502 W 34th St · Hudson Yards · 每日8:00—16:00</div></div><span class="badge buy">9/27首备</span></div>
+          <div class="order"><b>推荐：</b>Smoked Salmon Bagel或Bialy＋奶油奶酪、番茄、酸豆与洋葱</div>
+          <p class="fit"><strong>适合替换：</strong>9/27抵达Penn Station后、High Line之前的轻食；若到纽约已迟，改为9/28早餐。店铺16:00关门，不把15:30后到店写成确定方案。</p>
+        </article>
+        <article class="food-option">
+          <div class="food-option-top"><div><h4>The Bar Room at The Modern</h4><div class="where">9 W 53rd St · MoMA一楼 · 可预约／可walk-in</div></div><span class="badge info">9/28最顺路</span></div>
+          <div class="order"><b>推荐：</b>按当季单点；比正式品鉴套餐更适合白天看展节奏</div>
+          <p class="fit"><strong>适合替换：</strong>9/28 MoMA结束后午餐。餐饮质量和动线都好，但不是犹太熟食或披萨这类传统纽约符号；预算有限时可直接删除。</p>
+        </article>
+        <article class="food-option">
+          <div class="food-option-top"><div><h4>Joe Allen</h4><div class="where">326 W 46th St · Restaurant Row · 预约提前1周开放</div></div><span class="badge buy">Hamilton前</span></div>
+          <div class="order"><b>推荐：</b>Meatloaf、Joe Allen Burger或Steak Frites</div>
+          <p class="fit"><strong>适合替换：</strong>9/29 17:00—17:15的剧前晚餐，18:20前结账，之后去Richard Rodgers Theatre。选它是为百老汇氛围和时间可控，不是宣称菜品达到纽约顶级。</p>
+        </article>
+        <article class="food-option">
+          <div class="food-option-top"><div><h4>Katz’s Delicatessen</h4><div class="where">205 E Houston St · Lower East Side · 份量很大</div></div><span class="badge hold">下城才去</span></div>
+          <div class="order"><b>推荐：</b>两人共享Pastrami Sandwich＋Matzo Ball Soup＋pickles</div>
+          <p class="fit"><strong>使用方式：</strong>只有新增Lower East Side半日时启用。它是经典纽约犹太熟食体验，但与MoMA、The Met和Broadway均不顺路，不为一个三明治单独往返。</p>
+        </article>
+        <article class="food-option">
+          <div class="food-option-top"><div><h4>John’s of Bleecker Street</h4><div class="where">278 Bleecker St · Greenwich Village · 整张披萨</div></div><span class="badge hold">Village才去</span></div>
+          <div class="order"><b>推荐：</b>John’s Original Cheese Pie；14英寸适合1—2人</div>
+          <p class="fit"><strong>使用方式：</strong>只有把Greenwich Village加入当天路线时才去。主打老式煤炉整张披萨，不是顺手买一片的快餐点；有排队时不值得压缩看展或演出时间。</p>
+        </article>
+      </div>
+    </section>
+
     <section class="section" id="hikes">
       <h2>徒步路线卡</h2>
-      <p class="section-intro">白山承担全程的主徒步；洛杉矶只保留一条和天文台自然衔接的城市短线。白山当天不要把完整徒步与景观公路硬合并：主方案选择Welch–Dickey，Artist’s Bluff＋Flume Gorge只作为轻量备选。</p>
+      <p class="section-intro">白山承担全程的主徒步；洛杉矶只保留一条和天文台自然衔接的城市短线。主方案选择Welch–Dickey；由于10月3日DL2004已确定11:30起飞，下山后优先南下Concord，不再追加Kancamagus Highway。Artist’s Bluff＋Flume Gorge只作为天气或体力不适合裸岩环线时的轻量备选。</p>
       <h3 style="margin:0 0 10px;color:var(--brand-d);font-size:16px">白山当天｜二选一</h3>
       <div class="hike-grid" style="margin-bottom:14px">
-        <article class="hike primary"><h3>方案A｜Welch–Dickey主徒步 · 推荐</h3><div class="meta">目标清楚、驾驶最少；徒步后直接去Plymouth休息</div><div class="metrics"><div class="metric"><b>4.4mi</b><span>主环线</span></div><div class="metric"><b>222km</b><span>分段驾驶合计</span></div><div class="metric"><b>2h12m</b><span>Apple分段合计</span></div></div><ol><li>06:30 Boston Common → 登山口：198km／1h51m，08:21抵达。</li><li>08:40左右开始环线；约4小时，另留观景、补给和下山整理时间。</li><li>14:00 登山口 → Fairfield Plymouth：24km／21m，14:21抵达。</li></ol><div class="navbox"><b>按顺序导航搜索</b><br>Boston Common<br>Welch-Dickey Trailhead, Thornton, NH<br>Fairfield Inn &amp; Suites by Marriott Plymouth White Mountains｜12 Ridge View Lane, Plymouth, NH 03264</div></article>
-        <article class="hike secondary"><h3>方案B｜Artist’s Bluff＋Flume · 轻量备选</h3><div class="meta">适合降低体力目标；本质是观景与景区步行日，不替代完整徒步</div><div class="metrics"><div class="metric"><b>3.5mi</b><span>两条官方环线合计</span></div><div class="metric"><b>2h43m</b><span>不去Hancock</span></div><div class="metric"><b>3h17m</b><span>加Hancock</span></div></div><ol><li>06:30 Boston Common → Artists Bluff：227km／2h02m。</li><li>Artists Bluff → Flume Gorge：10km／10m；Flume需预约入场时段。</li><li>轻松版从Flume直接去酒店：43km／31m，全日驾驶280km／2h43m。</li><li>若加Hancock：Flume → Hancock 25km／26m，Hancock → 酒店53km／39m；全日驾驶315km／3h17m。</li></ol><div class="navbox"><b>按顺序导航搜索</b><br>Artists Bluff<br>停车参考：Cannon Mountain Peabody Base Area｜260 Tramway Dr, Franconia, NH 03580<br>Flume Gorge｜852 Daniel Webster Hwy, Lincoln, NH 03251<br>可选：Hancock Overlook, Kancamagus Hwy, Waterville Valley, NH<br>Fairfield Inn &amp; Suites by Marriott Plymouth White Mountains</div></article>
+        <article class="hike primary"><h3>方案A｜Welch–Dickey主徒步 · 推荐</h3><div class="meta">完成双峰环线后向BOS方向南下；用下午驾驶换取第二天从容还车</div><div class="metrics"><div class="metric"><b>4.4mi</b><span>主环线</span></div><div class="metric"><b>386km／3h45m</b><span>当日Apple分段合计</span></div><div class="metric"><b>29m</b><span>次晨Concord至BOS</span></div></div><ol><li>06:30 Boston Common → 登山口：198km／1h51m，08:21抵达。</li><li>08:40左右开始环线；约4小时，另留观景、补给和下山整理时间。</li><li>14:00 Welch-Dickey Trailhead → Concord’s Colonial Inn：188km／1h54m，15:54抵达。</li><li>入住后只安排Monument Square与镇中心散步；旅馆内用晚餐，不再驾车加景点。</li></ol><div class="navbox"><b>按顺序导航搜索</b><br>Boston Common<br>Welch-Dickey Trailhead｜Orris Road, Thornton, NH<br>Concord’s Colonial Inn｜48 Monument Square, Concord, MA 01742</div></article>
+        <article class="hike secondary"><h3>方案B｜Artist’s Bluff＋Flume · 轻量备选</h3><div class="meta">适合降低体力目标；本质是观景与景区步行日，不替代完整徒步</div><div class="metrics"><div class="metric"><b>3.5mi</b><span>两条官方环线合计</span></div><div class="metric"><b>预约</b><span>Flume入场时段</span></div><div class="metric"><b>待重查</b><span>改住Concord后的南下路段</span></div></div><ol><li>06:30 Boston Common → Artists Bluff：227km／2h02m。</li><li>Artists Bluff → Flume Gorge：10km／10m；Flume需预约入场时段。</li><li>完成Flume后直接南下Concord，不追加Hancock或继续横穿Kancamagus。</li><li>此备选的Flume → Concord新路段尚未在Apple地图按准确地点重查，不写猜测车程；只有实际切换到方案B时再查。</li></ol><div class="navbox"><b>按顺序导航搜索</b><br>Artists Bluff<br>停车参考：Cannon Mountain Peabody Base Area｜260 Tramway Dr, Franconia, NH 03580<br>Flume Gorge｜852 Daniel Webster Hwy, Lincoln, NH 03251<br>Concord’s Colonial Inn｜48 Monument Square, Concord, MA 01742</div></article>
       </div>
-      <div class="warning" style="margin-bottom:16px"><strong>不建议合并：</strong>Welch–Dickey徒步后再加Hancock Overlook，会把全日驾驶增加到302km／3小时10分，比主方案多80km／58分钟，且尚未计算停车和观景。Artist’s Bluff的Apple路线终点为景点POI；实际停车若使用Cannon Mountain Peabody Base Area，需在出发前按停车点再查一次。</div>
+      <div class="warning" style="margin-bottom:16px"><strong>DL2004确定后的取舍：</strong>Welch–Dickey与Kancamagus在地理上可以结合，但11:30航班要求前一晚向南移动。主方案因此取消Hancock Overlook，用登山口至Concord的1小时54分驾驶换取次晨约29分钟到BOS。若坚持Kancamagus，应改回北部住宿并重新评估早班机风险，不建议两项同时保留。Artist’s Bluff的Apple路线终点为景点POI；实际停车若使用Cannon Mountain Peabody Base Area，需在出发前按停车点再查一次。</div>
       <h3 style="margin:0 0 10px;color:var(--brand-d);font-size:16px">已选徒步路线参数</h3>
       <div class="hike-grid">
         <article class="hike primary"><h3>主线｜Welch–Dickey Loop</h3><div class="meta">10月2日 · White Mountain National Forest · 裸岩山脊／双峰秋景</div><div class="metrics"><div class="metric"><b>约7.1km</b><span>4.4mi环线</span></div><div class="metric"><b>约4h</b><span>另加观景休息</span></div><div class="metric"><b>约550m</b><span>1,800ft累计爬升</span></div></div><ol><li>停车场进入环线，在分叉处走向Welch Mountain，先上较陡裸岩。</li><li>从Welch越过山坳到Dickey Mountain，沿连续观景岩台下降。</li><li>裸岩遇雨非常湿滑；酒店优先订可取消房型，若前一日持续降雨或当天低云强风，则取消登山。</li></ol><div class="navbox"><b>导航搜索</b><br>Welch-Dickey Trailhead<br>Orris Road, Thornton, NH · GPS 43.9045, -71.5886</div></article>
@@ -243,7 +356,18 @@
 
     <section class="section" id="transport">
       <h2>主要驾车距离与时间</h2>
-      <div class="note"><strong>没有把里程换算成车程。</strong>DC→纽约、纽约→波士顿仍为2026年9月8日道路路线引擎返回值；白山各段于2026年9月11日在Apple地图逐段输入准确地点，距离与时间均直接抄录。由于Apple地图不能选择10月2—3日作为当前预测日期，10月2日采用同为星期五的9月11日对应时刻，10月3日采用星期六9月12日09:30。LA新增段为2026年9月10日Apple地图屏幕快照。所有Apple值都须在实际出发前24—48小时重查。</div>
+      <div class="note"><strong>没有把里程换算成车程。</strong>DC→纽约、纽约→波士顿仍为2026年9月8日道路路线引擎返回值；Boston→Welch-Dickey沿用2026年9月11日Apple地图结果。改住Concord后的两段于2026年9月14日在Apple地图输入准确地点：10月2日采用同为星期五的9月18日14:00，10月3日采用同为星期六的9月19日07:15。LA新增段为2026年9月10日Apple地图屏幕快照。所有Apple值都须在实际出发前24—48小时重查。</div>
+      <div class="transport-choice" id="dc-nyc">
+        <h3>9/27 华盛顿 → 纽约｜不必租车</h3>
+        <p>这段交通的核心不是谁理论上最快，而是谁能把两晚华盛顿顺滑地接到三晚曼哈顿。</p>
+        <div class="mode-grid">
+          <div class="mode recommended"><b>Acela 2254 · 已订</b><span>9/27 07:46从Washington Union Station (WAS)出发，11:01抵达Moynihan Train Hall (NYP)；Business Class，3号车厢2A/2B。</span></div>
+          <div class="mode"><b>自驾 · 有需求才选</b><span>既有路线值约366km／4小时52分，行程应留5小时45分—6小时30分；另有异地还车、收费道路、进城拥堵和曼哈顿还车成本。</span></div>
+          <div class="mode"><b>长途巴士 · 预算优先</b><span>FlixBus／Greyhound官方页面当前标示最快约4小时；价格通常低，但更受I-95路况和上下客点影响，不适合用最低标称时间倒排行程。</span></div>
+          <div class="mode"><b>飞机 · 不推荐</b><span>机场往返、安检与候机吞掉短途优势；这两个市中心之间没必要为了飞行本身增加一次机场流程。</span></div>
+        </div>
+        <div class="warning" style="margin-top:12px"><strong>自驾风景判断：</strong>标准I-95路线不算景观公路，主体是高速、郊区、商业与工业走廊，只有Susquehanna River、Delaware River等过桥瞬间有一些开阔感。若为了海湾与小镇绕Annapolis／Chesapeake Bay／Eastern Shore，会明显增加时间，不适合这天还要轻松抵达纽约的目标。</div>
+      </div>
       <div class="table-wrap">
         <table class="drive-table">
           <thead><tr><th>日期</th><th>驾驶段与导航代表点</th><th>道路距离</th><th>基础驾驶</th><th>行程建议预留</th></tr></thead>
@@ -251,8 +375,8 @@
             <tr><td>9/27</td><td><strong>华盛顿中心 → 曼哈顿</strong><small>White House → Times Square；最终应改为取车门店 → 纽约还车门店</small></td><td>约366km<br><small>约228mi</small></td><td class="base">约4小时52分</td><td class="plan">5小时45分—6小时30分</td></tr>
             <tr><td>9/30</td><td><strong>曼哈顿 → 波士顿中心</strong><small>Times Square → Boston Common；最终应改为取车门店 → 波士顿酒店</small></td><td>约341km<br><small>约212mi</small></td><td class="base">约4小时33分</td><td class="plan">5小时15分—6小时</td></tr>
             <tr><td>10/2 · Apple</td><td><strong>Boston Common → Welch-Dickey Trailhead</strong><small>同星期代理日06:30出发；导航可直接搜索登山口英文名</small></td><td>198km</td><td class="base">1小时51分</td><td class="plan">06:30 → 08:21</td></tr>
-            <tr><td>10/2 · Apple</td><td><strong>Welch-Dickey Trailhead → Plymouth酒店</strong><small>终点：Fairfield Inn &amp; Suites，12 Ridge View Lane；同星期代理日14:00出发</small></td><td>24km</td><td class="base">21分</td><td class="plan">14:00 → 14:21</td></tr>
-            <tr><td>10/3 · Apple</td><td><strong>Plymouth酒店 → BOS机场</strong><small>Fairfield Inn &amp; Suites → Boston Logan；星期六代理日09:30出发，另计加油／充电、还车、接驳及安检</small></td><td>183km</td><td class="base">1小时43分<br><small>备选199km／1小时55分</small></td><td class="plan">09:30 → 11:13<br><small>仅地图驾驶段</small></td></tr>
+            <tr><td>10/2 · Apple</td><td><strong>Welch-Dickey Trailhead → Concord’s Colonial Inn</strong><small>Orris Road, Thornton → 48 Monument Square, Concord, MA；星期五代理日14:00出发</small></td><td>188km</td><td class="base">1小时54分</td><td class="plan">14:00 → 15:54</td></tr>
+            <tr><td>10/3 · Apple</td><td><strong>Concord’s Colonial Inn → BOS机场</strong><small>48 Monument Square → Boston Logan；星期六代理日07:15出发。实际导航终点须改为租车公司还车点，另计加油、还车、接驳、托运与安检</small></td><td>42km</td><td class="base">29分</td><td class="plan">建议07:00离店<br><small>Apple测量07:15 → 07:44</small></td></tr>
             <tr><td>10/4 · Apple</td><td><strong>TCL Chinese Theatre → Griffith Observatory</strong><small>6925 Hollywood Blvd → 2800 E Observatory Road；Apple提示需步行至目的地</small></td><td>7.0km</td><td class="base">25分</td><td class="plan">当天重查</td></tr>
             <tr><td>10/5 · Apple</td><td><strong>西区住宿代表点 → Santa Monica Pier</strong><small>Culver City City Hall, 9770 Culver Blvd → 200 Santa Monica Pier；仅在酒店未定时作代表点</small></td><td>12km</td><td class="base">18分</td><td class="plan">当天重查</td></tr>
             <tr><td>10/5 · Apple</td><td><strong>California 1／PCH：Santa Monica Pier → Point Dume</strong><small>终点：Point Dume State Beach, 7103 Westward Beach Rd；中停Malibu Pier。另查Santa Monica → Malibu Pier为19km／21分</small></td><td>34km</td><td class="base">36分<br><small>不含中停</small></td><td class="plan">当天重查</td></tr>
@@ -264,8 +388,8 @@
       </div>
       <div class="warning" style="margin-top:12px">DC进入纽约、纽约离城，以及Cielo返回Beverly Hills，都是最容易受时段影响的路段。Cielo → Lawry’s在餐厅更换后不沿用旧车程；酒庄目标16:15结束、Lawry’s订19:00，中间保留机动。出发前一天另查Caltrans Highway 1状态；若有封路，不绕行硬完成PCH。</div>
       <div class="day-list" style="margin-top:12px">
-        <div class="day"><div class="day-date"><strong>9/27</strong><span>第一段租车</span></div><div class="day-body"><h3>华盛顿取车 → 纽约还车</h3><p>纽约三晚不留车，避免停车与拥堵负担。导航终点必须用实际还车门店，而不是笼统输入“New York”。</p></div></div>
-        <div class="day"><div class="day-date"><strong>9/30—10/3</strong><span>第二段租车</span></div><div class="day-body"><h3>纽约取车 → 波士顿 → White Mountains／Plymouth → BOS还车</h3><p>覆盖跨城、Welch–Dickey徒步和山外住宿。10月3日从Plymouth直接开到BOS还车，不再返回波士顿市区。</p></div></div>
+        <div class="day"><div class="day-date"><strong>9/27</strong><span>火车已订</span></div><div class="day-body"><h3>Acela 2254｜07:46 WAS → 11:01 NYP</h3><p>华盛顿到纽约不租车。清晨从酒店前往Washington Union Station，乘已订商务舱进曼哈顿；3号车厢、座位2A/2B。抵达后先寄存行李，再开始High Line与Chelsea轻量行程。</p></div></div>
+        <div class="day"><div class="day-date"><strong>9/30—10/3</strong><span>第二段租车</span></div><div class="day-body"><h3>纽约取车 → 波士顿 → White Mountains／Concord MA → BOS还车</h3><p>覆盖跨城、Welch–Dickey徒步和历史小镇住宿。10月2日下山后南下Concord；10月3日约07:00离店，前往租车公司指定的BOS还车点，衔接11:30的DL2004。</p></div></div>
         <div class="day"><div class="day-date"><strong>10/3—6</strong><span>第三段租车</span></div><div class="day-body"><h3>LAX取车 → Hollywood／Malibu → LAX还车</h3><p>10月5日只有在一名驾驶员全程零酒精时保留自驾；若两人都参加品鉴，则当日改包车／专车。返程当天不安排市区活动，为还车与国际航班留出余量。</p></div></div>
       </div>
     </section>
@@ -273,14 +397,16 @@
     <section class="section" id="todo">
       <h2>下一步需要锁定的事项</h2>
       <div class="todo-grid">
-        <div class="todo"><span class="box"></span><div><strong>购买《Hamilton》门票</strong><small>9/29 19:00 · Richard Rodgers Theatre；优先Front Mezzanine中区或Orchestra中区，避免极侧位置。</small></div></div>
-        <div class="todo"><span class="box"></span><div><strong>购买BOS → LAX机票</strong><small>10/3；只选13:00以后直飞，优先14:00—16:00，确认行李规则。</small></div></div>
+        <div class="todo"><span class="box"></span><div><strong>准备Acela 2254检票凭证与证件</strong><small>9/27 07:46发车、11:01抵达；Business Class，3号车厢2A/2B。二维码已保存在本页，出发前仍建议把原始电子票保存在手机离线位置。</small></div></div>
+        <div class="todo"><span class="box"></span><div><strong>购买《Hamilton》门票</strong><small>9/29 19:00 · Richard Rodgers Theatre；优先Front Mezzanine中区或Orchestra中区，避免极侧位置。无强制着装，按smart casual准备并带薄外套。</small></div></div>
+        <div class="todo"><span class="box"></span><div><strong>保存DL2004电子票并核对行李</strong><small>10/3 11:30 · BOS → LAX，已订。临行前核对到达时间、航站楼、座位、托运行李规则和租车还车点。</small></div></div>
         <div class="todo"><span class="box"></span><div><strong>预订Top of the Rock</strong><small>9/28；临近天气稳定后选择日落前约1小时入场。</small></div></div>
-        <div class="todo"><span class="box"></span><div><strong>白山天气决策：A徒步／B轻量</strong><small>出发前48—72小时核对降雨、强风和步道公告。默认执行Welch–Dickey；若改为Artist’s Bluff＋Flume，立即预约Flume时段并按Cannon Mountain停车点重查导航。</small></div></div>
-        <div class="todo"><span class="box"></span><div><strong>确认华盛顿清晨落地安排</strong><small>酒店寄存行李、早餐与提前入住政策。</small></div></div>
-        <div class="todo"><span class="box"></span><div><strong>预订Plymouth住宿</strong><small>10/2一晚：Fairfield by Marriott Plymouth White Mountains；优先可取消房型，免费停车。</small></div></div>
+        <div class="todo"><span class="box"></span><div><strong>白山天气决策：A徒步／B轻量</strong><small>出发前48—72小时核对降雨、强风和步道公告。默认执行Welch–Dickey，下山后直接南下Concord，不追加Kancamagus。若改为Artist’s Bluff＋Flume，立即预约Flume时段，并重查Cannon Mountain停车点 → Flume → Concord全程。</small></div></div>
+        <div class="todo"><span class="box"></span><div><strong>联系Washington Marriott确认清晨寄存</strong><small>酒店已订；官方入住时间为16:00。出发前确认9/25早晨寄存行李、早餐与付费／免费提前入住政策。</small></div></div>
+        <div class="todo"><span class="box"></span><div><strong>预订Concord’s Colonial Inn</strong><small>10/2一晚，尚未预订：48 Monument Square, Concord, MA 01742。优先可取消房型；Main Inn历史感更强，Prescott Wing相对现代。酒店有免费停车；星期六早餐08:00开始，不适配DL2004，需提前准备早餐。</small></div></div>
         <div class="todo"><span class="box"></span><div><strong>预订Cielo Farms Wine Bar Pass</strong><small>目标10/5 14:00；必须提前预约。Monday仅限21岁以上；具体可选时段以Tock放票为准。</small></div></div>
-        <div class="todo"><span class="box"></span><div><strong>预订Lawry’s The Prime Rib Beverly Hills</strong><small>目标10/5 19:00；100 N La Cienega Blvd，电话(310) 652-2827。官方建议预约且需信用卡；按business casual准备，海滩装、运动装与人字拖不可入场。</small></div></div>
+        <div class="todo"><span class="box"></span><div><strong>预订Lawry’s The Prime Rib Beverly Hills</strong><small>目标10/5 19:00；100 N La Cienega Blvd，电话(310) 652-2827。官方建议预约且需信用卡；按business casual准备，禁止海滩装、健身／运动服（含背心、运动短裤）、剪边短裤与人字拖，并预留从Malibu回酒店换衣时间。</small></div></div>
+        <div class="todo"><span class="box"></span><div><strong>预订Saltie Girl Boston</strong><small>目标10/1 18:00室内座位；279 Dartmouth Street，电话(617) 267-0691。官方强烈建议预约；若该时段无位，再把Neptune Oyster作为North End的walk-in第二选择。</small></div></div>
         <div class="todo"><span class="box"></span><div><strong>确定酒庄日交通方式</strong><small>二选一：一人全程零酒精驾驶；或两人都品鉴时整日包车／专车。此项需在酒庄订位前确定。</small></div></div>
       </div>
     </section>
@@ -288,18 +414,22 @@
     <section class="section" id="sources">
       <h2>来源与边界</h2>
       <ul class="sources">
-        <li>国际航班：用户提供的United预订截图。</li>
+        <li>国际航班：用户提供的United预订截图；美国国内段DL2004（10/3 11:30，BOS→LAX）由用户确认已订。</li>
         <li><a href="https://www.moma.org/calendar/exhibitions/5926" target="_blank" rel="noopener">MoMA｜Full Disclosure</a></li>
         <li><a href="https://www.metmuseum.org/exhibitions/chasing-clouds" target="_blank" rel="noopener">The Met｜Chasing Clouds</a></li>
         <li><a href="https://www.rockefellercenter.com/attractions/top-of-the-rock-observation-deck/" target="_blank" rel="noopener">Top of the Rock官方信息</a></li>
         <li><a href="https://hamiltonmusical.com/new-york/tickets/" target="_blank" rel="noopener">Hamilton纽约官方票务页面</a></li>
+        <li><a href="https://broadwaydirect.com/theatre/richard-rodgers-theatre/" target="_blank" rel="noopener">Broadway Direct｜Richard Rodgers Theatre着装与到场提示</a></li>
+        <li><a href="https://www.marriott.com/en-us/hotels/wasmc-washington-marriott-at-metro-center/overview/" target="_blank" rel="noopener">Marriott｜Washington Marriott at Metro Center地址、入住时间与设施</a></li>
         <li><a href="https://www.bu.edu/articles/2008/five-new-hampshire-hikes/" target="_blank" rel="noopener">Boston University｜Welch–Dickey距离、爬升与参考时间</a></li>
         <li><a href="https://www.visitwhitemountains.com/blog/post/7-more-spring-hikes/" target="_blank" rel="noopener">Visit White Mountains｜Welch–Dickey路线概况</a></li>
         <li><a href="https://www.nhstateparks.org/getmedia/5c741d91-305b-4635-aea6-86e33512f54b/Franconia-Notch-Hiking-Map.pdf" target="_blank" rel="noopener">NH State Parks｜Artist’s Bluff官方路线图与停车信息</a></li>
         <li><a href="https://www.nhstateparks.org/find-parks-trails/flume-gorge?gl=US" target="_blank" rel="noopener">NH State Parks｜Flume Gorge环线、地址与预约</a></li>
         <li><a href="https://www.nhstateparks.org/about-nh-parks/press-releases/new-hampshire-state-parks-announces-foliage-traffi" target="_blank" rel="noopener">NH State Parks｜红叶季Artist’s Bluff交通管理参考</a></li>
         <li><a href="https://www.fs.usda.gov/r09/whitemountain/recreation/opportunities/scenic-drives" target="_blank" rel="noopener">US Forest Service｜White Mountain National Forest</a></li>
-        <li><a href="https://www.marriott.com/en-us/hotels/lcipl-fairfield-inn-and-suites-plymouth-white-mountains/overview/" target="_blank" rel="noopener">Marriott｜Fairfield Plymouth White Mountains</a></li>
+        <li><a href="https://concordscolonialinn.com/" target="_blank" rel="noopener">Concord’s Colonial Inn｜地址、房型、餐饮与历史建筑</a></li>
+        <li><a href="https://concordscolonialinn.com/about/faqs/" target="_blank" rel="noopener">Concord’s Colonial Inn｜免费停车、早餐与取消政策</a></li>
+        <li><a href="https://www.concordma.gov/3696/Tourism" target="_blank" rel="noopener">Town of Concord｜历史、文化与镇中心游览</a></li>
         <li><a href="https://project-osrm.org/" target="_blank" rel="noopener">OSRM｜主要驾车段规划距离与基础时长</a></li>
         <li><a href="https://griffithobservatory.lacity.gov/visit/" target="_blank" rel="noopener">Griffith Observatory｜开放时间、停车与到访方式</a></li>
         <li><a href="https://griffithobservatory.lacity.gov/explore/observing-the-sky/whats-in-the-sky/the-sun/2026-sunrise-and-sunset/" target="_blank" rel="noopener">Griffith Observatory｜2026日出日落表</a></li>
@@ -310,11 +440,33 @@
         <li><a href="https://www.exploretock.com/malibubarn" target="_blank" rel="noopener">Cielo Farms｜Tock预约</a></li>
         <li><a href="https://www.lawrysonline.com/lawrys-the-prime-rib-beverly-hills/" target="_blank" rel="noopener">Lawry’s Beverly Hills｜营业、地址、订位与着装要求</a></li>
         <li><a href="https://www.lawrysonline.com/wp-content/uploads/2026/07/LW2601-LTPR-BH-1-5-Menu-r8-062526-1.pdf" target="_blank" rel="noopener">Lawry’s Beverly Hills｜2026晚餐菜单</a></li>
+        <li><a href="https://www.ebbitt.com/location/old-ebbitt-grill/" target="_blank" rel="noopener">Old Ebbitt Grill｜白宫附近地址、营业与订位</a></li>
+        <li><a href="https://www.ebbitt.com/menus/" target="_blank" rel="noopener">Old Ebbitt Grill｜蟹饼与生蚝菜单</a></li>
+        <li><a href="https://dasethiopian.com/" target="_blank" rel="noopener">Das Ethiopian Cuisine｜地址、营业与特色菜</a></li>
+        <li><a href="https://www.benschilibowl.com/menu" target="_blank" rel="noopener">Ben’s Chili Bowl｜Original Half-Smoke官方菜单</a></li>
+        <li><a href="https://washington.org/visit-dc/dc-signature-half-smoke-all-you-need-to-know" target="_blank" rel="noopener">Destination DC｜Half-Smoke城市饮食背景</a></li>
+        <li><a href="https://washington.org/visit-dc/explore-ethiopian-culture-washington-dc" target="_blank" rel="noopener">Destination DC｜埃塞俄比亚社区与饮食文化</a></li>
+        <li><a href="https://shop.russanddaughters.com/locations" target="_blank" rel="noopener">Russ &amp; Daughters｜34th Street地址与营业时间</a></li>
+        <li><a href="https://www.themodernnyc.com/the-bar-room-at-the-modern/" target="_blank" rel="noopener">The Bar Room at The Modern｜官方菜单</a></li>
+        <li><a href="https://www.themodernnyc.com/location-and-hours/" target="_blank" rel="noopener">The Modern｜MoMA一楼地址、营业与订位</a></li>
+        <li><a href="https://joeallenrestaurant.com/hours-location/" target="_blank" rel="noopener">Joe Allen｜地址、营业与提前一周订位规则</a></li>
+        <li><a href="https://joeallenrestaurant.com/menus/" target="_blank" rel="noopener">Joe Allen｜剧前晚餐菜单</a></li>
+        <li><a href="https://katzsdelicatessen.com/address" target="_blank" rel="noopener">Katz’s Delicatessen｜地址与营业时间</a></li>
+        <li><a href="https://katzsdelicatessen.com/store-menu" target="_blank" rel="noopener">Katz’s Delicatessen｜Pastrami与熟食菜单</a></li>
+        <li><a href="https://www.johnsofbleecker.com/" target="_blank" rel="noopener">John’s of Bleecker Street｜餐厅与煤炉披萨介绍</a></li>
+        <li><a href="https://johnsofbleecker.com/-food-menu" target="_blank" rel="noopener">John’s of Bleecker Street｜整张披萨菜单</a></li>
+        <li><a href="https://www.saltiegirl.com/location/saltie-girl-boston/" target="_blank" rel="noopener">Saltie Girl Boston｜地址、营业与订位规则</a></li>
+        <li><a href="https://www.saltiegirl.com/boston-menus/" target="_blank" rel="noopener">Saltie Girl Boston｜龙虾卷、整只龙虾与海鲜菜单</a></li>
+        <li><a href="https://www.legalseafoods.com/locations/boston-long-wharf/" target="_blank" rel="noopener">Legal Sea Foods Long Wharf｜地址、营业与订位</a></li>
+        <li><a href="https://www.legalseafoods.com/locations/boston-long-wharf/menus/" target="_blank" rel="noopener">Legal Sea Foods Long Wharf｜龙虾与海鲜菜单</a></li>
+        <li><a href="https://www.neptuneoyster.com/menu" target="_blank" rel="noopener">Neptune Oyster｜菜单与不接受预约说明</a></li>
+        <li><a href="https://www.amtrak.com/acela" target="_blank" rel="noopener">Amtrak Acela｜东北走廊与市中心站点</a></li>
+        <li><a href="https://www.flixbus.com/bus-routes/bus-washington-dc-new-york-ny" target="_blank" rel="noopener">FlixBus｜Washington DC—New York路线</a></li>
         <li><a href="https://roads.dot.ca.gov/" target="_blank" rel="noopener">Caltrans｜Highway 1实时道路状态</a></li>
-        <li>白山驾驶：2026-09-11于Apple地图逐段查询。10月2日使用同为星期五的9月11日对应出发时刻，10月3日使用星期六9月12日09:30；页面记录的是应用直接显示值，不是由里程换算。</li>
+        <li>白山驾驶：Boston→Welch-Dickey为2026-09-11的Apple地图结果；Welch-Dickey→Concord与Concord→BOS于2026-09-14查询，分别采用星期五代理日14:00和星期六代理日07:15。页面记录的是应用直接显示值，不是由里程换算。</li>
         <li>LA驾驶：2026-09-10于Apple地图按页面所列准确地址逐段查询，记录应用直接显示的公里数与驾驶时间；不是由距离换算。更换为Lawry’s后，Cielo → Lawry’s的新路线值暂不写猜测，待Apple地图可用时补录。</li>
       </ul>
-      <p class="footer">行程版本：2026-09-11。展览、演出、酒庄订位、步道与开放时间可能变化；出发前应再次核验。白山与LA驾驶值均为查询时的Apple地图快照，不等于10月出发日的实时交通；页面没有用距离换算车程。除已订国际航班外，本页不会把建议项目表述为已经预订。</p>
+      <p class="footer">行程版本：2026-09-14。餐厅、列车、展览、演出、酒庄订位、步道与开放时间可能变化；出发前应再次核验。白山与LA驾驶值均为查询时的Apple地图快照，不等于10月出发日的实时交通；页面没有用距离换算车程。除已订国际航班外，本页不会把建议项目表述为已经预订。</p>
     </section>
   </main>
   <script>
