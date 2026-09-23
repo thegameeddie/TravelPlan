@@ -29,6 +29,7 @@
     .nav-group.g-model{background:linear-gradient(160deg,rgba(224,239,231,.8),rgba(255,255,255,.58))}
     .nav-group.g-food{background:linear-gradient(160deg,rgba(243,235,213,.88),rgba(255,255,255,.58))}
     .nav-group.g-risk{background:linear-gradient(160deg,rgba(236,232,246,.82),rgba(255,255,255,.58))}
+    .nav-group.g-show{background:linear-gradient(160deg,rgba(236,232,246,.92),rgba(255,255,255,.6))}
     .nav-title{margin:0 10px 7px;color:var(--muted);font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}
     .sidebar a{display:block;margin:2px 0;padding:8px 12px;border-radius:9px;color:var(--muted);font-size:13px;font-weight:600;text-decoration:none;transition:.18s}
     .sidebar a:hover,.sidebar a.active{background:#fff;color:var(--ink);transform:translateX(2px)}
@@ -45,6 +46,17 @@
     .route-ribbon .city{flex:1;min-width:132px;padding:13px 14px;border:1px solid var(--line);border-radius:12px;background:#fff}
     .city strong{display:block;font-size:15px}.city span{color:var(--muted);font-size:11px}.arrow{color:var(--muted-2);font-weight:900}
     .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:20px}
+    .rental-overview{margin-top:18px;padding:15px;border:1px solid var(--line-2);border-radius:13px;background:#fff}
+    .rental-overview h2{margin:0 0 10px;font-size:15px;line-height:1.35}
+    .rental-pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .rental-card{padding:12px 14px;border:1px solid var(--line);border-left:5px solid var(--accent);border-radius:10px;background:var(--soft-green)}
+    .rental-card.west{border-left-color:var(--purple);background:var(--soft-purple)}
+    .rental-card .region{display:block;color:var(--muted);font-size:10px;font-weight:850;letter-spacing:1px}
+    .rental-card strong{display:block;margin:2px 0;color:var(--ink);font-size:16px}
+    .rental-card span:last-child{display:block;color:var(--muted);font-size:11.5px;line-height:1.55}
+    .rental-handoff{margin:10px 0 0;color:var(--ink);font-size:12px;font-weight:750}
+    .rental-day-callout{margin:0 0 14px;padding:12px 15px;border:1px solid var(--accent);border-left:5px solid var(--accent);border-radius:10px;background:var(--soft-green);font-size:13px}
+    .rental-day-callout.west{border-color:var(--purple);background:var(--soft-purple)}
     .kpi{position:relative;overflow:hidden;padding:16px 18px;border:1px solid #cbdbea;border-radius:14px;background:linear-gradient(180deg,#fff,#e8f0fa);box-shadow:0 1px 2px rgba(42,47,58,.04)}
     .kpi:before{content:"";position:absolute;inset:0 0 auto;height:4px;background:var(--brand)}
     .kpi:nth-child(2){background:linear-gradient(180deg,#fff,#e6f2eb);border-color:#c8dfd3}.kpi:nth-child(2):before{background:var(--accent)}
@@ -76,6 +88,7 @@
     .hike{padding:20px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(180deg,#fff,var(--surface-soft))}.hike.primary{border-top:4px solid var(--accent)}.hike.secondary{border-top:4px solid var(--amber)}
     .hike h3{margin:0 0 5px;font-size:17px}.hike .meta{color:var(--muted);font-size:12px}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:14px 0}.metric{padding:9px;border-radius:9px;background:var(--soft-green);text-align:center}.secondary .metric{background:var(--soft-orange)}.metric b{display:block;font-size:15px}.metric span{color:var(--muted);font-size:9.5px}.hike ol{margin:9px 0 0;padding-left:20px;color:var(--muted);font-size:12.5px}.navbox{margin-top:13px;padding:10px 12px;border:1px dashed var(--line-2);border-radius:9px;background:#fff;font-size:12px}.navbox b{color:var(--brand-d)}
     .note,.warning{padding:14px 17px;border:1px solid var(--brand);border-left:3px solid var(--brand);border-radius:10px;background:var(--soft-blue);font-size:13px}.warning{border-color:var(--amber);background:var(--soft-orange);color:#6f5a25}
+    .show-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.show-card{padding:16px 18px;border:1px solid var(--line);border-radius:12px;background:var(--surface-soft)}.show-card h3{margin:0 0 6px;color:var(--purple-d);font-size:15px}.show-card p{margin:0;color:var(--muted);font-size:12.5px}.show-cue{display:block;margin-bottom:6px;color:var(--purple-d);font-size:10px;font-weight:850;letter-spacing:1px}.show-timeline{margin:12px 0 0;padding-left:19px;border-left:3px solid var(--line-2)}.show-timeline p{position:relative;margin:0 0 15px;font-size:13px}.show-timeline p:last-child{margin-bottom:0}.show-timeline p:before{content:"";position:absolute;left:-27px;top:7px;width:10px;height:10px;border:2px solid #fff;border-radius:50%;background:var(--brand);box-shadow:0 0 0 1px var(--brand)}.show-timeline b{color:var(--brand-d)}.show-song{display:inline-block;padding:1px 6px;border-radius:5px;background:var(--soft-purple);color:var(--purple-d);font-size:11px;font-weight:800;white-space:nowrap}
     .table-wrap{overflow-x:auto;margin-top:14px;border:1px solid var(--line);border-radius:12px}
     .drive-table{width:100%;border-collapse:collapse;min-width:760px;background:#fff;font-size:12.5px}
     .drive-table th{padding:11px 12px;background:var(--soft-blue);color:var(--brand-d);font-size:11px;font-weight:850;letter-spacing:.2px;text-align:left;white-space:nowrap}
@@ -97,7 +110,7 @@
     .todo-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.todo{display:flex;gap:11px;padding:14px;border:1px solid var(--line);border-radius:11px;background:var(--surface-soft)}.todo .box{width:20px;height:20px;flex:none;border:2px solid var(--brand);border-radius:6px;background:#fff}.todo strong{display:block;font-size:13px}.todo small{display:block;color:var(--muted);font-size:11px}
     [contenteditable="true"]{outline:2px dashed var(--purple);outline-offset:6px;background:#fff}
     @media(max-width:980px){.sidebar{position:relative;width:auto;inset:auto;padding-bottom:12px}.nav-group{display:none}.main{margin-left:0;padding:22px}.toolbar{position:relative;inset:auto;margin:0 0 16px;justify-content:flex-end}.grid,.hike-grid,.todo-grid,.food-grid,.food-option-grid{grid-template-columns:1fr 1fr}.mode-grid{grid-template-columns:1fr 1fr}.flight{grid-template-columns:88px 1fr}.flight .badge{grid-column:2}.city-head{align-items:center}.day{grid-template-columns:84px 1fr}#lawrys,#boston-lobster{grid-template-columns:1fr 1fr}}
-    @media(max-width:640px){.main{padding:14px}.hero,.section{padding:20px}.hero h1{font-size:25px}.grid,.hike-grid,.todo-grid,.food-grid,.food-option-grid,.mode-grid{grid-template-columns:1fr}.route-ribbon{display:grid;grid-template-columns:1fr;overflow:visible}.route-ribbon .city{min-width:0}.route-ribbon .arrow{display:none}.day{grid-template-columns:1fr;gap:8px}.day-date{border-right:0;border-bottom:1px solid var(--line);padding:0 0 8px}.flight{grid-template-columns:1fr;gap:5px}.flight .badge{grid-column:1;justify-self:start}.city-head{display:block}.city-nights{display:inline-block;margin:8px 0 0 14px}.metrics{grid-template-columns:1fr 1fr 1fr}.ticket-pass{grid-template-columns:1fr}.ticket-qr{margin:auto}.food-media{height:210px}#lawrys,#boston-lobster{grid-template-columns:1fr}#lawrys .food-media,#boston-lobster .food-media{height:210px}.food-alt-head{display:block}.food-alt-head .badge{margin-top:7px}.table-wrap{overflow:visible;border:0}.drive-table{min-width:0;border-collapse:separate;border-spacing:0 10px;background:transparent}.drive-table thead{display:none}.drive-table tbody,.drive-table tr,.drive-table td{display:block}.drive-table tr{overflow:hidden;border:1px solid var(--line);border-radius:11px;background:#fff;box-shadow:0 1px 2px rgba(42,47,58,.04)}.drive-table td{display:grid;grid-template-columns:82px minmax(0,1fr);gap:9px;border-top:1px solid var(--line);padding:9px 11px}.drive-table td:first-child{border-top:0;background:var(--soft-blue);color:var(--brand-d);font-weight:850}.drive-table td:before{color:var(--muted);font-size:10px;font-weight:800}.drive-table td:nth-child(1):before{content:"日期"}.drive-table td:nth-child(2):before{content:"路线"}.drive-table td:nth-child(3):before{content:"距离"}.drive-table td:nth-child(4):before{content:"基础驾驶"}.drive-table td:nth-child(5):before{content:"建议预留"}.drive-table .base,.drive-table .plan{white-space:normal}}
+    @media(max-width:640px){.main{padding:14px}.hero,.section{padding:20px}.hero h1{font-size:25px}.grid,.hike-grid,.todo-grid,.food-grid,.food-option-grid,.mode-grid,.show-grid,.rental-pair{grid-template-columns:1fr}.route-ribbon{display:grid;grid-template-columns:1fr;overflow:visible}.route-ribbon .city{min-width:0}.route-ribbon .arrow{display:none}.day{grid-template-columns:1fr;gap:8px}.day-date{border-right:0;border-bottom:1px solid var(--line);padding:0 0 8px}.flight{grid-template-columns:1fr;gap:5px}.flight .badge{grid-column:1;justify-self:start}.city-head{display:block}.city-nights{display:inline-block;margin:8px 0 0 14px}.metrics{grid-template-columns:1fr 1fr 1fr}.ticket-pass{grid-template-columns:1fr}.ticket-qr{margin:auto}.food-media{height:210px}#lawrys,#boston-lobster{grid-template-columns:1fr}#lawrys .food-media,#boston-lobster .food-media{height:210px}.food-alt-head{display:block}.food-alt-head .badge{margin-top:7px}.table-wrap{overflow:visible;border:0}.drive-table{min-width:0;border-collapse:separate;border-spacing:0 10px;background:transparent}.drive-table thead{display:none}.drive-table tbody,.drive-table tr,.drive-table td{display:block}.drive-table tr{overflow:hidden;border:1px solid var(--line);border-radius:11px;background:#fff;box-shadow:0 1px 2px rgba(42,47,58,.04)}.drive-table td{display:grid;grid-template-columns:82px minmax(0,1fr);gap:9px;border-top:1px solid var(--line);padding:9px 11px}.drive-table td:first-child{border-top:0;background:var(--soft-blue);color:var(--brand-d);font-weight:850}.drive-table td:before{color:var(--muted);font-size:10px;font-weight:800}.drive-table td:nth-child(1):before{content:"日期"}.drive-table td:nth-child(2):before{content:"路线"}.drive-table td:nth-child(3):before{content:"距离"}.drive-table td:nth-child(4):before{content:"基础驾驶"}.drive-table td:nth-child(5):before{content:"建议预留"}.drive-table .base,.drive-table .plan{white-space:normal}}
     @media print{.sidebar,.toolbar{display:none}.main{margin-left:0;padding:20px}.section,.hero,.day,.hike,.food-card,.transport-choice{box-shadow:none;break-inside:avoid}}
   </style>
 </head>
@@ -140,8 +153,9 @@
   <nav class="sidebar">
     <h2>美国四城旅行计划</h2>
     <span class="tag">2026 · 14 DAYS</span>
-    <div class="nav-group"><div class="nav-title">总览</div><a class="active" href="#summary">路线摘要</a><a href="#flights">固定航班</a><a href="#cost-sharing">费用分摊</a></div>
+    <div class="nav-group"><div class="nav-title">总览</div><a class="active" href="#summary">路线摘要</a><a href="#rentals">两段租车速查</a><a href="#flights">固定航班</a><a href="#cost-sharing">费用分摊</a></div>
     <div class="nav-group g-core"><div class="nav-title">四城＋山野</div><a href="#dc">华盛顿 · 2晚</a><a href="#nyc">纽约 · 3晚</a><a href="#boston">Bedford 1晚＋Burlington 2晚</a><a href="#la">洛杉矶 · 3晚</a></div>
+    <div class="nav-group g-show"><div class="nav-title">Hamilton · 观剧指南</div><a href="#hamilton-overview">故事与时代</a><a href="#hamilton-people">人物关系</a><a href="#hamilton-act-one">第一幕</a><a href="#hamilton-act-two">第二幕</a><a href="#hamilton-politics">政治争论</a><a href="#hamilton-stage">舞台看点</a><a href="#hamilton-prep">20分钟预习</a></div>
     <div class="nav-group g-food"><div class="nav-title">吃喝专篇</div><a href="#matu-booking">Matū牛排已订</a><a href="#teleferic-dinner">Telefèric · 10/5</a><a href="#picala-dinner">Picala备选</a><a href="#boston-lobster">Boston龙虾</a><a href="#dc-food-options">DC吃喝</a><a href="#nyc-food-options">纽约餐饮备选</a></div>
     <div class="nav-group g-model"><div class="nav-title">户外与交通</div><a href="#hikes">徒步路线</a><a href="#transport">自驾衔接</a></div>
     <div class="nav-group g-risk"><div class="nav-title">出发前</div><a href="#todo">待预订事项</a></div>
@@ -165,6 +179,14 @@
         <div class="kpi"><div class="label">户外主线</div><div class="num">白山徒步</div></div>
         <div class="kpi"><div class="label">纽约文化主线</div><div class="num">2展 + 1剧</div></div>
         <div class="kpi"><div class="label">已订百老汇</div><div class="num">Hamilton</div></div>
+      </div>
+      <div class="rental-overview" id="rentals">
+        <h2>两段租车｜10月3日在两座机场换公司</h2>
+        <div class="rental-pair">
+          <div class="rental-card"><span class="region">东部 · 纽约 → 白山 → 波士顿</span><strong>Enterprise</strong><span>9/30 09:00 · Flushing，165-07 Northern Blvd 取车<br>10/3 · BOS 还车（准确门店与时刻以订单核对）</span></div>
+          <div class="rental-card west"><span class="region">西部 · 洛杉矶</span><strong>Budget</strong><span>10/3 · LAX 落地后取车<br>10/6 · LAX 还车；加满油，订单含 Toll Free、LDW</span></div>
+        </div>
+        <p class="rental-handoff">记法：先在波士顿 BOS 还 Enterprise → 乘 DL2004 → 到洛杉矶 LAX 取 Budget。两家公司不交叉还车。</p>
       </div>
     </section>
 
@@ -190,6 +212,7 @@
     </section>
 
     <section class="section" id="nyc">
+      <div class="rental-day-callout"><strong>本段用车：Enterprise，不是 Budget。</strong> 9/30 09:00 在 Flushing 的 165-07 Northern Blvd 取车；接下来开往 Bedford、白山和波士顿。</div>
       <div class="city-head"><div><h2>第二站｜纽约</h2><p>两天只抓三件事：看展、日落登高、百老汇。</p></div><div class="city-nights">9/27—30 · 3晚</div></div>
       <div class="feature" style="margin:0 0 14px"><strong>已订住宿｜Four Points by Sheraton Flushing</strong><p>入住9月27日、退房9月30日，共3晚。酒店位于纽约皇后区法拉盛，地址：33-68 Farrington St, Flushing, NY 11354；附近可使用Flushing–Main Street地铁7号线往返曼哈顿。酒店至曼哈顿各景点及9月30日酒店→Enterprise取车门店的交通时间尚未逐段核对，不填推算时间。</p><div class="chips"><span class="chip green">9/27—9/30已订</span><span class="chip purple">法拉盛 · 7号线</span></div><div class="navbox"><b>导航／打车搜索</b><br>Four Points by Sheraton Flushing<br>33-68 Farrington St, Flushing, NY 11354<br>电话：+1 718-939-3368</div></div>
       <div class="feature" style="margin:0 0 14px"><strong>已订租车｜Enterprise Flushing · 9/30 09:00取车</strong><p>取车门店：165-07 Northern Blvd, Flushing, NY 11358；电话：+1 718-460-5400。地址和电话与Enterprise官网门店页一致；官网列出周三营业07:30—18:00。按既定路线开往Bedford、白山和波士顿；10/3 BOS还车的准确门店、时间、车辆和费用以租车订单为准，不把尚未提供的订单细节写成已确认。</p><div class="chips"><span class="chip green">9/30 09:00取车 · 已订</span><span class="chip purple">Enterprise Flushing</span><span class="chip amber">BOS还车细节待核订单</span></div><div class="navbox"><b>导航／打车搜索</b><br>Enterprise Rent-A-Car Flushing<br>165-07 Northern Blvd, Flushing, NY 11358<br>电话：+1 718-460-5400</div></div>
@@ -201,7 +224,88 @@
       </div>
     </section>
 
+    <section class="section" id="hamilton-overview">
+      <h2>Hamilton｜观剧前详细导览</h2>
+      <p class="section-intro">9月29日19:00 · Richard Rodgers Theatre。这里是独立于每日行程的观剧篇：先看人物和时代，再按两幕理解故事；不提前揭开最后几场的处理。</p>
+      <div class="note"><strong>一分钟抓主线：</strong>Hamilton 是从加勒比海来到纽约的局外人，靠写作、战争与财政方案进入权力中心；Burr 同样有抱负，却更谨慎，总在衡量何时行动。两人的不同选择，串起独立战争、家庭和新国家的政治。</div>
+      <div class="show-timeline">
+        <p><b>1776年前后｜革命与机会</b><br>Hamilton 结识 Burr 和革命派伙伴，加入反英事业；英国国王 George III 仍认为殖民地该受他统治。</p>
+        <p><b>1781｜约克镇战役</b><br>Hamilton 终于得到战场指挥机会，美法联军取得关键胜利；战争直到1783年才正式结束。</p>
+        <p><b>1787—1788｜宪法辩论</b><br>Hamilton 与 Madison、John Jay 撰写《联邦党人文集》，争取各州批准新宪法。</p>
+        <p><b>1789—1790年代｜新政府上路</b><br>Washington 就任总统，Hamilton 出任首任财政部长；战争债务、国家银行、首都和对法外交变成主要争论。</p>
+        <p><b>1800年以后｜政争与私人关系交织</b><br>党派竞争加剧，Hamilton 与 Burr 的关系不再只是两位旧识的竞争。</p>
+      </div>
+      <p class="section-intro" style="margin:16px 0 0">重要：Hamilton 从未担任美国总统；他的政治影响来自文字、财政制度与 Washington 对他的信任。</p>
+    </section>
+
+    <section class="section" id="hamilton-people">
+      <h2>人物关系｜先认清这两组</h2>
+      <div class="show-grid">
+        <div class="show-card"><span class="show-cue">镜像主角</span><h3>Aaron Burr</h3><p>与 Hamilton 从相识走向竞争。同样想成就事业，但更重视时机与风险；不要把他当作单纯的反派。</p></div>
+        <div class="show-card"><span class="show-cue">事业导师</span><h3>George Washington</h3><p>统帅、首任总统，也是 Hamilton 的关键支持者；欣赏他的才能，又不得不约束他的冲动。</p></div>
+        <div class="show-card"><span class="show-cue">家庭主线</span><h3>Eliza 与 Angelica Schuyler</h3><p>Eliza 是 Hamilton 的妻子，Angelica 是她的姐姐。留意同一段相遇由不同的人讲述，会如何改变观众的理解。</p></div>
+        <div class="show-card"><span class="show-cue">革命伙伴</span><h3>Laurens · Lafayette · Mulligan</h3><p>分别是军中好友、法国盟友和剧中的情报工作者。他们帮助你辨认上半场的革命阵营。</p></div>
+        <div class="show-card"><span class="show-cue">政治对手</span><h3>Thomas Jefferson · James Madison</h3><p>建国后与 Hamilton 辩论联邦权力、财政和外交方向。Madison 也曾与 Hamilton 合写《联邦党人文集》。</p></div>
+        <div class="show-card"><span class="show-cue">喜剧对照</span><h3>King George III</h3><p>英国国王，以与革命派说唱风格迥异的轻巧歌曲出现，反复质疑美国能否独自运作。</p></div>
+      </div>
+      <div class="warning" style="margin-top:14px"><strong>小心“一人分饰两角”：</strong>下半场 Jefferson 的演员上半场演 Lafayette；Madison 的演员上半场演 Mulligan；Hamilton 的儿子 Philip 由 Laurens 的演员饰演；Maria Reynolds 由 Peggy Schuyler 的演员饰演。看到熟悉的脸，要按新人物理解。</div>
+    </section>
+
+    <section class="section" id="hamilton-act-one">
+      <h2>第一幕｜一个局外人闯进历史</h2>
+      <p class="section-intro">把上半场看成四段：结识伙伴 → 进入家庭 → 争取上战场 → 走入建国政治。</p>
+      <div class="show-grid">
+        <div class="show-card"><span class="show-cue">开场 · 纽约</span><h3>他为什么这么急？</h3><p><span class="show-song">Alexander Hamilton</span> 交代早年与移居纽约；<span class="show-song">My Shot</span> 让他用语言争取被看见。留意他的语速与行动欲望。</p></div>
+        <div class="show-card"><span class="show-cue">Burr 的方法</span><h3>等待也是选择</h3><p>两位主角第一次相遇后，<span class="show-song">Wait for It</span> 展示 Burr 的另一种风险判断：他并非没有野心，只是不愿过早押上全部筹码。</p></div>
+        <div class="show-card"><span class="show-cue">Schuyler 姐妹</span><h3>同一相遇，两个视角</h3><p>Eliza 的爱情先被讲述；到 Angelica 的 <span class="show-song">Satisfied</span>，舞台把时间倒回去。故事没变，讲述者变了；留意其他演员的走位。</p></div>
+        <div class="show-card"><span class="show-cue">战争与中场</span><h3>从军功到建国</h3><p>Washington 需要 Hamilton 的文字和谋划，他却希望亲自指挥。<span class="show-song">Yorktown</span> 是军事线高潮；<span class="show-song">Non-Stop</span> 将问题推向宪法与政府。</p></div>
+      </div>
+    </section>
+
+    <section class="section" id="hamilton-act-two">
+      <h2>第二幕｜赢了战争，谁来治理国家？</h2>
+      <p class="section-intro">下半场把上半场的野心带进内阁、国会和家庭；Hamilton 能控制的事越来越少。</p>
+      <div class="show-grid">
+        <div class="show-card"><span class="show-cue">新人物登场</span><h3>Jefferson 从法国回来</h3><p><span class="show-song">What'd I Miss?</span> 开始时如果觉得 Jefferson 眼熟，那是因为演员上一幕演 Lafayette。新角色与 Hamilton 争的是国家方向。</p></div>
+        <div class="show-card"><span class="show-cue">内阁辩论</span><h3>政策变成说唱对决</h3><p><span class="show-song">Cabinet Battle #1</span> 争财政，后一场争对法外交。快嘴段落只抓双方目标，不必逐句追上攻击与押韵。</p></div>
+        <div class="show-card"><span class="show-cue">看不见的决定</span><h3>谁能进入那间房？</h3><p><span class="show-song">The Room Where It Happens</span> 既关乎一次政治交易，也关乎 Burr 对参与决策的渴望。人物的失落与野心比政策细节更重要。</p></div>
+        <div class="show-card"><span class="show-cue">越来越私人</span><h3>政治、家庭、声誉纠缠</h3><p>Hamilton 对工作、名望与家人的选择开始互相冲突。留意 Eliza 如何逐渐拥有自己的声音；最后几场留到现场看。</p></div>
+      </div>
+    </section>
+
+    <section class="section" id="hamilton-politics">
+      <h2>政治争论｜看懂两件事就够了</h2>
+      <div class="show-grid">
+        <div class="show-card"><span class="show-cue">财政</span><h3>战争欠的钱谁来还？</h3><p>各州背着独立战争债务。Hamilton 想让联邦政府承接各州债务，建立国家信用；反对者担心联邦权力过大，偿债较多的州也不愿替其他州买单。剧中“assumption”就是债务承接。1790年的政治妥协又把首都选址指向波托马克河沿岸。</p></div>
+        <div class="show-card"><span class="show-cue">外交</span><h3>法国革命，美国该不该帮？</h3><p>法国曾援助美国独立，如今自己陷入革命。Jefferson 与 Hamilton 对新国家该如何回应意见不同；Washington 最终在1793年宣布中立。听懂“帮旧盟友，还是让脆弱的新国家先置身事外”即可。</p></div>
+      </div>
+      <div class="note" style="margin-top:14px">剧中的早期政治阵营围绕联邦与各州如何分权而争论，不能直接套用今天美国两党的位置。</div>
+    </section>
+
+    <section class="section" id="hamilton-stage">
+      <h2>舞台与音乐｜别只盯字幕</h2>
+      <div class="show-grid">
+        <div class="show-card"><span class="show-cue">人物动作</span><h3>写，与等待</h3><p>Hamilton 不停写信、文章和方案；Burr 常常等待时机。这既是歌词中的词，也是两人做决定的方式。</p></div>
+        <div class="show-card"><span class="show-cue">叙事视角</span><h3>谁在讲这件事？</h3><p>相同的相遇或政治决定，换个人讲就有另一层意义。听不清每个词时，先分辨当前是谁的视角。</p></div>
+        <div class="show-card"><span class="show-cue">空间与时间</span><h3>转台在带谁往前走？</h3><p>两个转盘让人物靠近、错过、被带往下一刻。留意 <span class="show-song">Satisfied</span> 如何用舞台移动重新讲述同一段经历。</p></div>
+        <div class="show-card"><span class="show-cue">曲风对照</span><h3>国王为什么突然很好唱？</h3><p>King George III 的轻巧流行旋律与革命派的密集说唱形成反差：一方觉得自己仍掌控全局，另一方急着创造新规则。</p></div>
+      </div>
+      <p style="margin:14px 0 0;color:var(--muted);font-size:13px">这是一部音乐剧，不是逐年史书：时间会压缩，人物冲突会加强，同一演员也会演不同历史人物。建国时代的自由理想与奴隶制现实同时存在；剧中没有讲完所有人的故事。Eliza 后来也长期保存、整理 Hamilton 的文书，并参与慈善工作。</p>
+    </section>
+
+    <section class="section" id="hamilton-prep">
+      <h2>进剧院前｜20分钟预习法</h2>
+      <div class="show-grid">
+        <div class="show-card"><span class="show-cue">5分钟</span><h3>扫人物与时间轴</h3><p>先认清妻子、姐姐、统帅和两位政敌；知道中场前是战争，中场后是建国治理。</p></div>
+        <div class="show-card"><span class="show-cue">10分钟</span><h3>听两首开场人物歌</h3><p>听 <span class="show-song">Alexander Hamilton</span> 与 <span class="show-song">Wait for It</span>，熟悉 Hamilton 和 Burr 不同的语速与性格。</p></div>
+        <div class="show-card"><span class="show-cue">5分钟</span><h3>重看财政争论</h3><p>只记住“联邦接手各州债务”和“首都选址妥协”，第二幕的内阁辩论就不会像突然插入经济课。</p></div>
+        <div class="show-card"><span class="show-cue">现场</span><h3>不用逐词听懂</h3><p>全剧约2小时45分钟，含中场休息。你订的 ORCH W排109、110号标有 Partial View；人物关系、立场和情绪比听懂每个押韵更重要。</p></div>
+      </div>
+      <div class="warning" style="margin-top:14px"><strong>当晚实用提醒：</strong>18:30前抵达 Richard Rodgers Theatre（226 W 46th St）；穿整洁舒适的衣服即可，带薄外套。含入场码的正式电子票需提前保存到手机离线位置。</div>
+    </section>
+
     <section class="section" id="boston">
+      <div class="rental-day-callout"><strong>10/3 波士顿还车：Enterprise。</strong> 从 Burlington 开到 BOS Rental Car Center，按 Enterprise 租车订单确认还车区域和时间；还车后搭乘 DL2004 飞洛杉矶。</div>
       <div class="city-head"><div><h2>第三站｜Bedford＋白山＋波士顿</h2><p>9月30日住Bedford已订酒店；10月1日退房寄存行李，轻装完成白山徒步后回The Grand取行李，再入住Burlington并连住两晚；10月2日安排波士顿市区一日，10月3日从酒店开至BOS租车中心还车后乘机。</p></div><div class="city-nights">Bedford 1晚 · 已订<br>Burlington 2晚 · 已订</div></div>
       <div class="feature" style="margin:0 0 14px"><strong>已订住宿｜The Grand at Bedford Village Inn</strong><p>入住9月30日一晚，地址：12 Olde Bedford Way, Bedford, NH 03110。与Bedford Village Inn主楼及餐厅同属一个酒店园区；实际订房条款、晚餐和早餐安排以订单及酒店确认为准。</p><div class="chips"><span class="chip green">9/30已订</span><span class="chip">Bedford, New Hampshire</span></div><div class="navbox"><b>地图搜索</b><br>The Grand at Bedford Village Inn<br>12 Olde Bedford Way, Bedford, NH 03110</div></div>
       <div class="feature" style="margin:0 0 14px"><strong>已订住宿｜Boston Marriott Burlington</strong><p>10月1日入住、10月3日退房，共两晚。地址：One Burlington Mall Road, Burlington, MA 01803；电话：+1 781-229-6565。酒店官网列出免费自助停车；两晚继续持车，10月3日上午开至BOS租车中心还车。房型、费用及退改规则以个人订单为准。</p><div class="chips"><span class="chip green">10/1—10/3已订</span><span class="chip purple">两晚持车</span><span class="chip">免费自助停车</span></div><div class="navbox"><b>导航搜索</b><br>Boston Marriott Burlington<br>One Burlington Mall Road, Burlington, MA 01803</div></div>
@@ -214,6 +318,7 @@
     </section>
 
     <section class="section" id="la">
+      <div class="rental-day-callout west"><strong>10/3 洛杉矶取车、10/6 还车：Budget，不是 Enterprise。</strong> 都在 LAX 租车流程内；取还车具体门店和接驳以 Budget 订单为准，10/6 加满油再还。</div>
       <div class="city-head"><div><h2>第四站｜洛杉矶</h2><p>三晚主线：Griffith＋Matū、Getty＋Ojai、Los Leones＋Santa Monica＋Hollywood、Telefèric与返程。</p></div><div class="city-nights">10/3—6 · 3晚</div></div>
       <div class="feature" style="margin:0 0 14px"><strong>酒店与租车均已订</strong><p>10/3—5入住Warner Center Marriott Woodland Hills两晚；10/5—6入住Courtyard by Marriott Culver City Los Angeles一晚。Budget在LAX取还车，订单含Toll Free和LDW，满油还车。</p><div class="chips"><span class="chip green">Warner Center 2晚 · 已订</span><span class="chip purple">Culver City 1晚 · 已订</span><span class="chip">Budget已订</span><span class="chip amber">10/5先安置行李</span></div><div class="navbox"><b>酒店</b><br>Warner Center Marriott｜21850 Oxnard St, Woodland Hills<br>Courtyard Culver City｜6333 Bristol Pkwy, Culver City</div></div>
       <div class="day-list">
